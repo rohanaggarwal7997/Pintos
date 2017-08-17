@@ -1,0 +1,17 @@
+/disk.c/1.22/Wed Jan  4 21:27:52 2006//
+/disk.h/1.8/Sun Sep 26 21:15:17 2004//
+/input.c/1.1/Thu Jun  1 20:11:04 2006//
+/input.h/1.1/Thu Jun  1 20:11:04 2006//
+/intq.c/1.4/Mon Aug 25 03:50:49 2008//
+/intq.h/1.5/Thu Apr 20 01:24:48 2006//
+/kbd.c/1.13/Tue Aug 26 03:05:06 2008//
+/kbd.h/1.5/Thu Jun  1 20:11:04 2006//
+/rtc.c/1.2/Sat Aug 23 03:52:55 2008//
+/rtc.h/1.2/Sat Aug 23 03:52:55 2008//
+/serial.c/1.18/Mon Dec 11 20:40:20 2006//
+/serial.h/1.7/Mon Dec 11 20:40:21 2006//
+/timer.c/1.23/Tue Aug 26 03:05:06 2008//
+/timer.h/1.8/Tue Aug 26 03:05:06 2008//
+/vga.c/1.8/Mon Dec 11 20:40:21 2006//
+/vga.h/1.4/Mon Dec 11 20:40:21 2006//
+D
