@@ -24,6 +24,9 @@
    that are ready to run but not actually running. */
 static struct list ready_list;
 
+
+/* list containing sleeping threads */
+static struct list sleeper_list;
 /* List of all processes.  Processes are added to this list
    when they are first scheduled and removed when they exit. */
 static struct list all_list;
@@ -91,6 +94,7 @@ thread_init (void)
 
   lock_init (&tid_lock);
   list_init (&ready_list);
+  list_init(&sleeper_list);
   list_init (&all_list);
 
   /* Set up a thread structure for the running thread. */
@@ -99,6 +103,23 @@ thread_init (void)
   initial_thread->status = THREAD_RUNNING;
   initial_thread->tid = allocate_tid ();
 }
+
+/*compartor for ready_list*/
+static bool th_before(const struct list_elem *a,const struct list_elem *b,void *aux UNUSED)
+{
+	return list_entry(a,struct thread,elem)->priority>list_entry(b,struct thread,elem)->priority; 
+
+}
+
+/*comparator for sleeper_list*/
+static bool before(const struct list_elem *a,const struct list_elem *b,void *aux UNUSED)
+{
+	return list_entry(a,struct thread,elem)->wakeup_at < list_entry(b,struct thread,elem)->wakeup_at;
+}
+
+
+
+
 
 /* Starts preemptive thread scheduling by enabling interrupts.
    Also creates the idle thread. */
@@ -115,6 +136,21 @@ thread_start (void)
 
   /* Wait for the idle thread to initialize idle_thread. */
   sema_down (&idle_started);
+}
+
+/* Wakes up all the threads which have the wakeup time*/
+thread_wakeup(int64_t current_tick)
+{
+	
+	struct list_elem * cur = list_begin(&sleeper_list);
+	while(cur != list_end(&sleeper_list))
+	{
+		struct thread * th = list_entry(cur, struct thread, elem);
+		if(th->wakeup_at > current_tick)	break;
+		list_remove(cur);
+		thread_unblock(th);
+		cur = list_begin(&sleeper_list);
+	}
 }
 
 /* Called by the timer interrupt handler at each timer tick.
@@ -134,10 +170,14 @@ thread_tick (void)
   else
     kernel_ticks++;
 
+  thread_wakeup(timer_ticks());
+
   /* Enforce preemption. */
   if (++thread_ticks >= TIME_SLICE)
     intr_yield_on_return ();
 }
+
+
 
 /* Prints thread statistics. */
 void
@@ -245,7 +285,7 @@ thread_unblock (struct thread *t)
 
   old_level = intr_disable ();
   ASSERT (t->status == THREAD_BLOCKED);
-  list_push_back (&ready_list, &t->elem);
+  list_insert_ordered (&ready_list, &t->elem,th_before, NULL);
   t->status = THREAD_READY;
   intr_set_level (old_level);
 }
@@ -316,7 +356,7 @@ thread_yield (void)
 
   old_level = intr_disable ();
   if (cur != idle_thread) 
-    list_push_back (&ready_list, &cur->elem);
+    list_insert_ordered (&ready_list, &cur->elem,th_before,NULL);
   cur->status = THREAD_READY;
   schedule ();
   intr_set_level (old_level);
@@ -585,3 +625,26 @@ allocate_tid (void)
 /* Offset of `stack' member within `struct thread'.
    Used by switch.S, which can't figure it out on its own. */
 uint32_t thread_stack_ofs = offsetof (struct thread, stack);
+
+void thread_set_temporarily_up()
+{
+	thread_current()->orig_priority=thread_current()->priority;
+	thread_current()->priority=PRI_MAX;
+}
+
+void thread_restore()
+{
+	thread_current()->priority=thread_current()->orig_priority;
+}
+
+void thread_sleep(int64_t wakeup_at, int currentTime)
+{
+	enum intr_level old_int=intr_disable();
+	if(currentTime > wakeup_at)	return;
+	ASSERT(thread_current()->status == THREAD_RUNNING);
+	thread_current()->wakeup_at = wakeup_at;
+	list_insert_ordered(&sleeper_list,&(thread_current()->elem),before,NULL);
+	thread_block();	
+	intr_set_level(old_int);
+}	
+

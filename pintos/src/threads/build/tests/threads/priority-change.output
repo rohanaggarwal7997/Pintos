@@ -1,0 +1,25 @@
+Writing command line to /tmp/9mWlnZIHIM.dsk...
+squish-pty bochs -q
+========================================================================
+                       Bochs x86 Emulator 2.5.1
+              Built from SVN snapshot on January 6, 2012
+                  Compiled on Oct 10 2012 at 11:12:02
+========================================================================
+Kernel command line: -q run priority-change
+Pintos booting with 4,096 kB RAM...
+374 pages available in kernel pool.
+374 pages available in user pool.
+Calibrating timer...  204,600 loops/s.
+Boot complete.
+Executing 'priority-change':
+(priority-change) begin
+(priority-change) Creating a high-priority thread 2.
+(priority-change) Thread 2 should have just lowered its priority.
+(priority-change) Thread 2 should have just exited.
+(priority-change) end
+Execution of 'priority-change' complete.
+Timer: 60 ticks
+Thread: 0 idle ticks, 63 kernel ticks, 0 user ticks
+Console: 559 characters output
+Keyboard: 0 keys pressed
+Powering off...

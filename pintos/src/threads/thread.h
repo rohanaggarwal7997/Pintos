@@ -87,6 +87,8 @@ struct thread
     enum thread_status status;          /* Thread state. */
     char name[16];                      /* Name (for debugging purposes). */
     uint8_t *stack;                     /* Saved stack pointer. */
+    int orig_priority;                  /*original priority*/
+    int64_t wakeup_at;                  /*wakeup time*/
     int priority;                       /* Priority. */
     struct list_elem allelem;           /* List element for all threads list. */
 
@@ -137,5 +139,7 @@ int thread_get_nice (void);
 void thread_set_nice (int);
 int thread_get_recent_cpu (void);
 int thread_get_load_avg (void);
-
+void thread_set_temporarily_up();
+void thread_sleep(int64_t,int);
+void thread_restore();
 #endif /* threads/thread.h */

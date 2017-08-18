@@ -1,0 +1,29 @@
+Writing command line to /tmp/wRfh8SMTvk.dsk...
+squish-pty bochs -q
+========================================================================
+                       Bochs x86 Emulator 2.5.1
+              Built from SVN snapshot on January 6, 2012
+                  Compiled on Oct 10 2012 at 11:12:02
+========================================================================
+Kernel command line: -q run priority-fifo
+Pintos booting with 4,096 kB RAM...
+374 pages available in kernel pool.
+374 pages available in user pool.
+Calibrating timer...  204,600 loops/s.
+Boot complete.
+Executing 'priority-fifo':
+(priority-fifo) begin
+(priority-fifo) 16 threads will iterate 16 times in the same order each time.
+(priority-fifo) If the order varies then there is a bug.
+(prioKernel PANIC at ../../lib/kernel/list.c:259 in list_remove(): assertion `is_interior (elem)' failed.
+Call stack: 0xc0119f30Interrupt 0x0e (#PF Page-Fault Exception) at eip=0xc01057cf
+ cr2=00000103 error=00000000
+ eax=00000103 ebx=00000103 ecx=c0119e5c edx=000003d4
+ esi=c010cc6d edi=c010e485 esp=c010e05b ebp=c0119ef0
+ cs=0008 ds=0010 es=0010 ss=9f30
+Kernel PANIC recursion at ../../threads/interrupt.c:374 in intr_handler().
+Timer: 77 ticks
+Thread: 0 idle ticks, 77 kernel ticks, 0 user ticks
+Console: 885 characters output
+Keyboard: 0 keys pressed
+Powering off...

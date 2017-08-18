@@ -1,0 +1,5 @@
+FAIL
+Kernel panic in run: PANIC at ../../lib/kernel/list.c:259 in list_remove(): assertion `is_interior (elem)' failed.
+Call stack: 0xc0119f30
+Translation of call stack:
+0xc0119f30: (unknown)

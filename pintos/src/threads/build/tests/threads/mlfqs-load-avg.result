@@ -1,0 +1,5 @@
+FAIL
+Kernel panic in run: PANIC at ../../devices/timer.c:103 in timer_sleep(): assertion `intr_get_level () == INTR_ON' failed.
+Call stack: 0xc002feb8
+Translation of call stack:
+0xc002feb8: (unknown)

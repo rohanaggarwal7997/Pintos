@@ -1,0 +1,31 @@
+Writing command line to /tmp/cgTOdDd8Vs.dsk...
+squish-pty bochs -q
+========================================================================
+                       Bochs x86 Emulator 2.5.1
+              Built from SVN snapshot on January 6, 2012
+                  Compiled on Oct 10 2012 at 11:12:02
+========================================================================
+Kernel command line: -q -mlfqs run mlfqs-load-60
+Pintos booting with 4,096 kB RAM...
+374 pages available in kernel pool.
+374 pages available in user pool.
+Calibrating timer...  204,600 loops/s.
+Boot complete.
+Executing 'mlfqs-load-60':
+(mlfqs-load-60) begin
+(mlfqs-load-60) Starting 60 niced load threads...
+(mlfqs-load-60) Starting threads took 1 seconds.
+(mlfqs-load-60) After 0 seconds, load average=0.00.
+(mlfqs-load-60) After 2 seconds, load average=0.00.
+Kernel PANIC at ../../devices/timer.c:103 in timer_sleep(): assertion `intr_get_level () == INTR_ON' failed.
+Call stack: 0xc002feb8Interrupt 0x0e (#PF Page-Fault Exception) at eip=0xc01057cf
+ cr2=00000067 error=00000000
+ eax=00000067 ebx=00000067 ecx=c002fde4 edx=000003d4
+ esi=c010c716 edi=c010dc97 esp=c010e05b ebp=c002fe78
+ cs=0008 ds=0010 es=0010 ss=feb8
+Kernel PANIC recursion at ../../threads/interrupt.c:374 in intr_handler().
+Timer: 1514 ticks
+Thread: 840 idle ticks, 674 kernel ticks, 0 user ticks
+Console: 968 characters output
+Keyboard: 0 keys pressed
+Powering off...
