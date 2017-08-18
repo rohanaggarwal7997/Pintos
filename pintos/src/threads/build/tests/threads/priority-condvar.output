@@ -1,4 +1,4 @@
-Writing command line to /tmp/IoQwVU4SuH.dsk...
+Writing command line to /tmp/8YdT6undEx.dsk...
 squish-pty bochs -q
 ========================================================================
                        Bochs x86 Emulator 2.5.1
@@ -34,8 +34,18 @@ Executing 'priority-condvar':
 (priority-condvar) Signaling...
 (priority-condvar) end
 Execution of 'priority-condvar' complete.
-Timer: 164 ticks
-Thread: 0 idle ticks, 166 kernel ticks, 0 user ticks
-Console: 1147 characters output
+(priority-condvar) Thread priority 29 woke up.
+(priority-condvar) Thread priority 28 woke up.
+(priority-condvar) Thread priority 24 starting.
+(priority-condvar) Thread priority 27 woke up.
+(priority-condvar) Thread priority 23 woke up.
+(priority-condvar) Thread priority 26 woke up.
+(priority-condvar) Thread priority 22 woke up.
+(priority-condvar) Thread priority 30 woke up.
+(priority-condvar) Thread priority 25 woke up.
+(priority-condvar) Thread priority 21 woke up.
+Timer: 234 ticks
+Thread: 0 idle ticks, 237 kernel ticks, 0 user ticks
+Console: 1618 characters output
 Keyboard: 0 keys pressed
 Powering off...

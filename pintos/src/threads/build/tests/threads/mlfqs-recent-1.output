@@ -1,4 +1,4 @@
-Writing command line to /tmp/5SUbtQlqhH.dsk...
+Writing command line to /tmp/UzVIuI77T5.dsk...
 squish-pty bochs -q
 ========================================================================
                        Bochs x86 Emulator 2.5.1
@@ -107,7 +107,7 @@ Executing 'mlfqs-recent-1':
 (mlfqs-recent-1) end
 Execution of 'mlfqs-recent-1' complete.
 Timer: 19019 ticks
-Thread: 964 idle ticks, 18058 kernel ticks, 0 user ticks
+Thread: 963 idle ticks, 18059 kernel ticks, 0 user ticks
 Console: 7087 characters output
 Keyboard: 0 keys pressed
 Powering off...

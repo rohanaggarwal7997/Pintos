@@ -138,19 +138,20 @@ thread_start (void)
   sema_down (&idle_started);
 }
 
-/* Wakes up all the threads which have the wakeup time*/
-thread_wakeup(int64_t current_tick)
+/* Wakes up the threads which have the wakeup time less than or eqaul to the current tick time*/
+void
+thread_wakeup (struct list_elem * cur, int64_t current_tick)
 {
-	
-	struct list_elem * cur = list_begin(&sleeper_list);
-	while(cur != list_end(&sleeper_list))
-	{
-		struct thread * th = list_entry(cur, struct thread, elem);
-		if(th->wakeup_at > current_tick)	break;
-		list_remove(cur);
-		thread_unblock(th);
-		cur = list_begin(&sleeper_list);
-	}
+  if(cur != list_end(&sleeper_list) ) // if sleeper list is not empty
+  {
+    struct thread * th = list_entry(cur, struct thread, elem); // thread to wake up
+    if(th->wakeup_at <= current_tick)
+    {
+      list_remove(cur);
+      thread_unblock(th);
+    }
+  }
+  return;
 }
 
 /* Called by the timer interrupt handler at each timer tick.
@@ -170,7 +171,8 @@ thread_tick (void)
   else
     kernel_ticks++;
 
-  thread_wakeup(timer_ticks());
+  // check if any sleeping thread has to wake up
+  thread_wakeup(list_begin(&sleeper_list), timer_ticks());
 
   /* Enforce preemption. */
   if (++thread_ticks >= TIME_SLICE)
@@ -626,25 +628,47 @@ allocate_tid (void)
    Used by switch.S, which can't figure it out on its own. */
 uint32_t thread_stack_ofs = offsetof (struct thread, stack);
 
+/* Store the original priority of the thread and set it's priority to max temporarily till it wakes up */
 void thread_set_temporarily_up()
 {
 	thread_current()->orig_priority=thread_current()->priority;
 	thread_current()->priority=PRI_MAX;
 }
 
+/* Restores the original priority of the thread which just wakes up from sleep*/
 void thread_restore()
 {
 	thread_current()->priority=thread_current()->orig_priority;
 }
 
+/* making the current thread go to sleep and updating it's wakeup time*/
 void thread_sleep(int64_t wakeup_at, int currentTime)
 {
+  // disabling the interrupts
 	enum intr_level old_int=intr_disable();
 	if(currentTime > wakeup_at)	return;
-	ASSERT(thread_current()->status == THREAD_RUNNING);
-	thread_current()->wakeup_at = wakeup_at;
-	list_insert_ordered(&sleeper_list,&(thread_current()->elem),before,NULL);
+	ASSERT(thread_current()->status == THREAD_RUNNING); 
+	thread_current()->wakeup_at = wakeup_at; // setting the wakeup time of the thread.
+	list_insert_ordered(&sleeper_list,&(thread_current()->elem),before,NULL); // insert it to the sleeper list
 	thread_block();	
+  //enabling the interrupts
 	intr_set_level(old_int);
 }	
 
+/* wakes up the next sleeping thread if it's wakeup time is same as the current running thread.*/
+void set_next_wakeup()
+{
+  struct list_elem * cur = list_begin(&sleeper_list);
+  if(cur != list_end(&sleeper_list)) // sleeper list is not empty
+  {
+    struct thread * th = thread_current(), // current running thread
+        *th2 = list_entry(cur,struct thread,elem); // thread corresponding to the head of the sleeper list
+
+    if(th2->wakeup_at == th->wakeup_at)
+    {
+      list_remove(cur);
+      thread_unblock(th2);
+    }
+  }
+  return;
+}
