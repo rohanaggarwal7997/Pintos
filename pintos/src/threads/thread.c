@@ -386,6 +386,17 @@ void
 thread_set_priority (int new_priority) 
 {
   thread_current ()->priority = new_priority;
+  
+  // check if the new priority is no longer the highest priority among all the ready threads
+  struct list_elem * ready_head = list_begin(&ready_list);
+  if(ready_head != list_end(&ready_list))
+  {
+    struct thread *th = list_entry(ready_head, struct thread, elem);
+    if(th->priority > new_priority)
+    {
+      thread_yield();
+    }
+  }
 }
 
 /* Returns the current thread's priority. */
@@ -393,6 +404,7 @@ int
 thread_get_priority (void) 
 {
   return thread_current ()->priority;
+  ///
 }
 
 /* Sets the current thread's nice value to NICE. */

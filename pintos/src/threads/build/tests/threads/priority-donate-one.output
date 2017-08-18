@@ -1,4 +1,4 @@
-Writing command line to /tmp/ulT3vWMjyv.dsk...
+Writing command line to /tmp/BRBTdz5Ibc.dsk...
 squish-pty bochs -q
 ========================================================================
                        Bochs x86 Emulator 2.5.1
@@ -21,10 +21,10 @@ Executing 'priority-donate-one':
 Execution of 'priority-donate-one' complete.
 (priority-donate-one) acquire1: got the lock
 Kernel PANIC at ../../threads/synch.c:232 in lock_release(): assertion `lock_held_by_current_thread (lock)' failed.
-Call stack: 0xc0116fa0Interrupt 0x0e (#PF Page-Fault Exception) at eip=0xc010582f
+Call stack: 0xc0116fa0Interrupt 0x0e (#PF Page-Fault Exception) at eip=0xc010586f
  cr2=000000e8 error=00000000
  eax=000000e8 ebx=000000e8 ecx=c0116ecc edx=000003d4
- esi=c010c690 edi=c010da6a esp=c010e0bb ebp=c0116f60
+ esi=c010c6d0 edi=c010daaa esp=c010e0fb ebp=c0116f60
  cs=0008 ds=0010 es=0010 ss=6fa0
 Kernel PANIC recursion at ../../threads/interrupt.c:374 in intr_handler().
 Timer: 91 ticks

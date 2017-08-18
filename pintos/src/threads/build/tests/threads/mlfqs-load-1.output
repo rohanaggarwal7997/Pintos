@@ -1,4 +1,4 @@
-Writing command line to /tmp/IANXuINHMk.dsk...
+Writing command line to /tmp/DOAtAypUGd.dsk...
 squish-pty bochs -q
 ========================================================================
                        Bochs x86 Emulator 2.5.1
@@ -16,10 +16,10 @@ Executing 'mlfqs-load-1':
 (mlfqs-load-1) spinning for up to 45 seconds, please wait...
 (mlfqs-load-1) FAIL: load average stayed below 0.5 for more than 45 seconds
 Kernel PANIC at ../../tests/threads/tests.c:93 in fail(): test failed
-Call stack: 0xc002fed8Interrupt 0x0e (#PF Page-Fault Exception) at eip=0xc010582f
+Call stack: 0xc002fed8Interrupt 0x0e (#PF Page-Fault Exception) at eip=0xc010586f
  cr2=0000005d error=00000000
  eax=0000005d ebx=0000005d ecx=c002fe04 edx=000003d4
- esi=c010ce20 edi=c010e7d1 esp=c010e0bb ebp=c002fe98
+ esi=c010ce60 edi=c010e811 esp=c010e0fb ebp=c002fe98
  cs=0008 ds=0010 es=0010 ss=fed8
 Kernel PANIC recursion at ../../threads/interrupt.c:374 in intr_handler().
 Timer: 4643 ticks
