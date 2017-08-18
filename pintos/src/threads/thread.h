@@ -142,7 +142,7 @@ int thread_get_load_avg (void);
 void thread_set_temporarily_up(void);
 void thread_sleep(int64_t,int);
 void thread_restore(void);
-void set_next_wakeup(int64_t);
+void set_next_wakeup(void);
 void thread_check_prio(void);
 void thread_wakeup (int64_t);
 

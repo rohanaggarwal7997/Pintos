@@ -108,7 +108,7 @@ timer_sleep (int64_t ticks)
   thread_sleep(wakeup,ticks);
   // when the thread wakes up,
   // it wakes up other threads having the same wakeup time recursively.
-  set_next_wakeup(timer_ticks());
+  set_next_wakeup();
   // restore the priority of the thread to the original value
   thread_restore();	
 }

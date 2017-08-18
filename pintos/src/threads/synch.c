@@ -274,6 +274,24 @@ cond_init (struct condition *cond)
   list_init (&cond->waiters);
 }
 
+bool
+cond_sema_priority_large (const struct list_elem *a, const struct list_elem *b, void *aux UNUSED)
+{
+  struct thread *ta;
+  struct thread *tb;
+  
+  struct semaphore_elem *sa = list_entry (a, struct semaphore_elem, elem);
+  struct semaphore_elem *sb = list_entry (b, struct semaphore_elem, elem);
+
+  ta = list_entry(list_front(&sa->semaphore.waiters),
+                  struct thread, elem);
+  tb = list_entry(list_front(&sb->semaphore.waiters),
+                  struct thread, elem);
+
+  return ta->priority > tb->priority;
+}
+
+
 /* Atomically releases LOCK and waits for COND to be signaled by
    some other piece of code.  After COND is signaled, LOCK is
    reacquired before returning.  LOCK must be held before calling
@@ -326,9 +344,12 @@ cond_signal (struct condition *cond, struct lock *lock UNUSED)
   ASSERT (!intr_context ());
   ASSERT (lock_held_by_current_thread (lock));
 
-  if (!list_empty (&cond->waiters)) 
+  if (!list_empty (&cond->waiters))
+  {
+    list_sort (&cond->waiters, cond_sema_priority_large, NULL);
     sema_up (&list_entry (list_pop_front (&cond->waiters),
                           struct semaphore_elem, elem)->semaphore);
+  }
 }
 
 /* Wakes up all threads, if any, waiting on COND (protected by

@@ -656,15 +656,15 @@ void thread_sleep(int64_t wakeup_at, int currentTime)
 }	
 
 /* wakes up the next sleeping thread if it's wakeup time is same as the current running thread.*/
-void set_next_wakeup(int64_t curTick)
+void
+set_next_wakeup(void)
 {
   if(!list_empty(&sleeper_list)) // sleeper list is not empty
   {
-    // struct list_elem * cur = list_begin(&sleeper_list);
-    // struct thread * th = thread_current(); // current running thread
+    struct thread * th = thread_current(); // current running thread
     struct thread *th2 = list_entry(list_begin(&sleeper_list),struct thread,elem); // thread corresponding to the head of the sleeper list
 
-    if(th2->wakeup_at <= curTick)
+    if(th2->wakeup_at <= th->wakeup_at)
     {
       list_pop_front(&sleeper_list);
       thread_unblock(th2);

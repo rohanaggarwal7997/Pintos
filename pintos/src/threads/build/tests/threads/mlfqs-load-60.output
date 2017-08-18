@@ -1,4 +1,4 @@
-Writing command line to /tmp/I8QtPkTxlY.dsk...
+Writing command line to /tmp/V1UvEpm8EJ.dsk...
 squish-pty bochs -q
 ========================================================================
                        Bochs x86 Emulator 2.5.1
@@ -75,40 +75,15 @@ Executing 'mlfqs-load-60':
 (mlfqs-load-60) After 114 seconds, load average=0.00.
 (mlfqs-load-60) After 116 seconds, load average=0.00.
 (mlfqs-load-60) After 118 seconds, load average=0.00.
-(mlfqs-load-60) After 120 seconds, load average=0.00.
-(mlfqs-load-60) After 122 seconds, load average=0.00.
-(mlfqs-load-60) After 124 seconds, load average=0.00.
-(mlfqs-load-60) After 126 seconds, load average=0.00.
-(mlfqs-load-60) After 128 seconds, load average=0.00.
-(mlfqs-load-60) After 130 seconds, load average=0.00.
-(mlfqs-load-60) After 132 seconds, load average=0.00.
-(mlfqs-load-60) After 134 seconds, load average=0.00.
-(mlfqs-load-60) After 136 seconds, load average=0.00.
-(mlfqs-load-60) After 138 seconds, load average=0.00.
-(mlfqs-load-60) After 140 seconds, load average=0.00.
-(mlfqs-load-60) After 142 seconds, load average=0.00.
-(mlfqs-load-60) After 144 seconds, load average=0.00.
-(mlfqs-load-60) After 146 seconds, load average=0.00.
-(mlfqs-load-60) After 148 seconds, load average=0.00.
-(mlfqs-load-60) After 150 seconds, load average=0.00.
-(mlfqs-load-60) After 152 seconds, load average=0.00.
-(mlfqs-load-60) After 154 seconds, load average=0.00.
-(mlfqs-load-60) After 156 seconds, load average=0.00.
-(mlfqs-load-60) After 158 seconds, load average=0.00.
-(mlfqs-load-60) After 160 seconds, load average=0.00.
-(mlfqs-load-60) After 162 seconds, load average=0.00.
-(mlfqs-load-60) After 164 seconds, load average=0.00.
-(mlfqs-load-60) After 166 seconds, load average=0.00.
-(mlfqs-load-60) After 168 seconds, load average=0.00.
-(mlfqs-load-60) After 170 seconds, load average=0.00.
-(mlfqs-load-60) After 172 seconds, load average=0.00.
-(mlfqs-load-60) After 174 seconds, load average=0.00.
-(mlfqs-load-60) After 176 seconds, load average=0.00.
-(mlfqs-load-60) After 178 seconds, load average=0.00.
-(mlfqs-load-60) end
-Execution of 'mlfqs-load-60' complete.
-Timer: 18841 ticks
-Thread: 12099 idle ticks, 6746 kernel ticks, 0 user ticks
-Console: 5298 characters output
+Kernel PANIC at ../../lib/kernel/list.c:259 in list_remove(): assertion `is_interior (elem)' failed.
+Call stack: 0xc0134f30Interrupt 0x0e (#PF Page-Fault Exception) at eip=0xc01058ef
+ cr2=00000103 error=00000000
+ eax=00000103 ebx=00000103 ecx=c0134e5c edx=000003d4
+ esi=c010cd8d edi=c010e595 esp=c010e16b ebp=c0134ef0
+ cs=0008 ds=0010 es=0010 ss=4f30
+Kernel PANIC recursion at ../../threads/interrupt.c:374 in intr_handler().
+Timer: 13075 ticks
+Thread: 6566 idle ticks, 6509 kernel ticks, 0 user ticks
+Console: 4044 characters output
 Keyboard: 0 keys pressed
 Powering off...
