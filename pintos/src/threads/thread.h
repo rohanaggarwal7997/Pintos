@@ -139,8 +139,11 @@ int thread_get_nice (void);
 void thread_set_nice (int);
 int thread_get_recent_cpu (void);
 int thread_get_load_avg (void);
-void thread_set_temporarily_up();
+void thread_set_temporarily_up(void);
 void thread_sleep(int64_t,int);
-void thread_restore();
-void set_next_wakeup();
+void thread_restore(void);
+void set_next_wakeup(int64_t);
+void thread_check_prio(void);
+void thread_wakeup (int64_t);
+
 #endif /* threads/thread.h */

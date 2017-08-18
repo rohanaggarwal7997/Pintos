@@ -1,4 +1,4 @@
-Writing command line to /tmp/F1OnOnvmTJ.dsk...
+Writing command line to /tmp/TiqPKZUlk2.dsk...
 squish-pty bochs -q
 ========================================================================
                        Bochs x86 Emulator 2.5.1
@@ -14,14 +14,14 @@ Boot complete.
 Executing 'priority-change':
 (priority-change) begin
 (priority-change) Creating a high-priority thread 2.
-(priority-change) Thread 2 should have just lowered its priority.
 (priority-change) Thread 2 now lowering priority.
+(priority-change) Thread 2 should have just lowered its priority.
 (priority-change) Thread 2 exiting.
 (priority-change) Thread 2 should have just exited.
 (priority-change) end
 Execution of 'priority-change' complete.
-Timer: 72 ticks
-Thread: 0 idle ticks, 75 kernel ticks, 0 user ticks
+Timer: 73 ticks
+Thread: 0 idle ticks, 76 kernel ticks, 0 user ticks
 Console: 645 characters output
 Keyboard: 0 keys pressed
 Powering off...

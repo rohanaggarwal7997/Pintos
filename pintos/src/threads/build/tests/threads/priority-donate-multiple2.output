@@ -1,4 +1,4 @@
-Writing command line to /tmp/yoijHv4Uy8.dsk...
+Writing command line to /tmp/IpYP3VKlOq.dsk...
 squish-pty bochs -q
 ========================================================================
                        Bochs x86 Emulator 2.5.1
@@ -16,13 +16,17 @@ Executing 'priority-donate-multiple2':
 (priority-donate-multiple2) Main thread should have priority 34.  Actual priority: 31.
 (priority-donate-multiple2) Thread c finished.
 (priority-donate-multiple2) Main thread should have priority 36.  Actual priority: 31.
+(priority-donate-multiple2) Thread a acquired lock a.
+(priority-donate-multiple2) Thread a finished.
 (priority-donate-multiple2) Main thread should have priority 36.  Actual priority: 31.
+(priority-donate-multiple2) Thread b acquired lock b.
+(priority-donate-multiple2) Thread b finished.
 (priority-donate-multiple2) Threads b, a, c should have just finished, in that order.
 (priority-donate-multiple2) Main thread should have priority 31.  Actual priority: 31.
 (priority-donate-multiple2) end
 Execution of 'priority-donate-multiple2' complete.
-Timer: 113 ticks
-Thread: 0 idle ticks, 116 kernel ticks, 0 user ticks
-Console: 921 characters output
+Timer: 142 ticks
+Thread: 0 idle ticks, 145 kernel ticks, 0 user ticks
+Console: 1123 characters output
 Keyboard: 0 keys pressed
 Powering off...
