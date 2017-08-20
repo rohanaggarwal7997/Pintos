@@ -1,5 +1,5 @@
 FAIL
-Kernel panic in run: PANIC at ../../threads/thread.c:283 in thread_unblock(): assertion `is_thread (t)' failed.
+Kernel panic in run: PANIC at ../../threads/thread.c:282 in thread_unblock(): assertion `is_thread (t)' failed.
 Call stack: 0xc0117f30
 Translation of call stack:
 0xc0117f30: (unknown)

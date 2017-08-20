@@ -242,7 +242,6 @@ thread_create (const char *name, int priority,
   sf->ebp = 0;
 
   intr_set_level (old_level);
-
   /* Add to run queue. */
   thread_unblock (t);
 
@@ -511,6 +510,9 @@ init_thread (struct thread *t, const char *name, int priority)
   t->priority = priority;
   t->magic = THREAD_MAGIC;
   list_push_back (&all_list, &t->allelem);
+  list_init(&(t->locks_acquired));
+  t->donation_benefit=0;
+  t->lock_seeking = NULL;
 }
 
 /* Allocates a SIZE-byte frame at the top of thread T's stack and
