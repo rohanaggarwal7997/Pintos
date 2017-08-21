@@ -1,4 +1,4 @@
-Writing command line to /tmp/kTmUFm0cCq.dsk...
+Writing command line to /tmp/65KMZTEHvY.dsk...
 squish-pty bochs -q
 ========================================================================
                        Bochs x86 Emulator 2.5.1
@@ -13,9 +13,9 @@ Calibrating timer...  204,600 loops/s.
 Boot complete.
 Executing 'priority-donate-nest':
 (priority-donate-nest) begin
-(priority-donate-nest) Low thread should have priority 32.  Actual priority: 31.
-(priority-donate-nest) Low thread should have priority 33.  Actual priority: 31.
-(priority-donate-nest) Medium thread should have priority 33.  Actual priority: 32.
+(priority-donate-nest) Low thread should have priority 32.  Actual priority: 32.
+(priority-donate-nest) Low thread should have priority 33.  Actual priority: 33.
+(priority-donate-nest) Medium thread should have priority 33.  Actual priority: 33.
 (priority-donate-nest) Medium thread got the lock.
 (priority-donate-nest) High thread got the lock.
 (priority-donate-nest) High thread finished.
@@ -25,8 +25,8 @@ Executing 'priority-donate-nest':
 (priority-donate-nest) Low thread should have priority 31.  Actual priority: 31.
 (priority-donate-nest) end
 Execution of 'priority-donate-nest' complete.
-Timer: 133 ticks
-Thread: 0 idle ticks, 136 kernel ticks, 0 user ticks
+Timer: 134 ticks
+Thread: 0 idle ticks, 137 kernel ticks, 0 user ticks
 Console: 1060 characters output
 Keyboard: 0 keys pressed
 Powering off...
