@@ -50,7 +50,8 @@ sema_init (struct semaphore *sema, unsigned value)
   list_init (&sema->waiters);
 }
 
-static bool th_before(const struct list_elem *a,const struct list_elem *b,void *aux UNUSED)
+/*Function to order the elements according to thread priority*/
+static bool th_before(const struct list_elem *a,const struct list_elem *b,void *aux UNUSED)  
 {
   return list_entry(a,struct thread,elem)->priority>list_entry(b,struct thread,elem)->priority; 
 
@@ -72,13 +73,16 @@ sema_down (struct semaphore *sema)
   ASSERT (!intr_context ());
 
   old_level = intr_disable ();
-  update_sema_list(sema);
-  while (sema->value == 0) 
-    {
-      list_insert_ordered (&sema->waiters, &thread_current ()->elem, th_before, NULL);
-      thread_block ();
-    }
-  sema->value--;
+  /* before inserting, it may happen that in between some priority of some thread changes so we need it in the sorted order. */
+  update_sema_list(sema);       /* sort the sema's waiter list acc to priority. */
+  
+  while (sema->value == 0)      /* while sema is not acquirable. */  
+  {
+    list_insert_ordered (&sema->waiters, &thread_current ()->elem, th_before, NULL);
+    thread_block ();
+  }
+
+  sema->value--;               /* you have also acquired the semaphore, so decrement the value. */
   intr_set_level (old_level);
 }
 
@@ -88,7 +92,7 @@ sema_down (struct semaphore *sema)
 
    This function may be called from an interrupt handler. */
 bool
-sema_try_down (struct semaphore *sema) 
+sema_try_down (struct semaphore *sema)   /*no need to go to waiting list of semaphore*/
 {
   enum intr_level old_level;
   bool success;
@@ -108,12 +112,12 @@ sema_try_down (struct semaphore *sema)
   return success;
 }
 
-
-
-void update_sema_list(struct semaphore *sema)
+/* sort the semaphore according to thread priority */
+void
+update_sema_list(struct semaphore *sema)
 {
 
-  list_sort(&(sema->waiters), th_before, NULL);
+  list_sort( &(sema->waiters), th_before, NULL);
 }
 
 /* Up or "V" operation on a semaphore.  Increments SEMA's value
@@ -128,15 +132,16 @@ sema_up (struct semaphore *sema)
   ASSERT (sema != NULL);
 
   old_level = intr_disable ();
+  
   if (!list_empty (&sema->waiters)) 
   {
-    update_sema_list(sema);
+    update_sema_list(sema);             /*sort the list so that highest priority is popped*/
     struct thread *th = list_entry (list_pop_front (&sema->waiters), struct thread, elem);
     thread_unblock (th);
-
   }
+
   sema->value++;
-  thread_check_prio();
+  thread_check_prio();                  /*the thread just unblocked might have highest priority and so should be yielded*/
   intr_set_level (old_level);
 }
 
@@ -193,13 +198,13 @@ sema_test_helper (void *sema_)
    onerous, it's a good sign that a semaphore should be used,
    instead of a lock. */
 void
-lock_init (struct lock *lock)
+lock_init (struct lock *lock)                  /*initialize a lock*/    
 {
   ASSERT (lock != NULL);
 
   lock->holder = NULL;
-  lock->priority=0;
-  sema_init (&lock->semaphore, 1);
+  lock->priority=0;                             /* initialise the lock's priority with 0 */
+  sema_init (&lock->semaphore, 1);             /*maximum one thread can acquire the lock*/
 }
 
 /* Acquires LOCK, sleeping until it becomes available if
@@ -221,32 +226,30 @@ lock_acquire (struct lock *lock)
   ASSERT (!intr_context ());
   ASSERT (!lock_held_by_current_thread (lock));
 
-  if (lock->holder != NULL)
+  if (lock->holder != NULL)                           /* priority donation */
+  {                                                   /* while lock has a holder , holder should recieve donation from waiter with highest priority among all it's locks acquired. */
+    t->lock_seeking = lock;
+    l = lock;
+  
+    /* Do nested priority donation. */
+    while (l && t->priority > l->priority )
     {
-      t->lock_seeking = lock;
-      l = lock;
-      /* Do nested priority donation. */
-      while (l && t->priority > l->priority )
-        {
-          update_sema_list(&(l->semaphore));
-          l->priority = t->priority;
-          thread_donate_priority (l->holder);
-          l = l->holder->lock_seeking;
-          
-        }
-
+      update_sema_list(&(l->semaphore));                  /*sort the sema list*/
+      l->priority = t->priority;                          /* t is one of threads trying to acquire the lock and its priority is greater than the lock's priority */
+      thread_donate_priority (l->holder);         
+      l = l->holder->lock_seeking;                        /* go one level deeper in the donation chain */
     }
+  }
 
-  sema_down (&lock->semaphore);
+  sema_down (&lock->semaphore);                           /*lock acquired*/
 
   old_level = intr_disable ();
   t = thread_current ();
-  // if (!thread_mlfqs)
-  // {
-    t->lock_seeking = NULL;
-    lock->priority = t->priority;
-    thread_add_lock (lock);
-  // }
+  
+  t->lock_seeking = NULL;         
+
+  thread_add_lock (lock);                       /* add to thread's locks acquired and change lock's priority*/
+
   lock->holder = t;
   intr_set_level (old_level);
 
@@ -289,8 +292,7 @@ lock_release (struct lock *lock)
 
   old_level = intr_disable ();
 
-  // if (!thread_mlfqs)
-    thread_remove_lock (lock);
+  thread_remove_lock (lock);
 
   lock->holder = NULL;
   sema_up (&lock->semaphore);
@@ -399,7 +401,7 @@ cond_signal (struct condition *cond, struct lock *lock UNUSED)
 
   if (!list_empty (&cond->waiters))
   {
-    list_sort (&cond->waiters, cond_sema_priority_large, NULL);
+    list_sort (&cond->waiters, cond_sema_priority_large, NULL);       /* Sort the waiter list of cond on the basis of the priorities of the first thread in each of the semaphore's waiters list. */
     sema_up (&list_entry (list_pop_front (&cond->waiters),
                           struct semaphore_elem, elem)->semaphore);
   }

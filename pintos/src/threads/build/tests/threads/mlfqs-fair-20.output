@@ -1,4 +1,4 @@
-Writing command line to /tmp/TnDcWi25Pz.dsk...
+Writing command line to /tmp/rhbywZWiP6.dsk...
 squish-pty bochs -q
 ========================================================================
                        Bochs x86 Emulator 2.5.1
@@ -21,15 +21,15 @@ Executing 'mlfqs-fair-20':
 (mlfqs-fair-20) Thread 2 received 149 ticks.
 (mlfqs-fair-20) Thread 3 received 149 ticks.
 (mlfqs-fair-20) Thread 4 received 149 ticks.
-(mlfqs-fair-20) Thread 5 received 150 ticks.
-(mlfqs-fair-20) Thread 6 received 149 ticks.
-(mlfqs-fair-20) Thread 7 received 149 ticks.
-(mlfqs-fair-20) Thread 8 received 149 ticks.
-(mlfqs-fair-20) Thread 9 received 153 ticks.
+(mlfqs-fair-20) Thread 5 received 149 ticks.
+(mlfqs-fair-20) Thread 6 received 150 ticks.
+(mlfqs-fair-20) Thread 7 received 150 ticks.
+(mlfqs-fair-20) Thread 8 received 150 ticks.
+(mlfqs-fair-20) Thread 9 received 152 ticks.
 (mlfqs-fair-20) Thread 10 received 153 ticks.
 (mlfqs-fair-20) Thread 11 received 153 ticks.
 (mlfqs-fair-20) Thread 12 received 153 ticks.
-(mlfqs-fair-20) Thread 13 received 153 ticks.
+(mlfqs-fair-20) Thread 13 received 152 ticks.
 (mlfqs-fair-20) Thread 14 received 153 ticks.
 (mlfqs-fair-20) Thread 15 received 153 ticks.
 (mlfqs-fair-20) Thread 16 received 152 ticks.
@@ -38,8 +38,8 @@ Executing 'mlfqs-fair-20':
 (mlfqs-fair-20) Thread 19 received 149 ticks.
 (mlfqs-fair-20) end
 Execution of 'mlfqs-fair-20' complete.
-Timer: 4232 ticks
-Thread: 979 idle ticks, 3256 kernel ticks, 0 user ticks
+Timer: 4233 ticks
+Thread: 980 idle ticks, 3256 kernel ticks, 0 user ticks
 Console: 1459 characters output
 Keyboard: 0 keys pressed
 Powering off...

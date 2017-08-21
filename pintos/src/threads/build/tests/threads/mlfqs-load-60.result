@@ -1,5 +1,5 @@
 FAIL
-Kernel panic in run: PANIC at ../../lib/kernel/list.c:259 in list_remove(): assertion `is_interior (elem)' failed.
+Kernel panic in run: PANIC at ../../lib/kernel/list.c:290 in list_front(): assertion `!list_empty (list)' failed.
 Call stack: 0xc0134f30
 Translation of call stack:
 0xc0134f30: (unknown)
