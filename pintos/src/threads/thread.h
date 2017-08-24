@@ -91,6 +91,8 @@ struct thread
     int64_t wakeup_at;                  /*wakeup time*/
     int priority;                       /* Priority. */
     int initial_priority;                  /* Original Priority before donation (locks).  */
+    int recent_cpu;
+    int nice;
     struct list_elem allelem;           /* List element for all threads list. */
 
     /* Shared between thread.c and synch.c. */
@@ -155,6 +157,5 @@ void thread_add_lock (struct lock *);
 void thread_remove_lock (struct lock *);
 void thread_donate_priority (struct thread *);
 void thread_update_priority (struct thread *);
-
 
 #endif /* threads/thread.h */

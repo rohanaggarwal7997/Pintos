@@ -1,4 +1,4 @@
-Writing command line to /tmp/hoTvbpAYBW.dsk...
+Writing command line to /tmp/KDdz1Szfzc.dsk...
 squish-pty bochs -q
 ========================================================================
                        Bochs x86 Emulator 2.5.1
@@ -20,8 +20,8 @@ Executing 'mlfqs-nice-2':
 (mlfqs-nice-2) Thread 1 received 1500 ticks.
 (mlfqs-nice-2) end
 Execution of 'mlfqs-nice-2' complete.
-Timer: 4074 ticks
-Thread: 999 idle ticks, 3078 kernel ticks, 0 user ticks
+Timer: 4077 ticks
+Thread: 999 idle ticks, 3081 kernel ticks, 0 user ticks
 Console: 629 characters output
 Keyboard: 0 keys pressed
 Powering off...

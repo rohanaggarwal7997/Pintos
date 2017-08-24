@@ -1,4 +1,4 @@
-Writing command line to /tmp/oJwr3CTecj.dsk...
+Writing command line to /tmp/al8PocSGZf.dsk...
 squish-pty bochs -q
 ========================================================================
                        Bochs x86 Emulator 2.5.1
@@ -25,8 +25,8 @@ Executing 'priority-donate-multiple':
 (priority-donate-multiple) Main thread should have priority 31.  Actual priority: 31.
 (priority-donate-multiple) end
 Execution of 'priority-donate-multiple' complete.
-Timer: 139 ticks
-Thread: 0 idle ticks, 142 kernel ticks, 0 user ticks
+Timer: 143 ticks
+Thread: 0 idle ticks, 146 kernel ticks, 0 user ticks
 Console: 1103 characters output
 Keyboard: 0 keys pressed
 Powering off...

@@ -1,4 +1,4 @@
-Writing command line to /tmp/0fnqBCT7wL.dsk...
+Writing command line to /tmp/gObTJo7rNM.dsk...
 squish-pty bochs -q
 ========================================================================
                        Bochs x86 Emulator 2.5.1
@@ -15,17 +15,17 @@ Executing 'mlfqs-load-60':
 (mlfqs-load-60) begin
 (mlfqs-load-60) Starting 60 niced load threads...
 (mlfqs-load-60) Starting threads took 1 seconds.
-(mlfqs-load-60) After 0 seconds, load average=0.00.
-(mlfqs-load-60) After 2 seconds, load average=0.00.
+(mlfqs-load-60) After 0 seconds, load average=4.26.
+(mlfqs-load-60) After 2 seconds, load average=11.52.
 Kernel PANIC at ../../devices/timer.c:103 in timer_sleep(): assertion `intr_get_level () == INTR_ON' failed.
-Call stack: 0xc002feb8Interrupt 0x0e (#PF Page-Fault Exception) at eip=0xc0105caf
+Call stack: 0xc002feb8Interrupt 0x0e (#PF Page-Fault Exception) at eip=0xc0105eef
  cr2=00000067 error=00000000
  eax=00000067 ebx=00000067 ecx=c002fde4 edx=000003d4
- esi=c010cbf6 edi=c010e177 esp=c010e53b ebp=c002fe78
+ esi=c010ce36 edi=c010e3cb esp=c010e78f ebp=c002fe78
  cs=0008 ds=0010 es=0010 ss=feb8
 Kernel PANIC recursion at ../../threads/interrupt.c:374 in intr_handler().
-Timer: 1515 ticks
-Thread: 826 idle ticks, 689 kernel ticks, 0 user ticks
-Console: 968 characters output
+Timer: 2249 ticks
+Thread: 825 idle ticks, 1424 kernel ticks, 0 user ticks
+Console: 970 characters output
 Keyboard: 0 keys pressed
 Powering off...

@@ -8,6 +8,7 @@
 #include "threads/flags.h"
 #include "threads/interrupt.h"
 #include "threads/intr-stubs.h"
+#include "threads/FloatOps.h"
 #include "threads/palloc.h"
 #include "threads/switch.h"
 #include "threads/synch.h"
@@ -68,6 +69,7 @@ static void kernel_thread (thread_func *, void *aux);
 static void idle (void *aux UNUSED);
 
 static void managerial_thread_work (void *aux UNUSED);          /* the function which is called when managerial thread is running. */
+static void managerial_thread_work2 (void *aux UNUSED);         /* the function which is called when managerial thread is running. */
 
 static struct thread *running_thread (void);
 static struct thread *next_thread_to_run (void);
@@ -79,7 +81,12 @@ void schedule_tail (struct thread *prev);
 static tid_t allocate_tid (void);
 
 static int e_next_wakeup;             /*Earliest wakeup time among all sleeping threads*/
- static struct thread *managerial_thread;     /* managerial thread which manages the waking up of sleeping threads.*/
+static struct thread *managerial_thread;     /* managerial thread which manages the waking up of sleeping threads.*/
+
+static int tick_counter;
+static struct thread * managerial_thread2;    /* managerial thread to manage the recent_cpu in task 2 of T03 */
+
+static int load_avg;
 
 /* Initializes the threading system by transforming the code
    that's currently running into a thread.  This can't work in
@@ -140,8 +147,11 @@ thread_start (void)
   /* Wait for the idle thread to initialize idle_thread. */
   sema_down (&idle_started);
 
+  tick_counter = 0;
   e_next_wakeup=-100;
+  load_avg = 0;
   thread_create("managerial_thread", PRI_MAX, managerial_thread_work, NULL);      /* Managerial thread is created in the starting when the thread_start is called*/
+  thread_create("managerial_thread2", PRI_MAX, managerial_thread_work2, NULL);      /* Managerial thread is created in the starting when the thread_start is called*/
 }
 
 /* Wakes up the threads which have the wakeup time less than or eqaul to the current tick time*/
@@ -167,6 +177,7 @@ thread_wakeup (int64_t current_tick)
 void
 thread_tick (void) 
 {
+  tick_counter++;
   struct thread *t = thread_current ();
   /* Update statistics. */
   if (t == idle_thread)
@@ -178,9 +189,21 @@ thread_tick (void)
   else
     kernel_ticks++;
 
+  if(t != idle_thread)
+  {
+    t->recent_cpu = FP_ADD_MIX(t->recent_cpu, 1);
+  }
+
   /* If it is time to wake up any thread, managerial thread is unblocked. */
   if(timer_ticks() == e_next_wakeup)
     thread_unblock(managerial_thread);
+
+  /* if 100th tick, then update priorities of all the threads according to the recent_cpu & nice */
+  if(tick_counter == 100)
+  {
+    tick_counter = 0;
+    thread_unblock(managerial_thread2);
+  }
 
   /* Enforce preemption. */
   if (++thread_ticks >= TIME_SLICE)
@@ -418,22 +441,21 @@ thread_get_priority (void)
 void
 thread_set_nice (int nice UNUSED) 
 {
-  /* Not yet implemented. */
+  thread_current()->nice = nice;
 }
 
 /* Returns the current thread's nice value. */
 int
 thread_get_nice (void) 
 {
-  /* Not yet implemented. */
-  return 0;
+  return thread_current()->nice;
 }
 
 /* Returns 100 times the system load average. */
 int
 thread_get_load_avg (void) 
 {
-  /* Not yet implemented. */
+  return FP_ROUND (FP_MULT_MIX (load_avg, 100));
   return 0;
 }
 
@@ -441,7 +463,7 @@ thread_get_load_avg (void)
 int
 thread_get_recent_cpu (void) 
 {
-  /* Not yet implemented. */
+  return FP_ROUND (FP_MULT_MIX (thread_current ()->recent_cpu, 100));
   return 0;
 }
 
@@ -536,6 +558,8 @@ init_thread (struct thread *t, const char *name, int priority)
   list_push_back (&all_list, &t->allelem);
   list_init(&(t->locks_acquired));
   t->lock_seeking = NULL;
+  t->recent_cpu = 0;
+  t->nice = 0;
 }
 
 /* Allocates a SIZE-byte frame at the top of thread T's stack and
@@ -824,7 +848,6 @@ managerial_thread_work (void *AUX UNUSED)
   
   while(true)
   {
-    enum intr_level old_level = intr_disable();
  
     /* if threads needs to be waked up, ublock them iteratively. */
     while(!list_empty(&sleeper_list))
@@ -843,8 +866,66 @@ managerial_thread_work (void *AUX UNUSED)
     if(!list_empty(&sleeper_list))
       e_next_wakeup = list_entry(list_begin(&sleeper_list),struct thread,elem)->wakeup_at;
 
+    enum intr_level old_level = intr_disable();
     thread_block();               /* Block the managerial thread. */
-    
     intr_set_level(old_level);   
+  }
+}
+
+/* update the priorities according to the recent_cpu and the niceness */
+static void
+managerial_thread_work2 (void *AUX UNUSED) 
+{
+  managerial_thread2 = thread_current();
+  int readylist_size;
+  struct list_elem *e;
+  struct thread *th;
+  while(true)
+  {
+
+    readylist_size = 1;
+  
+    for (e = list_begin (&ready_list); e != list_end (&ready_list); e = list_next (e))
+    {
+      readylist_size++;
+    }
+
+    if(managerial_thread->status == THREAD_READY || managerial_thread->status == THREAD_RUNNING)  readylist_size--; 
+    if(managerial_thread->status == THREAD_READY || managerial_thread->status == THREAD_RUNNING)  readylist_size--;
+
+    load_avg = FP_ADD (FP_DIV_MIX (FP_MULT_MIX (load_avg, 59), 60), FP_DIV_MIX (FP_CONST (readylist_size), 60));
+
+    for (e = list_begin (&ready_list); e != list_end (&ready_list); e = list_next (e))
+    {
+      th = list_entry(e, struct thread, elem);
+      if( th != managerial_thread && th != managerial_thread2 && th != idle_thread)
+      {
+        /* calculate the recent cpu of each thread in the ready list */
+        int coef = FP_DIV (FP_MULT_MIX (load_avg, 2), FP_ADD_MIX (FP_MULT_MIX (load_avg, 2), 1));
+        int term = FP_MULT (coef, th->recent_cpu);
+        th->recent_cpu = FP_ADD_MIX (term, th->nice);
+
+        /* calculate the new priorities of the threads */
+        int new_priority = FP_CONST (PRI_MAX);
+        new_priority = FP_SUB (new_priority, FP_DIV_MIX (th->recent_cpu, 4));
+        new_priority = FP_SUB_MIX (new_priority, 2 * th->nice);
+        
+        if (new_priority < PRI_MIN)
+          new_priority = PRI_MIN;
+        else if (new_priority > PRI_MAX)
+          new_priority = PRI_MAX;
+
+        th->priority = new_priority; 
+        // th->initial_priority = th->priority;
+        thread_donate_priority(th);
+      }
+    }
+
+    // list_sort(&ready_list, th_before, NULL);
+    // thread_check_prio();
+
+    enum intr_level old_level = intr_disable();
+    thread_block();
+    intr_set_level(old_level);
   }
 }
