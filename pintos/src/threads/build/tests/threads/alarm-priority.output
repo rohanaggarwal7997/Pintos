@@ -1,4 +1,4 @@
-Writing command line to /tmp/712Eg72K5F.dsk...
+Writing command line to /tmp/pfgT19Q5aQ.dsk...
 squish-pty bochs -q
 ========================================================================
                        Bochs x86 Emulator 2.5.1
@@ -8,7 +8,7 @@ squish-pty bochs -q
 Kernel command line: -q run alarm-priority
 Pintos booting with 4,096 kB RAM...
 374 pages available in kernel pool.
-374 pages available in user pool.
+373 pages available in user pool.
 Calibrating timer...  204,600 loops/s.
 Boot complete.
 Executing 'alarm-priority':
@@ -25,8 +25,8 @@ Executing 'alarm-priority':
 (alarm-priority) Thread priority 21 woke up.
 (alarm-priority) end
 Execution of 'alarm-priority' complete.
-Timer: 608 ticks
-Thread: 467 idle ticks, 144 kernel ticks, 0 user ticks
+Timer: 607 ticks
+Thread: 467 idle ticks, 143 kernel ticks, 0 user ticks
 Console: 837 characters output
 Keyboard: 0 keys pressed
 Powering off...

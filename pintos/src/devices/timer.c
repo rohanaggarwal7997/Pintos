@@ -102,19 +102,19 @@ timer_sleep (int64_t ticks)
   int64_t wakeup = start+ticks;           /* calculate the wake up time.  */
   ASSERT (intr_get_level () == INTR_ON);
   
- // set the priority temporarily MAX so that when it wakes up, it is processed first
-  thread_set_temporarily_up();
+  // set the priority temporarily MAX so that when it wakes up, it is processed first
+  // thread_set_temporarily_up();
 
   // send the thread to sleeping state and adds to the sleeper list
-  thread_sleep(wakeup,ticks);
+  thread_sleep(wakeup,start);
   
   // when the thread wakes up,
   
   // it wakes up other threads having the same wakeup time recursively.
-  set_next_wakeup();
+  // set_next_wakeup();
   
   // restore the priority of the thread to the original value
-  thread_restore();	
+  // thread_restore();	
 }
 
 /* Sleeps for approximately MS milliseconds.  Interrupts must be

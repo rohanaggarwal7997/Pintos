@@ -1,4 +1,4 @@
-Writing command line to /tmp/crfynZ5tOR.dsk...
+Writing command line to /tmp/BiBntOSmvQ.dsk...
 squish-pty bochs -q
 ========================================================================
                        Bochs x86 Emulator 2.5.1
@@ -8,7 +8,7 @@ squish-pty bochs -q
 Kernel command line: -q run alarm-multiple
 Pintos booting with 4,096 kB RAM...
 374 pages available in kernel pool.
-374 pages available in user pool.
+373 pages available in user pool.
 Calibrating timer...  204,600 loops/s.
 Boot complete.
 Executing 'alarm-multiple':
@@ -56,7 +56,7 @@ Executing 'alarm-multiple':
 (alarm-multiple) end
 Execution of 'alarm-multiple' complete.
 Timer: 943 ticks
-Thread: 549 idle ticks, 397 kernel ticks, 0 user ticks
+Thread: 550 idle ticks, 396 kernel ticks, 0 user ticks
 Console: 2952 characters output
 Keyboard: 0 keys pressed
 Powering off...
