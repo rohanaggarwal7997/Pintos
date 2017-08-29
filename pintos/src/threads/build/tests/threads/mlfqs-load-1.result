@@ -1,5 +1,1 @@
-FAIL
-Kernel panic in run: PANIC at ../../tests/threads/tests.c:93 in fail(): test failed
-Call stack: 0xc002fed8
-Translation of call stack:
-0xc002fed8: (unknown)
+PASS

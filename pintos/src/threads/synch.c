@@ -226,20 +226,23 @@ lock_acquire (struct lock *lock)
   ASSERT (!intr_context ());
   ASSERT (!lock_held_by_current_thread (lock));
 
-  if (lock->holder != NULL)                           /* priority donation */
-  {                                                   /* while lock has a holder , holder should recieve donation from waiter with highest priority among all it's locks acquired. */
-    t->lock_seeking = lock;
-    l = lock;
-  
-    /* Do nested priority donation. */
-    while (l && t->priority > l->priority )
-    {
-      update_sema_list(&(l->semaphore));                  /*sort the sema list*/
-      l->priority = t->priority;                          /* t is one of threads trying to acquire the lock and its priority is greater than the lock's priority */
-      thread_donate_priority (l->holder);         
-      l = l->holder->lock_seeking;                        /* go one level deeper in the donation chain */
+  // if(!thread_mlfqs)
+  // {
+    if (lock->holder != NULL)                           /* priority donation */
+    {                                                   /* while lock has a holder , holder should recieve donation from waiter with highest priority among all it's locks acquired. */
+      t->lock_seeking = lock;
+      l = lock;
+    
+      /* Do nested priority donation. */
+      while (l && t->priority > l->priority )
+      {
+        update_sema_list(&(l->semaphore));                  /*sort the sema list*/
+        l->priority = t->priority;                          /* t is one of threads trying to acquire the lock and its priority is greater than the lock's priority */
+        thread_donate_priority (l->holder);         
+        l = l->holder->lock_seeking;                        /* go one level deeper in the donation chain */
+      }
     }
-  }
+  // }
 
   sema_down (&lock->semaphore);                           /*lock acquired*/
 
@@ -248,7 +251,7 @@ lock_acquire (struct lock *lock)
   
   t->lock_seeking = NULL;         
 
-  thread_add_lock (lock);                       /* add to thread's locks acquired and change lock's priority*/
+  if(!thread_mlfqs) thread_add_lock (lock);                       /* add to thread's locks acquired and change lock's priority*/
 
   lock->holder = t;
   intr_set_level (old_level);
@@ -292,7 +295,7 @@ lock_release (struct lock *lock)
 
   old_level = intr_disable ();
 
-  thread_remove_lock (lock);
+  if(!thread_mlfqs) thread_remove_lock (lock);
 
   lock->holder = NULL;
   sema_up (&lock->semaphore);

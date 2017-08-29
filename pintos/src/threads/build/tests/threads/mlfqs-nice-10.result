@@ -1,14 +1,1 @@
-FAIL
-Some tick counts were missing or differed from those expected by more than 25.
-thread   actual <-> expected explanation
------- -------- --- -------- ----------------------------------------
-     0      300 <<< 672      Too small, by 347.
-     1      301 <<< 588      Too small, by 262.
-     2      298 <<< 492      Too small, by 169.
-     3      296 <<< 408      Too small, by 87.
-     4      296  =  316      
-     5      296 >>> 232      Too big, by 39.
-     6      297 >>> 152      Too big, by 120.
-     7      296 >>> 92       Too big, by 179.
-     8      297 >>> 40       Too big, by 232.
-     9      297 >>> 8        Too big, by 264.
+PASS

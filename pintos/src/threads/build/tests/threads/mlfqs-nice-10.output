@@ -1,4 +1,4 @@
-Writing command line to /tmp/ECN0TeOmYU.dsk...
+Writing command line to /tmp/tyzQyztqla.dsk...
 squish-pty bochs -q
 ========================================================================
                        Bochs x86 Emulator 2.5.1
@@ -16,20 +16,20 @@ Executing 'mlfqs-nice-10':
 (mlfqs-nice-10) Starting 10 threads...
 (mlfqs-nice-10) Starting threads took 29 ticks.
 (mlfqs-nice-10) Sleeping 40 seconds to let threads run, please wait...
-(mlfqs-nice-10) Thread 0 received 300 ticks.
-(mlfqs-nice-10) Thread 1 received 301 ticks.
-(mlfqs-nice-10) Thread 2 received 298 ticks.
-(mlfqs-nice-10) Thread 3 received 296 ticks.
-(mlfqs-nice-10) Thread 4 received 296 ticks.
-(mlfqs-nice-10) Thread 5 received 296 ticks.
-(mlfqs-nice-10) Thread 6 received 297 ticks.
-(mlfqs-nice-10) Thread 7 received 296 ticks.
-(mlfqs-nice-10) Thread 8 received 297 ticks.
-(mlfqs-nice-10) Thread 9 received 297 ticks.
+(mlfqs-nice-10) Thread 0 received 692 ticks.
+(mlfqs-nice-10) Thread 1 received 585 ticks.
+(mlfqs-nice-10) Thread 2 received 493 ticks.
+(mlfqs-nice-10) Thread 3 received 396 ticks.
+(mlfqs-nice-10) Thread 4 received 309 ticks.
+(mlfqs-nice-10) Thread 5 received 229 ticks.
+(mlfqs-nice-10) Thread 6 received 153 ticks.
+(mlfqs-nice-10) Thread 7 received 93 ticks.
+(mlfqs-nice-10) Thread 8 received 45 ticks.
+(mlfqs-nice-10) Thread 9 received 13 ticks.
 (mlfqs-nice-10) end
 Execution of 'mlfqs-nice-10' complete.
-Timer: 4148 ticks
-Thread: 991 idle ticks, 3160 kernel ticks, 0 user ticks
-Console: 999 characters output
+Timer: 4151 ticks
+Thread: 989 idle ticks, 3165 kernel ticks, 0 user ticks
+Console: 996 characters output
 Keyboard: 0 keys pressed
 Powering off...
