@@ -212,10 +212,10 @@ thread_tick (void)
     }
     else if (timer_ticks() % 4 == 0)
     {
-      enum intr_level old_level = intr_disable();
+      //enum intr_level old_level = intr_disable();
       // mlfqs_priority (thread_current ());
       if(thread_current()->priority != PRI_MIN) thread_current()->priority = thread_current()->priority - 1;
-      intr_set_level(old_level);
+      //intr_set_level(old_level);
     }
   }
 
@@ -457,23 +457,23 @@ thread_get_priority (void)
 
 /* Sets the current thread's nice value to NICE. */
 void
-thread_set_nice (int nice UNUSED) 
+thread_set_nice (int nice ) 
 {
-  enum intr_level old_level = intr_disable ();
+  //enum intr_level old_level = intr_disable ();
   thread_current ()->nice = nice;
-  mlfqs_priority (thread_current ());
-  thread_check_prio ();
-  intr_set_level (old_level);
+  //mlfqs_priority (thread_current ());
+  //thread_check_prio ();
+  //intr_set_level (old_level);
 }
 
 /* Returns the current thread's nice value. */
 int
 thread_get_nice (void) 
 {
-  enum intr_level old_level = intr_disable ();
-  int nice = thread_current ()->nice;
-  intr_set_level (old_level);
-  return nice;
+  //enum intr_level old_level = intr_disable ();
+  //int nice = thread_current ()->nice;
+  //intr_set_level (old_level);
+  return thread_current ()->nice;
 }
 
 /* Returns 100 times the system load average. */
@@ -984,6 +984,7 @@ mlfqs_recalculate (void)
       mlfqs_recent_cpu (t);
       mlfqs_priority (t);
     }
+  update_ready_list();
 }
 
 /* Managerial Thread to manage the mlfqs. */
@@ -997,8 +998,8 @@ managerial_thread_work2(void *AUX)
     
     enum intr_level old_level = intr_disable();
     
+      mlfqs_recalculate ();
     mlfqs_load_avg ();
-    mlfqs_recalculate ();
 
     thread_block();
     intr_set_level(old_level);

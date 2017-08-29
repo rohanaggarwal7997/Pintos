@@ -19,7 +19,7 @@ pass tests/threads/priority-donate-chain
 pass tests/threads/mlfqs-load-1
 pass tests/threads/mlfqs-load-60
 pass tests/threads/mlfqs-load-avg
-FAIL tests/threads/mlfqs-recent-1
+pass tests/threads/mlfqs-recent-1
 pass tests/threads/mlfqs-fair-2
 pass tests/threads/mlfqs-fair-20
 pass tests/threads/mlfqs-nice-2
