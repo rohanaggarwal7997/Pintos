@@ -38,8 +38,11 @@ process_execute (const char *file_name)
     return TID_ERROR;
   strlcpy (fn_copy, file_name, PGSIZE);
 
+  char *save_ptr = NULL,
+        *file_name_copy = strtok_r(file_name, " ", save_ptr);     /* Filename is extracted from the passed cmdline. */
+
   /* Create a new thread to execute FILE_NAME. */
-  tid = thread_create (file_name, PRI_DEFAULT, start_process, fn_copy);
+  tid = thread_create (file_name_copy, PRI_DEFAULT, start_process, fn_copy);
   if (tid == TID_ERROR)
     palloc_free_page (fn_copy); 
   return tid;
@@ -195,7 +198,7 @@ struct Elf32_Phdr
 #define PF_W 2          /* Writable. */
 #define PF_R 4          /* Readable. */
 
-static bool setup_stack (void **esp);
+static bool setup_stack (void **esp, char* file_name);
 static bool validate_segment (const struct Elf32_Phdr *, struct file *);
 static bool load_segment (struct file *file, off_t ofs, uint8_t *upage,
                           uint32_t read_bytes, uint32_t zero_bytes,
@@ -302,7 +305,7 @@ load (const char *file_name, void (**eip) (void), void **esp)
     }
 
   /* Set up stack. */
-  if (!setup_stack (esp))
+  if (!setup_stack (esp, file_name))
     goto done;
 
   /* Start address. */
@@ -427,20 +430,84 @@ load_segment (struct file *file, off_t ofs, uint8_t *upage,
 /* Create a minimal stack by mapping a zeroed page at the top of
    user virtual memory. */
 static bool
-setup_stack (void **esp) 
+setup_stack (void **esp, char *file_name) 
 {
   uint8_t *kpage;
   bool success = false;
 
   kpage = palloc_get_page (PAL_USER | PAL_ZERO);
   if (kpage != NULL) 
+  {
+    success = install_page (((uint8_t *) PHYS_BASE) - PGSIZE, kpage, true);
+    if (success)
     {
-      success = install_page (((uint8_t *) PHYS_BASE) - PGSIZE, kpage, true);
-      if (success)
-        *esp = PHYS_BASE - 12;
-      else
-        palloc_free_page (kpage);
+      *esp = PHYS_BASE ;
+      
+      /* Setuping up the stack with the 'argv' and 'argc'. */
+      char *fn_copy = (char*)malloc(strlen(file_name) +1);
+      strlcpy(fn_copy, file_name, strlen(file_name)+1);
+
+      int pointers_to_arg[strlen(file_name) + 1]; 
+      int p = 0;
+
+      char *save_ptr = NULL; 
+
+      char *v = strtok_r(fn_copy, " ", save_ptr);
+      int align = 0;
+      while( v!= NULL)
+      {
+        *esp -= strlen(v) + 1;                    /* Stack pointer grows downwards by the length of the argument + 1 (for '\0'). */
+        *esp = memcpy(*esp, v, strlen(v) + 1);     /* Copy the argument to the stack. */
+
+        pointers_to_arg[p++] = *esp;
+
+        align = (align + strlen(v) + 1) %4;
+
+        v = strtok_r(NULL, " ", save_ptr);
+      }
+      int argc = p;
+
+      const uint8_t z = 0;
+
+      while(align!=0)
+      {
+        *esp -= 1;
+        *esp = memcpy(*esp, &z, 1);
+        align = (align+1)%4;
+      }
+
+      /* Push 0. for C Convention. */
+      char * Z = "0000";
+      *esp -= 4;
+      *esp = memcpy(*esp, Z, 4);
+
+      int **argv;
+      /* Push the argumnets. */
+      while(p--)
+      {
+        *esp -= 4;
+        *esp = memcpy(*esp, &pointers_to_arg[p], 4);
+        *argv = *esp;
+      }
+
+      /* Push argv. */
+      *esp -= 4;
+      *esp = memcpy(*esp, argv, 4);
+      
+      /* PUsh the argc. */
+      *esp -= 4;
+      *esp = memcpy(*esp, &argc, 4);
+      
+      /* Fake return address. */
+      void *fake_return;
+      *esp -= 4;
+      *esp = memcpy(*esp, fake_return, 4);
     }
+    else
+    {
+      palloc_free_page (kpage);
+    }
+  } 
   return success;
 }
 
