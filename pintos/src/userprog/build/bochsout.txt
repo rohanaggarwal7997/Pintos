@@ -29,7 +29,7 @@
 00000000000i[     ]   SB16 support: no
 00000000000i[     ]   USB support: no
 00000000000i[     ]   VGA extension support: vbe 
-00000000000i[MEM0 ] allocated memory at 0x2ab42fd89010. after alignment, vector=0x2ab42fd8a000
+00000000000i[MEM0 ] allocated memory at 0x2b0843bb8010. after alignment, vector=0x2b0843bb9000
 00000000000i[MEM0 ] 4.00MB
 00000000000i[MEM0 ] mem block size = 0x00100000, blocks=4
 00000000000i[MEM0 ] rom at 0xfffe0000/131072 ('/usr/local/share/bochs/BIOS-bochs-latest')
@@ -54,15 +54,12 @@
 00000000000i[     ] init_dev of 'keyboard' plugin device by virtual method
 00000000000i[KBD  ] will paste characters every 1000 keyboard ticks
 00000000000i[     ] init_dev of 'harddrv' plugin device by virtual method
-00000000000i[HD   ] HD on ata0-0: '/tmp/A3q8YQRifU.dsk', 'flat' mode
+00000000000i[HD   ] HD on ata0-0: '/tmp/69UZwWsPrC.dsk', 'flat' mode
 00000000000i[IMG  ] hd_size: 516096
 00000000000i[HD   ] ata0-0: using specified geometry: CHS=1/16/63
-00000000000i[HD   ] HD on ata0-1: 'fs.dsk', 'flat' mode
+00000000000i[HD   ] HD on ata0-1: '/home/CS342/2017/STUD/group24/pintos/src/userprog/build/fs.dsk', 'flat' mode
 00000000000i[IMG  ] hd_size: 2064384
 00000000000i[HD   ] ata0-1: using specified geometry: CHS=4/16/63
-00000000000i[HD   ] HD on ata1-0: '/tmp/E6enaKpUfT.dsk', 'flat' mode
-00000000000i[IMG  ] hd_size: 516096
-00000000000i[HD   ] ata1-0: using specified geometry: CHS=1/16/63
 00000000000i[HD   ] Using boot sequence disk, none, none
 00000000000i[HD   ] Floppy boot signature check is enabled
 00000000000i[     ] init_dev of 'serial' plugin device by virtual method
@@ -116,28 +113,66 @@
 00000491565i[VBIOS] VBE Bios $Id: vbe.c,v 1.64 2011/07/19 18:25:05 vruppert Exp $
 00000837438i[BIOS ] ata0-0: PCHS=1/16/63 translation=none LCHS=1/16/63
 00000895458i[BIOS ] ata0-1: PCHS=4/16/63 translation=none LCHS=4/16/63
-00000953486i[BIOS ] ata1-0: PCHS=1/16/63 translation=none LCHS=1/16/63
-00004834910i[BIOS ] IDE time out
-00007885059i[BIOS ] Booting from 0000:7c00
-00010493990p[UNMP ] >>PANIC<< Shutdown port: shutdown requested
-00010493990i[CPU0 ] CPU is in protected mode (active)
-00010493990i[CPU0 ] CS.mode = 32 bit
-00010493990i[CPU0 ] SS.mode = 32 bit
-00010493990i[CPU0 ] | EAX=0000006e  EBX=c002ff82  ECX=ffff8900  EDX=ffff8900
-00010493990i[CPU0 ] | ESP=c002ff70  EBP=c002ff88  ESI=00000000  EDI=c0114c00
-00010493990i[CPU0 ] | IOPL=0 id vip vif ac vm rf nt of df IF tf sf zf af pf cf
-00010493990i[CPU0 ] | SEG sltr(index|ti|rpl)     base    limit G D
-00010493990i[CPU0 ] |  CS:0008( 0001| 0|  0) 00000000 ffffffff 1 1
-00010493990i[CPU0 ] |  DS:0010( 0002| 0|  0) 00000000 ffffffff 1 1
-00010493990i[CPU0 ] |  SS:0010( 0002| 0|  0) 00000000 ffffffff 1 1
-00010493990i[CPU0 ] |  ES:0010( 0002| 0|  0) 00000000 ffffffff 1 1
-00010493990i[CPU0 ] |  FS:0010( 0002| 0|  0) 00000000 ffffffff 1 1
-00010493990i[CPU0 ] |  GS:0010( 0002| 0|  0) 00000000 ffffffff 1 1
-00010493990i[CPU0 ] | EIP=c0100079 (c0100078)
-00010493990i[CPU0 ] | CR0=0xe0010015 CR2=0x00000000
-00010493990i[CPU0 ] | CR3=0x00114000 CR4=0x00000000
-00010493990i[CPU0 ] 0xc0100078>> out dx, al : EE
-00010493990i[CMOS ] Last time is 10 (Thu Jan  1 05:30:10 1970)
-00010493990i[NGUI ] bx_nogui_gui_c::exit() not implemented yet.
-00010493990i[     ] restoring default signal behavior
-00010493990i[CTRL ] quit_sim called with exit code 1
+00003985357i[BIOS ] Booting from 0000:7c00
+00066302496i[NGUI ] ips = 66.302M
+00133083513i[NGUI ] ips = 66.781M
+00199855471i[NGUI ] ips = 66.772M
+00266624426i[NGUI ] ips = 66.769M
+00333394921i[NGUI ] ips = 66.770M
+00400171770i[NGUI ] ips = 66.777M
+00466945411i[NGUI ] ips = 66.774M
+00533720114i[NGUI ] ips = 66.775M
+00600499689i[NGUI ] ips = 66.780M
+00667276497i[NGUI ] ips = 66.777M
+00734087720i[NGUI ] ips = 66.811M
+00800860992i[NGUI ] ips = 66.773M
+00867643912i[NGUI ] ips = 66.783M
+00934439393i[NGUI ] ips = 66.795M
+01001220696i[NGUI ] ips = 66.781M
+01068011727i[NGUI ] ips = 66.791M
+01134772568i[NGUI ] ips = 66.761M
+01201533448i[NGUI ] ips = 66.761M
+01268346812i[NGUI ] ips = 66.813M
+01335136184i[NGUI ] ips = 66.789M
+01401916045i[NGUI ] ips = 66.780M
+01468704557i[NGUI ] ips = 66.789M
+01535500472i[NGUI ] ips = 66.796M
+01602291585i[NGUI ] ips = 66.791M
+01669091344i[NGUI ] ips = 66.800M
+01735874287i[NGUI ] ips = 66.783M
+01802649616i[NGUI ] ips = 66.775M
+01869429500i[NGUI ] ips = 66.780M
+01936211710i[NGUI ] ips = 66.782M
+02003032971i[NGUI ] ips = 66.821M
+02069849402i[NGUI ] ips = 66.816M
+02136662058i[NGUI ] ips = 66.813M
+02203481902i[NGUI ] ips = 66.820M
+02270283752i[NGUI ] ips = 66.802M
+02337080418i[NGUI ] ips = 66.797M
+02403865685i[NGUI ] ips = 66.785M
+02470674226i[NGUI ] ips = 66.809M
+02537471802i[NGUI ] ips = 66.798M
+02604295609i[NGUI ] ips = 66.824M
+02671118989i[NGUI ] ips = 66.823M
+02681820731p[     ] >>PANIC<< SIGNAL 2 caught
+02681820731i[CPU0 ] CPU is in protected mode (active)
+02681820731i[CPU0 ] CS.mode = 32 bit
+02681820731i[CPU0 ] SS.mode = 32 bit
+02681820731i[CPU0 ] | EAX=00000003  EBX=c0007d82  ECX=c011b028  EDX=c0110530
+02681820731i[CPU0 ] | ESP=c002ff68  EBP=c002ff68  ESI=c0007d7e  EDI=c0113c00
+02681820731i[CPU0 ] | IOPL=0 id vip vif ac vm rf nt of df IF tf sf zf AF pf CF
+02681820731i[CPU0 ] | SEG sltr(index|ti|rpl)     base    limit G D
+02681820731i[CPU0 ] |  CS:0008( 0001| 0|  0) 00000000 ffffffff 1 1
+02681820731i[CPU0 ] |  DS:0010( 0002| 0|  0) 00000000 ffffffff 1 1
+02681820731i[CPU0 ] |  SS:0010( 0002| 0|  0) 00000000 ffffffff 1 1
+02681820731i[CPU0 ] |  ES:0010( 0002| 0|  0) 00000000 ffffffff 1 1
+02681820731i[CPU0 ] |  FS:0010( 0002| 0|  0) 00000000 ffffffff 1 1
+02681820731i[CPU0 ] |  GS:0010( 0002| 0|  0) 00000000 ffffffff 1 1
+02681820731i[CPU0 ] | EIP=c0109953 (c0109953)
+02681820731i[CPU0 ] | CR0=0xe0010015 CR2=0x00000000
+02681820731i[CPU0 ] | CR3=0x00113000 CR4=0x00000000
+02681820731i[CPU0 ] 0xc0109953>> jmp .-2 (0xc0109953) : EBFE
+02681820731i[CMOS ] Last time is 2681 (Thu Jan  1 06:14:41 1970)
+02681820731i[NGUI ] bx_nogui_gui_c::exit() not implemented yet.
+02681820731i[     ] restoring default signal behavior
+02681820731i[CTRL ] quit_sim called with exit code 1
