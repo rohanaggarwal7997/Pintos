@@ -3,5 +3,6 @@ threads/interrupt.o: ../../threads/interrupt.c ../../threads/interrupt.h \
   ../../lib/inttypes.h ../../lib/stdio.h ../../lib/stdarg.h \
   ../../lib/stddef.h ../../lib/kernel/stdio.h ../../threads/flags.h \
   ../../threads/intr-stubs.h ../../threads/io.h ../../threads/thread.h \
-  ../../lib/kernel/list.h ../../threads/vaddr.h ../../threads/loader.h \
-  ../../devices/timer.h ../../lib/round.h
+  ../../lib/kernel/list.h ../../lib/kernel/list.h ../../threads/synch.h \
+  ../../threads/vaddr.h ../../threads/loader.h ../../devices/timer.h \
+  ../../lib/round.h

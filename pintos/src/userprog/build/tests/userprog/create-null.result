@@ -1,5 +1,5 @@
 FAIL
-Kernel panic in run: PANIC at ../../lib/string.c:240 in strtok_r(): assertion `save_ptr != NULL' failed.
-Call stack: 0xc002ff08
+Kernel panic in run: PANIC at ../../filesys/directory.c:149 in dir_add(): assertion `name != NULL' failed.
+Call stack: 0xc011dec4c
 Translation of call stack:
-0xc002ff08: (unknown)
+0xc011dec4c: (unknown)

@@ -1,5 +1,57 @@
 FAIL
-Kernel panic in run: PANIC at ../../lib/string.c:240 in strtok_r(): assertion `save_ptr != NULL' failed.
-Call stack: 0xc002ff08
-Translation of call stack:
-0xc002ff08: (unknown)
+Test output failed to match any acceptable form.
+
+Acceptable output:
+  (exec-missing) begin
+  load: no-such-file: open failed
+  (exec-missing) exec("no-such-file"): -1
+  no-such-file: exit(-1)
+  (exec-missing) end
+  exec-missing: exit(0)
+Differences in `diff -u' format:
+  (exec-missing) begin
+- load: no-such-file: open failed
+- (exec-missing) exec("no-such-file"): -1
+- no-such-file: exit(-1)
+- (exec-missing) end
+- exec-missing: exit(0)
++ exec-missing: exit(-1)
+Acceptable output:
+  (exec-missing) begin
+  load: no-such-file: open failed
+  (exec-missing) exec("no-such-file"): -1
+  (exec-missing) end
+  exec-missing: exit(0)
+Differences in `diff -u' format:
+  (exec-missing) begin
+- load: no-such-file: open failed
+- (exec-missing) exec("no-such-file"): -1
+- (exec-missing) end
+- exec-missing: exit(0)
++ exec-missing: exit(-1)
+Acceptable output:
+  (exec-missing) begin
+  load: no-such-file: open failed
+  no-such-file: exit(-1)
+  (exec-missing) exec("no-such-file"): -1
+  (exec-missing) end
+  exec-missing: exit(0)
+Differences in `diff -u' format:
+  (exec-missing) begin
+- load: no-such-file: open failed
+- no-such-file: exit(-1)
+- (exec-missing) exec("no-such-file"): -1
+- (exec-missing) end
+- exec-missing: exit(0)
++ exec-missing: exit(-1)
+Acceptable output:
+  (exec-missing) begin
+  (exec-missing) exec("no-such-file"): -1
+  (exec-missing) end
+  exec-missing: exit(0)
+Differences in `diff -u' format:
+  (exec-missing) begin
+- (exec-missing) exec("no-such-file"): -1
+- (exec-missing) end
+- exec-missing: exit(0)
++ exec-missing: exit(-1)

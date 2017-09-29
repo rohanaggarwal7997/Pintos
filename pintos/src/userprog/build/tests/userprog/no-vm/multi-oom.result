@@ -1,5 +1,15 @@
 FAIL
-Kernel panic in run: PANIC at ../../lib/string.c:240 in strtok_r(): assertion `save_ptr != NULL' failed.
-Call stack: 0xc002ff08
-Translation of call stack:
-0xc002ff08: (unknown)
+Test output failed to match any acceptable form.
+
+Acceptable output:
+  (multi-oom) begin
+  (multi-oom) success. program forked 10 times.
+  (multi-oom) end
+Differences in `diff -u' format:
+  (multi-oom) begin
+- (multi-oom) success. program forked 10 times.
+- (multi-oom) end
+
+(Process exit codes are excluded for matching purposes.)
+
+(User fault messages are excluded for matching purposes.)

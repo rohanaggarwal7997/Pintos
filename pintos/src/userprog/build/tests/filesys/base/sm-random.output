@@ -1,39 +1,32 @@
 Copying tests/filesys/base/sm-random to scratch partition...
-Writing command line to /tmp/vZnk6uvVXx.dsk...
-squish-pty bochs -q
-========================================================================
-                       Bochs x86 Emulator 2.5.1
-              Built from SVN snapshot on January 6, 2012
-                  Compiled on Oct 10 2012 at 11:12:02
-========================================================================
+Writing command line to /tmp/ty2VbWzNQu.dsk...
+qemu -hda /tmp/ty2VbWzNQu.dsk -hdb /tmp/IwWPkCOO4i.dsk -hdc /tmp/8ZrmlNNHc6.dsk -m 4 -net none -nographic -monitor null
 Kernel command line: -q -f extract run sm-random
 Pintos booting with 4,096 kB RAM...
-374 pages available in kernel pool.
+373 pages available in kernel pool.
 373 pages available in user pool.
-Calibrating timer...  204,600 loops/s.
-hd0:0: detected 1,008 sector (504 kB) disk, model "Generic 1234", serial "BXHD00011"
-hd0:1: detected 4,032 sector (1 MB) disk, model "Generic 1234", serial "BXHD00012"
-hd1:0: detected 1,008 sector (504 kB) disk, model "Generic 1234", serial "BXHD00021"
+Calibrating timer...  111,206,400 loops/s.
+hd0:0: detected 145 sector (72 kB) disk, model "QEMU HARDDISK", serial "QM00001"
+hd0:1: detected 4,032 sector (1 MB) disk, model "QEMU HARDDISK", serial "QM00002"
+hd1:0: detected 103 sector (51 kB) disk, model "QEMU HARDDISK", serial "QM00003"
 Formatting file system...done.
 Boot complete.
 Extracting ustar archive from scratch disk into file system...
 Putting 'sm-random' into the file system...
 Erasing ustar archive...
 Executing 'sm-random':
-Kernel PANIC at ../../lib/string.c:240 in strtok_r(): assertion `save_ptr != NULL' failed.
-Call stack: 0xc002ff08Page fault at 0xf0: not present error reading page in kernel context.
-Interrupt 0x0e (#PF Page-Fault Exception) at eip=0xc010636f
- cr2=000000f0 error=00000000
- eax=000000f0 ebx=000000f0 ecx=c002fe34 edx=000003d4
- esi=c010e04a edi=c010f774 esp=c010f5ef ebp=c002fec8
- cs=0008 ds=0010 es=0010 ss=ff08
-Kernel PANIC recursion at ../../userprog/exception.c:100 in kill().
-Timer: 307 ticks
-Thread: 30 idle ticks, 277 kernel ticks, 0 user ticks
+(sm-random) begin
+(sm-random) create "bazzle"
+(sm-random) open "bazzle"
+(sm-random) write "bazzle" in random order
+sm-random: exit(-1)
+Execution of 'sm-random' complete.
+Timer: 88 ticks
+Thread: 30 idle ticks, 56 kernel ticks, 2 user ticks
 hd0:0: 0 reads, 0 writes
-hd0:1: 30 reads, 210 writes
+hd0:1: 90 reads, 218 writes
 hd1:0: 102 reads, 2 writes
-Console: 1278 characters output
+Console: 962 characters output
 Keyboard: 0 keys pressed
 Exception: 1 page faults
 Powering off...

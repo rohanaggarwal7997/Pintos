@@ -4,4 +4,5 @@ tests/threads/alarm-simultaneous.o:  \
   ../../lib/stddef.h ../../lib/stdint.h ../../lib/kernel/stdio.h \
   ../../tests/threads/tests.h ../../threads/init.h ../../threads/malloc.h \
   ../../threads/synch.h ../../lib/kernel/list.h ../../threads/thread.h \
-  ../../devices/timer.h ../../lib/round.h
+  ../../lib/kernel/list.h ../../threads/synch.h ../../devices/timer.h \
+  ../../lib/round.h

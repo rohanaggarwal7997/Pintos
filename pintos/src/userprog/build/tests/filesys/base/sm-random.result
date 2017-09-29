@@ -1,5 +1,21 @@
 FAIL
-Kernel panic in run: PANIC at ../../lib/string.c:240 in strtok_r(): assertion `save_ptr != NULL' failed.
-Call stack: 0xc002ff08
-Translation of call stack:
-0xc002ff08: (unknown)
+Test output failed to match any acceptable form.
+
+Acceptable output:
+  (sm-random) begin
+  (sm-random) create "bazzle"
+  (sm-random) open "bazzle"
+  (sm-random) write "bazzle" in random order
+  (sm-random) read "bazzle" in random order
+  (sm-random) close "bazzle"
+  (sm-random) end
+Differences in `diff -u' format:
+  (sm-random) begin
+  (sm-random) create "bazzle"
+  (sm-random) open "bazzle"
+  (sm-random) write "bazzle" in random order
+- (sm-random) read "bazzle" in random order
+- (sm-random) close "bazzle"
+- (sm-random) end
+
+(Process exit codes are excluded for matching purposes.)

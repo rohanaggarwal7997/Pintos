@@ -1,5 +1,14 @@
 FAIL
-Kernel panic in run: PANIC at ../../lib/string.c:240 in strtok_r(): assertion `save_ptr != NULL' failed.
-Call stack: 0xc002ff08
-Translation of call stack:
-0xc002ff08: (unknown)
+Test output failed to match any acceptable form.
+
+Acceptable output:
+  (read-boundary) begin
+  (read-boundary) open "sample.txt"
+  (read-boundary) end
+  read-boundary: exit(0)
+Differences in `diff -u' format:
+  (read-boundary) begin
+  (read-boundary) open "sample.txt"
+- (read-boundary) end
+- read-boundary: exit(0)
++ read-boundary: exit(-1)

@@ -8,16 +8,18 @@ ENTRY(start)
 SECTIONS
 {
 
-  . = 0xc0000000 + 0x100000;
+  _start = 0xc0000000 + 0x20000;
 
-  _start = .;
+
+  . = _start + SIZEOF_HEADERS;
 
 
   .text : { *(.start) *(.text) } = 0x90
   .rodata : { *(.rodata) *(.rodata.*)
        . = ALIGN(0x1000);
        _end_kernel_text = .; }
-  .data : { *(.data) }
+  .data : { *(.data)
+     _signature = .; LONG(0xaa55aa55) }
 
 
   _start_bss = .;
@@ -25,4 +27,6 @@ SECTIONS
   _end_bss = .;
 
   _end = .;
+
+  ASSERT (_end - _start <= 512K, "Kernel image is too big.")
 }

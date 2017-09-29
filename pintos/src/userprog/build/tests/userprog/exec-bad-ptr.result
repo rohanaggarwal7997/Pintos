@@ -1,5 +1,20 @@
 FAIL
-Kernel panic in run: PANIC at ../../lib/string.c:240 in strtok_r(): assertion `save_ptr != NULL' failed.
-Call stack: 0xc002ff08
-Translation of call stack:
-0xc002ff08: (unknown)
+Test output failed to match any acceptable form.
+
+Acceptable output:
+  (exec-bad-ptr) begin
+  (exec-bad-ptr) end
+  exec-bad-ptr: exit(0)
+Differences in `diff -u' format:
+  (exec-bad-ptr) begin
+- (exec-bad-ptr) end
+- exec-bad-ptr: exit(0)
++ (exec-bad-ptr) open "sample.txt" for verification
++ exec-bad-ptr: exit(-1)
+Acceptable output:
+  (exec-bad-ptr) begin
+  exec-bad-ptr: exit(-1)
+Differences in `diff -u' format:
+  (exec-bad-ptr) begin
++ (exec-bad-ptr) open "sample.txt" for verification
+  exec-bad-ptr: exit(-1)

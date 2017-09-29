@@ -1,5 +1,18 @@
 FAIL
-Kernel panic in run: PANIC at ../../lib/string.c:240 in strtok_r(): assertion `save_ptr != NULL' failed.
-Call stack: 0xc002ff08
-Translation of call stack:
-0xc002ff08: (unknown)
+Test output failed to match any acceptable form.
+
+Acceptable output:
+  (rox-simple) begin
+  (rox-simple) open "rox-simple"
+  (rox-simple) read "rox-simple"
+  (rox-simple) try to write "rox-simple"
+  (rox-simple) end
+  rox-simple: exit(0)
+Differences in `diff -u' format:
+  (rox-simple) begin
+  (rox-simple) open "rox-simple"
+  (rox-simple) read "rox-simple"
+- (rox-simple) try to write "rox-simple"
+- (rox-simple) end
+- rox-simple: exit(0)
++ rox-simple: exit(-1)
