@@ -1,7 +1,5 @@
 userprog/tss.o: ../../userprog/tss.c ../../userprog/tss.h \
   ../../lib/stdint.h ../../lib/debug.h ../../lib/stddef.h \
   ../../userprog/gdt.h ../../threads/loader.h ../../threads/thread.h \
-  ../../lib/kernel/list.h ../../lib/stdbool.h ../../threads/alarm.h \
-  ../../devices/timer.h ../../lib/round.h ../../threads/interrupt.h \
-  ../../threads/synch.h ../../threads/palloc.h ../../threads/vaddr.h \
-  ../../threads/loader.h
+  ../../lib/kernel/list.h ../../lib/stdbool.h ../../threads/palloc.h \
+  ../../threads/vaddr.h ../../threads/loader.h

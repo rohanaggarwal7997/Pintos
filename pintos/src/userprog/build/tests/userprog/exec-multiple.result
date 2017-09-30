@@ -1,28 +1,5 @@
 FAIL
-Test output failed to match any acceptable form.
-
-Acceptable output:
-  (exec-multiple) begin
-  (child-simple) run
-  child-simple: exit(81)
-  (child-simple) run
-  child-simple: exit(81)
-  (child-simple) run
-  child-simple: exit(81)
-  (child-simple) run
-  child-simple: exit(81)
-  (exec-multiple) end
-  exec-multiple: exit(0)
-Differences in `diff -u' format:
-  (exec-multiple) begin
-- (child-simple) run
-- child-simple: exit(81)
-- (child-simple) run
-- child-simple: exit(81)
-- (child-simple) run
-- child-simple: exit(81)
-- (child-simple) run
-- child-simple: exit(81)
-- (exec-multiple) end
-- exec-multiple: exit(0)
-+ exec-multiple: exit(-1)
+Kernel panic in run: PANIC at ../../userprog/exception.c:100 in kill(): Kernel bug - unexpected interrupt in kernel
+Call stack: 0xc011fe74
+Translation of call stack:
+0xc011fe74: (unknown)

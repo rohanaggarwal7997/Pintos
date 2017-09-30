@@ -1,14 +1,19 @@
 Copying tests/userprog/args-none to scratch partition...
-Writing command line to /tmp/dgIvn8yq0f.dsk...
-qemu -hda /tmp/dgIvn8yq0f.dsk -hdb /tmp/iIphyuoTgJ.dsk -hdc /tmp/b63wYzJx7Y.dsk -m 4 -net none -nographic -monitor null
+Writing command line to /tmp/6hgdjGk2dJ.dsk...
+squish-pty bochs -q
+========================================================================
+                       Bochs x86 Emulator 2.5.1
+              Built from SVN snapshot on January 6, 2012
+                  Compiled on Oct 10 2012 at 11:12:02
+========================================================================
 Kernel command line: -q -f extract run args-none
 Pintos booting with 4,096 kB RAM...
 373 pages available in kernel pool.
 373 pages available in user pool.
-Calibrating timer...  157,081,600 loops/s.
-hd0:0: detected 145 sector (72 kB) disk, model "QEMU HARDDISK", serial "QM00001"
-hd0:1: detected 4,032 sector (1 MB) disk, model "QEMU HARDDISK", serial "QM00002"
-hd1:0: detected 96 sector (48 kB) disk, model "QEMU HARDDISK", serial "QM00003"
+Calibrating timer...  204,600 loops/s.
+hd0:0: detected 1,008 sector (504 kB) disk, model "Generic 1234", serial "BXHD00011"
+hd0:1: detected 4,032 sector (1 MB) disk, model "Generic 1234", serial "BXHD00012"
+hd1:0: detected 1,008 sector (504 kB) disk, model "Generic 1234", serial "BXHD00021"
 Formatting file system...done.
 Boot complete.
 Extracting ustar archive from scratch disk into file system...
@@ -22,12 +27,12 @@ Executing 'args-none':
 (args) end
 args-none: exit(0)
 Execution of 'args-none' complete.
-Timer: 79 ticks
-Thread: 30 idle ticks, 49 kernel ticks, 0 user ticks
+Timer: 392 ticks
+Thread: 30 idle ticks, 318 kernel ticks, 47 user ticks
 hd0:0: 0 reads, 0 writes
-hd0:1: 62 reads, 196 writes
+hd0:1: 59 reads, 196 writes
 hd1:0: 95 reads, 2 writes
-Console: 935 characters output
+Console: 944 characters output
 Keyboard: 0 keys pressed
 Exception: 0 page faults
 Powering off...

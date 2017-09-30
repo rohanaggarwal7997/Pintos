@@ -1,32 +1,5 @@
 FAIL
-Test output failed to match any acceptable form.
-
-Acceptable output:
-  (rox-child) begin
-  (rox-child) open "child-rox"
-  (rox-child) read "child-rox"
-  (rox-child) write "child-rox"
-  (rox-child) exec "child-rox 1"
-  (child-rox) begin
-  (child-rox) try to write "child-rox"
-  (child-rox) try to write "child-rox"
-  (child-rox) end
-  child-rox: exit(12)
-  (rox-child) write "child-rox"
-  (rox-child) end
-  rox-child: exit(0)
-Differences in `diff -u' format:
-  (rox-child) begin
-  (rox-child) open "child-rox"
-  (rox-child) read "child-rox"
-- (rox-child) write "child-rox"
-- (rox-child) exec "child-rox 1"
-- (child-rox) begin
-- (child-rox) try to write "child-rox"
-- (child-rox) try to write "child-rox"
-- (child-rox) end
-- child-rox: exit(12)
-- (rox-child) write "child-rox"
-- (rox-child) end
-- rox-child: exit(0)
-+ rox-child: exit(-1)
+Kernel panic in run: PANIC at ../../userprog/exception.c:100 in kill(): Kernel bug - unexpected interrupt in kernel
+Call stack: 0xc011fe74
+Translation of call stack:
+0xc011fe74: (unknown)

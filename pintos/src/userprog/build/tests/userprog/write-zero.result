@@ -1,1 +1,5 @@
-PASS
+FAIL
+Kernel panic in run: PANIC at ../../userprog/exception.c:100 in kill(): Kernel bug - unexpected interrupt in kernel
+Call stack: 0xc011fe74
+Translation of call stack:
+0xc011fe74: (unknown)

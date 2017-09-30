@@ -1,1 +1,1 @@
-threads/start.o: ../../threads/start.S ../../threads/loader.h
+threads/start.o: ../../threads/start.S

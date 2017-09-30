@@ -1,26 +1,76 @@
-/* This file is fully designed and created by Christopher Xu
- * See README at root directory for details
- */
- 
-#ifndef THREADS_FIXED_POINT_H
-#define THREADS_FIXED_POINT_H
+/* Assume that x and y are fixed-point numbers, and n is an integer. */
+/* Fixed point numbers are in signed p : q format, where p + q = 31, and f is 1 << q. */
+/* As in B.6 Fixed-Point Real Arithmetic, we assume p = 17, q = 14 here. */
 
-#define fp_t int
-#define P 17
-#define Q 14
-#define FRACTION 1<<(Q)
+#define f (1 << 14)
+#define INT_MAX ((1 << 31) - 1)
+#define INT_MIN (-(1 << 31))
 
-#if P + Q != 31
-#error "FATAL ERROR: P + Q != 31."
-#endif
+int 
+convert_n_to_fixed_point (int n)
+{
+  return n * f;
+}
 
-#define INT_ADD(x, n) (x) + (n) * (FRACTION)
-#define INT_SUB(x, n) (x) - (n) * (FRACTION)
-#define CONVERT_TO_FP(x) (x) * (FRACTION)
-#define CONVERT_TO_INT_ZERO(x) (x) / (FRACTION)
-#define CONVERT_TO_INT_NEAR(x) ((x) >= 0 ? ((x) + (FRACTION) / 2) / (FRACTION) : ((x) - (FRACTION) / 2) / (FRACTION))
-#define FP_MUL(x, y) ((int64_t)(x)) * (y) / (FRACTION)
-#define FP_DIV(x, y) ((int64_t)(x)) * (FRACTION) / (y)
+int 
+convert_x_to_integer_zero (int x)
+{
+  return x / f;
+}
 
+int 
+convert_x_to_integer_nearest (int x)
+{
+  if (x >= 0)
+    return (x + f / 2) / f;
+  else	
+    return (x - f / 2) / f;
+}
 
-#endif /* threads/fixed-point.h */
+int 
+add_x_and_y(int x, int y)
+{
+  return x + y;
+}
+
+int 
+substract_y_from_x (int x, int y)
+{
+  return x - y;
+}
+
+int 
+add_x_and_n (int x, int n)
+{
+  return x + n * f;	
+}
+
+int 
+substract_n_from_x (int x, int n)
+{
+  return x - n * f; 
+}
+
+int 
+multiply_x_by_y (int x, int y)
+{
+  return ((int64_t)x) * y / f;
+}
+
+int 
+multiply_x_by_n (int x, int y)
+{
+  return x * y;
+}
+
+int 
+divide_x_by_y (int x, int y)
+{
+  return ((int64_t)x) * f / y;	
+}
+
+int 
+divide_x_by_n (int x, int y)
+{
+  return x / y;
+}

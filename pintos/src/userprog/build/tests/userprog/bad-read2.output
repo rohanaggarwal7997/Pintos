@@ -1,14 +1,19 @@
 Copying tests/userprog/bad-read2 to scratch partition...
-Writing command line to /tmp/CqFGmZZjCj.dsk...
-qemu -hda /tmp/CqFGmZZjCj.dsk -hdb /tmp/UG1ZOdQVL8.dsk -hdc /tmp/9RA6hiLPST.dsk -m 4 -net none -nographic -monitor null
+Writing command line to /tmp/ErGgcM9spu.dsk...
+squish-pty bochs -q
+========================================================================
+                       Bochs x86 Emulator 2.5.1
+              Built from SVN snapshot on January 6, 2012
+                  Compiled on Oct 10 2012 at 11:12:02
+========================================================================
 Kernel command line: -q -f extract run bad-read2
 Pintos booting with 4,096 kB RAM...
 373 pages available in kernel pool.
 373 pages available in user pool.
-Calibrating timer...  157,081,600 loops/s.
-hd0:0: detected 145 sector (72 kB) disk, model "QEMU HARDDISK", serial "QM00001"
-hd0:1: detected 4,032 sector (1 MB) disk, model "QEMU HARDDISK", serial "QM00002"
-hd1:0: detected 97 sector (48 kB) disk, model "QEMU HARDDISK", serial "QM00003"
+Calibrating timer...  204,600 loops/s.
+hd0:0: detected 1,008 sector (504 kB) disk, model "Generic 1234", serial "BXHD00011"
+hd0:1: detected 4,032 sector (1 MB) disk, model "Generic 1234", serial "BXHD00012"
+hd1:0: detected 1,008 sector (504 kB) disk, model "Generic 1234", serial "BXHD00021"
 Formatting file system...done.
 Boot complete.
 Extracting ustar archive from scratch disk into file system...
@@ -16,14 +21,21 @@ Putting 'bad-read2' into the file system...
 Erasing ustar archive...
 Executing 'bad-read2':
 (bad-read2) begin
-bad-read2: exit(-1)
+Page fault at 0xc0000000: rights violation error reading page in user context.
+bad-read2: dying due to interrupt 0x0e (#PF Page-Fault Exception).
+Interrupt 0x0e (#PF Page-Fault Exception) at eip=0x80480a6
+ cr2=c0000000 error=00000005
+ eax=00000027 ebx=00000000 ecx=000000ad edx=0000000e
+ esi=00000000 edi=00000000 esp=bfffffb0 ebp=bfffffb8
+ cs=001b ds=0023 es=0023 ss=0023
+bad-read2: exit(0)
 Execution of 'bad-read2' complete.
-Timer: 81 ticks
-Thread: 30 idle ticks, 51 kernel ticks, 0 user ticks
+Timer: 429 ticks
+Thread: 30 idle ticks, 317 kernel ticks, 85 user ticks
 hd0:0: 0 reads, 0 writes
-hd0:1: 62 reads, 198 writes
+hd0:1: 59 reads, 198 writes
 hd1:0: 96 reads, 2 writes
-Console: 863 characters output
+Console: 1244 characters output
 Keyboard: 0 keys pressed
 Exception: 1 page faults
 Powering off...

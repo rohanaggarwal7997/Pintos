@@ -1,20 +1,5 @@
 FAIL
-Test output failed to match any acceptable form.
-
-Acceptable output:
-  (exec-bad-ptr) begin
-  (exec-bad-ptr) end
-  exec-bad-ptr: exit(0)
-Differences in `diff -u' format:
-  (exec-bad-ptr) begin
-- (exec-bad-ptr) end
-- exec-bad-ptr: exit(0)
-+ (exec-bad-ptr) open "sample.txt" for verification
-+ exec-bad-ptr: exit(-1)
-Acceptable output:
-  (exec-bad-ptr) begin
-  exec-bad-ptr: exit(-1)
-Differences in `diff -u' format:
-  (exec-bad-ptr) begin
-+ (exec-bad-ptr) open "sample.txt" for verification
-  exec-bad-ptr: exit(-1)
+Kernel panic in run: PANIC at ../../userprog/exception.c:100 in kill(): Kernel bug - unexpected interrupt in kernel
+Call stack: 0xc011fe74
+Translation of call stack:
+0xc011fe74: (unknown)

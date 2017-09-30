@@ -4,4 +4,4 @@ tests/threads/priority-fifo.o: ../../tests/threads/priority-fifo.c \
   ../../lib/kernel/stdio.h ../../tests/threads/tests.h \
   ../../threads/init.h ../../devices/timer.h ../../lib/round.h \
   ../../threads/malloc.h ../../threads/synch.h ../../lib/kernel/list.h \
-  ../../threads/thread.h ../../lib/kernel/list.h ../../threads/synch.h
+  ../../threads/thread.h

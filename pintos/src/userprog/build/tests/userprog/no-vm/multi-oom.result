@@ -1,15 +1,5 @@
 FAIL
-Test output failed to match any acceptable form.
-
-Acceptable output:
-  (multi-oom) begin
-  (multi-oom) success. program forked 10 times.
-  (multi-oom) end
-Differences in `diff -u' format:
-  (multi-oom) begin
-- (multi-oom) success. program forked 10 times.
-- (multi-oom) end
-
-(Process exit codes are excluded for matching purposes.)
-
-(User fault messages are excluded for matching purposes.)
+Kernel panic in run: PANIC at ../../userprog/exception.c:100 in kill(): Kernel bug - unexpected interrupt in kernel
+Call stack: 0xc011fe74
+Translation of call stack:
+0xc011fe74: (unknown)

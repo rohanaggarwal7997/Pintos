@@ -3,4 +3,4 @@ tests/threads/priority-preempt.o: ../../tests/threads/priority-preempt.c \
   ../../lib/stdbool.h ../../lib/stddef.h ../../lib/stdint.h \
   ../../lib/kernel/stdio.h ../../tests/threads/tests.h \
   ../../threads/init.h ../../threads/synch.h ../../lib/kernel/list.h \
-  ../../threads/thread.h ../../lib/kernel/list.h ../../threads/synch.h
+  ../../threads/thread.h

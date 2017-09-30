@@ -1,1 +1,12 @@
-PASS
+FAIL
+Test output failed to match any acceptable form.
+
+Acceptable output:
+  (bad-jump2) begin
+  bad-jump2: exit(-1)
+Differences in `diff -u' format:
+  (bad-jump2) begin
+- bad-jump2: exit(-1)
++ bad-jump2: exit(0)
+
+(User fault messages are excluded for matching purposes.)

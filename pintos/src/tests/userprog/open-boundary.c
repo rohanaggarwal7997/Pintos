@@ -9,10 +9,6 @@
 void
 test_main (void) 
 {
-	  int handle = open ("no-such-file");
-  if (handle != -1)
-    fail ("open() returned %d", handle);
-
   CHECK (open (copy_string_across_boundary ("sample.txt")) > 1,
          "open \"sample.txt\"");
 }

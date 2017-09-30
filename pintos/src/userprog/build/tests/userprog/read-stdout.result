@@ -1,20 +1,5 @@
 FAIL
-Test output failed to match any acceptable form.
-
-Acceptable output:
-  (read-stdout) begin
-  (read-stdout) end
-  read-stdout: exit(0)
-Differences in `diff -u' format:
-  (read-stdout) begin
-- (read-stdout) end
-- read-stdout: exit(0)
-+ (read-stdout) open "sample.txt" for verification
-+ read-stdout: exit(-1)
-Acceptable output:
-  (read-stdout) begin
-  read-stdout: exit(-1)
-Differences in `diff -u' format:
-  (read-stdout) begin
-+ (read-stdout) open "sample.txt" for verification
-  read-stdout: exit(-1)
+Kernel panic in run: PANIC at ../../userprog/exception.c:100 in kill(): Kernel bug - unexpected interrupt in kernel
+Call stack: 0xc011fe74
+Translation of call stack:
+0xc011fe74: (unknown)

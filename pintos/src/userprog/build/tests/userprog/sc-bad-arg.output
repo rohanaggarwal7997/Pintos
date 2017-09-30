@@ -1,14 +1,19 @@
 Copying tests/userprog/sc-bad-arg to scratch partition...
-Writing command line to /tmp/pMVrO0b9fJ.dsk...
-qemu -hda /tmp/pMVrO0b9fJ.dsk -hdb /tmp/mkdBfagcxT.dsk -hdc /tmp/YrFgwApMO4.dsk -m 4 -net none -nographic -monitor null
+Writing command line to /tmp/IYCDQlNzfi.dsk...
+squish-pty bochs -q
+========================================================================
+                       Bochs x86 Emulator 2.5.1
+              Built from SVN snapshot on January 6, 2012
+                  Compiled on Oct 10 2012 at 11:12:02
+========================================================================
 Kernel command line: -q -f extract run sc-bad-arg
 Pintos booting with 4,096 kB RAM...
 373 pages available in kernel pool.
 373 pages available in user pool.
-Calibrating timer...  157,081,600 loops/s.
-hd0:0: detected 145 sector (72 kB) disk, model "QEMU HARDDISK", serial "QM00001"
-hd0:1: detected 4,032 sector (1 MB) disk, model "QEMU HARDDISK", serial "QM00002"
-hd1:0: detected 97 sector (48 kB) disk, model "QEMU HARDDISK", serial "QM00003"
+Calibrating timer...  204,600 loops/s.
+hd0:0: detected 1,008 sector (504 kB) disk, model "Generic 1234", serial "BXHD00011"
+hd0:1: detected 4,032 sector (1 MB) disk, model "Generic 1234", serial "BXHD00012"
+hd1:0: detected 1,008 sector (504 kB) disk, model "Generic 1234", serial "BXHD00021"
 Formatting file system...done.
 Boot complete.
 Extracting ustar archive from scratch disk into file system...
@@ -18,12 +23,12 @@ Executing 'sc-bad-arg':
 (sc-bad-arg) begin
 sc-bad-arg: exit(-1)
 Execution of 'sc-bad-arg' complete.
-Timer: 80 ticks
-Thread: 30 idle ticks, 50 kernel ticks, 0 user ticks
+Timer: 380 ticks
+Thread: 30 idle ticks, 318 kernel ticks, 35 user ticks
 hd0:0: 0 reads, 0 writes
-hd0:1: 62 reads, 198 writes
+hd0:1: 59 reads, 198 writes
 hd1:0: 96 reads, 2 writes
-Console: 869 characters output
+Console: 878 characters output
 Keyboard: 0 keys pressed
 Exception: 0 page faults
 Powering off...

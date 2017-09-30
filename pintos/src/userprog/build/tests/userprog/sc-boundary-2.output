@@ -1,14 +1,19 @@
 Copying tests/userprog/sc-boundary-2 to scratch partition...
-Writing command line to /tmp/amvj46fDTi.dsk...
-qemu -hda /tmp/amvj46fDTi.dsk -hdb /tmp/OjigzgdK89.dsk -hdc /tmp/iWyfEtghF0.dsk -m 4 -net none -nographic -monitor null
+Writing command line to /tmp/soncnvXLhU.dsk...
+squish-pty bochs -q
+========================================================================
+                       Bochs x86 Emulator 2.5.1
+              Built from SVN snapshot on January 6, 2012
+                  Compiled on Oct 10 2012 at 11:12:02
+========================================================================
 Kernel command line: -q -f extract run sc-boundary-2
 Pintos booting with 4,096 kB RAM...
 373 pages available in kernel pool.
 373 pages available in user pool.
-Calibrating timer...  157,081,600 loops/s.
-hd0:0: detected 145 sector (72 kB) disk, model "QEMU HARDDISK", serial "QM00001"
-hd0:1: detected 4,032 sector (1 MB) disk, model "QEMU HARDDISK", serial "QM00002"
-hd1:0: detected 99 sector (49 kB) disk, model "QEMU HARDDISK", serial "QM00003"
+Calibrating timer...  204,600 loops/s.
+hd0:0: detected 1,008 sector (504 kB) disk, model "Generic 1234", serial "BXHD00011"
+hd0:1: detected 4,032 sector (1 MB) disk, model "Generic 1234", serial "BXHD00012"
+hd1:0: detected 1,008 sector (504 kB) disk, model "Generic 1234", serial "BXHD00021"
 Formatting file system...done.
 Boot complete.
 Extracting ustar archive from scratch disk into file system...
@@ -18,12 +23,12 @@ Executing 'sc-boundary-2':
 (sc-boundary-2) begin
 sc-boundary-2: exit(67)
 Execution of 'sc-boundary-2' complete.
-Timer: 81 ticks
-Thread: 30 idle ticks, 50 kernel ticks, 1 user ticks
+Timer: 391 ticks
+Thread: 30 idle ticks, 324 kernel ticks, 40 user ticks
 hd0:0: 0 reads, 0 writes
-hd0:1: 62 reads, 202 writes
+hd0:1: 59 reads, 202 writes
 hd1:0: 98 reads, 2 writes
-Console: 887 characters output
+Console: 896 characters output
 Keyboard: 0 keys pressed
 Exception: 0 page faults
 Powering off...

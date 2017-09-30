@@ -1,1 +1,12 @@
-PASS
+FAIL
+Test output failed to match any acceptable form.
+
+Acceptable output:
+  (bad-write) begin
+  bad-write: exit(-1)
+Differences in `diff -u' format:
+  (bad-write) begin
+- bad-write: exit(-1)
++ bad-write: exit(0)
+
+(User fault messages are excluded for matching purposes.)

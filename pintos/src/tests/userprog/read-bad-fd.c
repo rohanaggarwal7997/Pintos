@@ -6,12 +6,10 @@
 #include <syscall.h>
 #include "tests/lib.h"
 #include "tests/main.h"
-#include "tests/userprog/sample.inc"
 
 void
 test_main (void) 
 {
-    check_file ("sample.txt", sample, sizeof sample - 1);
   char buf;
   read (0x20101234, &buf, 1);
   read (5, &buf, 1);

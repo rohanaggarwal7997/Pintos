@@ -7,10 +7,6 @@
 #include "threads/io.h"
 #include "threads/synch.h"
 #include "threads/thread.h"
-/* My Implementation */
-#include "threads/alarm.h"
-#include "threads/fixed-point.h"
-/* == My Implementation */
   
 /* See [8254] for hardware details of the 8254 timer chip. */
 
@@ -20,6 +16,8 @@
 #if TIMER_FREQ > 1000
 #error TIMER_FREQ <= 1000 recommended
 #endif
+
+#define RECALCULATION_FREQ 4
 
 /* Number of timer ticks since OS booted. */
 static int64_t ticks;
@@ -102,17 +100,23 @@ timer_elapsed (int64_t then)
 void
 timer_sleep (int64_t ticks) 
 {
-  /* Old Implementation
-  int64_t start = timer_ticks (); */
-
+  int64_t start = timer_ticks ();         /* The time at which timer_sleep is called. */
+  int64_t wakeup = start+ticks;           /* calculate the wake up time.  */
   ASSERT (intr_get_level () == INTR_ON);
-  /* Old Implementation
-  while (timer_elapsed (start) < ticks) 
-    thread_yield (); */
-    
-  /* My Implementation */
-  set_alarm (ticks);
-  /* == My Implementation */
+  
+  // set the priority temporarily MAX so that when it wakes up, it is processed first
+  // thread_set_temporarily_up();
+
+  // send the thread to sleeping state and adds to the sleeper list
+  thread_sleep(wakeup,start);
+  
+  // when the thread wakes up,
+  
+  // it wakes up other threads having the same wakeup time recursively.
+  // set_next_wakeup();
+  
+  // restore the priority of the thread to the original value
+  // thread_restore();	
 }
 
 /* Sleeps for approximately MS milliseconds.  Interrupts must be
@@ -191,21 +195,25 @@ timer_interrupt (struct intr_frame *args UNUSED)
 {
   ticks++;
   thread_tick ();
-  
-  /* My Implementation */
-  if (thread_mlfqs)
+  /*if (thread_mlfqs)
   {
-    thread_current ()->recent_cpu = INT_ADD (thread_current ()->recent_cpu, 1);
-    if (ticks % TIMER_FREQ == 0) /* do this every second */
-      {
-        thread_calculate_load_avg ();
-        thread_calculate_recent_cpu_for_all ();
-      }
-    if (ticks % 4 == 3)
-      thread_calculate_priority_for_all ();
-  }
-  alarm_check (); /* Check the alarm and wake up threads */
-  /* == My Implementation */
+    if (ticks % TIMER_FREQ == 0)
+    {
+      mlfqs_increment ();
+      mlfqs_load_avg ();
+      mlfqs_recalculate ();
+    }
+    else if (ticks % RECALCULATION_FREQ == 0)
+    {
+      mlfqs_increment ();
+      mlfqs_priority (thread_current ());
+
+    }
+  }*/
+  /* RECALCULATION_FREQ (4) % TIME_SLICE (4) == 0, TIMER_FREQ (100) % TIME_SLICE (4) == 0 */
+  /* These settings are on purpose! */
+  /* When the priority is updated, the current thread is 100% to yield. */
+  /* So don't worry, nothing would go wrong. The priority scheduling still works. */  
 }
 
 /* Returns true if LOOPS iterations waits for more than one timer

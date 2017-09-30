@@ -1,1 +1,12 @@
-PASS
+FAIL
+Test output failed to match any acceptable form.
+
+Acceptable output:
+  (bad-read2) begin
+  bad-read2: exit(-1)
+Differences in `diff -u' format:
+  (bad-read2) begin
+- bad-read2: exit(-1)
++ bad-read2: exit(0)
+
+(User fault messages are excluded for matching purposes.)

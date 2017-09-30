@@ -5,11 +5,6 @@
 #include <list.h>
 #include <stdint.h>
 
-/* My Implementation */
-#include "threads/alarm.h"
-#include "threads/synch.h"
-/* == My Implementation */
-
 /* States in a thread's life cycle. */
 enum thread_status
   {
@@ -28,17 +23,6 @@ typedef int tid_t;
 #define PRI_MIN 0                       /* Lowest priority. */
 #define PRI_DEFAULT 31                  /* Default priority. */
 #define PRI_MAX 63                      /* Highest priority. */
-
-/* My Implementation */
-#define NICE_MAX 20
-#define NICE_DEFAULT 0
-#define NICE_MIN -20
-
-#ifdef USERPROG
-# define RET_STATUS_DEFAULT 0xcdcdcdcd
-# define RET_STATUS_INVALID 0xdcdcdcdc
-#endif
-/* == My Implementation */
 
 /* A kernel thread or user process.
 
@@ -103,37 +87,22 @@ struct thread
     enum thread_status status;          /* Thread state. */
     char name[16];                      /* Name (for debugging purposes). */
     uint8_t *stack;                     /* Saved stack pointer. */
+    int orig_priority;                  /*original priority*/
+    int64_t wakeup_at;                  /*wakeup time*/
     int priority;                       /* Priority. */
+    int initial_priority;               /* Original Priority before donation (locks).  */
     struct list_elem allelem;           /* List element for all threads list. */
-
+    int recent_cpu;
+    int nice;
     /* Shared between thread.c and synch.c. */
     struct list_elem elem;              /* List element. */
-    
-    /* My Implementation */
-    struct alarm alrm;                  /* alarm object */
-    int base_priority;                  /* priority before donate, if nobody donates, then it should be same as priority */
-    struct list locks;                  /* the list of locks that it holds */
-    bool donated;                       /* whether the thread has been donated priority */
-    struct lock *blocked;               /* by which lock this thread is blocked */
-    
-    int nice;                           /* nice value of a thread */
-    int recent_cpu;                     /* recent cpu usage */
-    /* == My Implementation */
-    
+    struct list locks_acquired;         /*All locks acquired currently by the thread*/
+    struct lock *lock_seeking;               /* the lock, thread is seeking*/
+    int ret_status;
+
 #ifdef USERPROG
     /* Owned by userprog/process.c. */
     uint32_t *pagedir;                  /* Page directory. */
-    
-    /* My Implementation */
-    struct semaphore wait;              /* semaphore for process_wait */
-    int ret_status;                     /* return status */
-    struct list files;                  /* all opened files */
-    struct file *self;                  /* the image file on the disk */
-    struct thread *parent;              /* parent process */
-    struct list children;               /* all children process */
-    struct list_elem children_elem;     /* in children list */
-    bool exited;                        /* whether the thread is exited or not */
-    /* == My Implementation */
 #endif
 
     /* Owned by thread.c. */
@@ -168,19 +137,6 @@ void thread_yield (void);
 typedef void thread_action_func (struct thread *t, void *aux);
 void thread_foreach (thread_action_func *, void *);
 
-/* My Implementation */
-void sort_thread_list (struct list *l);
-void thread_set_priority_other (struct thread *curr, int new_priority, bool forced);
-void thread_yield_head (struct thread *curr);
-
-void thread_calculate_load_avg (void);
-void thread_calculate_recent_cpu (void);
-void thread_calculate_priority (void);
-void thread_calculate_recent_cpu_for_all (void);
-void thread_calculate_priority_for_all (void);
-struct thread *get_thread_by_tid (tid_t);
-/* == My Implementation */
-
 int thread_get_priority (void);
 void thread_set_priority (int);
 
@@ -188,5 +144,27 @@ int thread_get_nice (void);
 void thread_set_nice (int);
 int thread_get_recent_cpu (void);
 int thread_get_load_avg (void);
+void thread_set_temporarily_up(void);
+void thread_sleep(int64_t,int);
+void thread_restore(void);
+void set_next_wakeup(void);
+void thread_check_prio(void);
+void thread_wakeup (int64_t);
+void update_ready_list(void);
+
+
+void thread_add_lock (struct lock *);
+void thread_remove_lock (struct lock *);
+void thread_donate_priority (struct thread *);
+void thread_update_priority (struct thread *);
+
+/* Utilities for 4.4BSD Scheduler. */
+void mlfqs_priority (struct thread *t);
+void mlfqs_recent_cpu (struct thread *t);
+void mlfqs_load_avg (void);
+void mlfqs_recalculate (void);
+void mlfqs_increment (void);
+
+static void managerial_thread_work2(void *AUX);
 
 #endif /* threads/thread.h */

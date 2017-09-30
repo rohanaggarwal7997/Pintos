@@ -1,14 +1,19 @@
 Copying tests/filesys/base/syn-remove to scratch partition...
-Writing command line to /tmp/B1fkkTMtLS.dsk...
-qemu -hda /tmp/B1fkkTMtLS.dsk -hdb /tmp/1wg3412mhb.dsk -hdc /tmp/GiPgseIS1r.dsk -m 4 -net none -nographic -monitor null
+Writing command line to /tmp/5wwgswWDdS.dsk...
+squish-pty bochs -q
+========================================================================
+                       Bochs x86 Emulator 2.5.1
+              Built from SVN snapshot on January 6, 2012
+                  Compiled on Oct 10 2012 at 11:12:02
+========================================================================
 Kernel command line: -q -f extract run syn-remove
 Pintos booting with 4,096 kB RAM...
 373 pages available in kernel pool.
 373 pages available in user pool.
-Calibrating timer...  157,081,600 loops/s.
-hd0:0: detected 145 sector (72 kB) disk, model "QEMU HARDDISK", serial "QM00001"
-hd0:1: detected 4,032 sector (1 MB) disk, model "QEMU HARDDISK", serial "QM00002"
-hd1:0: detected 102 sector (51 kB) disk, model "QEMU HARDDISK", serial "QM00003"
+Calibrating timer...  204,600 loops/s.
+hd0:0: detected 1,008 sector (504 kB) disk, model "Generic 1234", serial "BXHD00011"
+hd0:1: detected 4,032 sector (1 MB) disk, model "Generic 1234", serial "BXHD00012"
+hd1:0: detected 1,008 sector (504 kB) disk, model "Generic 1234", serial "BXHD00021"
 Formatting file system...done.
 Boot complete.
 Extracting ustar archive from scratch disk into file system...
@@ -17,16 +22,26 @@ Erasing ustar archive...
 Executing 'syn-remove':
 (syn-remove) begin
 (syn-remove) create "deleteme"
-(syn-remove) open "deleteme"
-(syn-remove) remove "deleteme"
-syn-remove: exit(-1)
-Execution of 'syn-remove' complete.
-Timer: 82 ticks
-Thread: 30 idle ticks, 51 kernel ticks, 1 user ticks
+Page fault at 0: not present error reading page in kernel context.
+Interrupt 0x0e (#PF Page-Fault Exception) at eip=0
+ cr2=00000000 error=00000000
+ eax=0804a9aa ebx=c011ffb0 ecx=00000000 edx=bfffff8c
+ esi=c011ffb0 edi=00000000 esp=c010bb9f ebp=c011ff74
+ cs=0008 ds=0010 es=0010 ss=a9aa
+Kernel PANIC at ../../userprog/exception.c:100 in kill(): Kernel bug - unexpected interrupt in kernel
+Call stack: 0xc011fe74Page fault at 0x64: not present error reading page in kernel context.
+Interrupt 0x0e (#PF Page-Fault Exception) at eip=0xc010636f
+ cr2=00000064 error=00000000
+ eax=00000064 ebx=00000064 ecx=c011fda0 edx=000003d4
+ esi=c010e401 edi=c010ffd1 esp=c010f72f ebp=c011fe34
+ cs=0008 ds=0010 es=0010 ss=fe74
+Kernel PANIC recursion at ../../userprog/exception.c:100 in kill().
+Timer: 387 ticks
+Thread: 30 idle ticks, 242 kernel ticks, 115 user ticks
 hd0:0: 0 reads, 0 writes
-hd0:1: 90 reads, 215 writes
+hd0:1: 61 reads, 208 writes
 hd1:0: 101 reads, 2 writes
-Console: 962 characters output
+Console: 1630 characters output
 Keyboard: 0 keys pressed
-Exception: 1 page faults
+Exception: 2 page faults
 Powering off...

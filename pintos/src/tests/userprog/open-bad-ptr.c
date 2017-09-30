@@ -8,7 +8,6 @@
 void
 test_main (void) 
 {
-
-  fail ("should have called exit(-1)");
   msg ("open(0x20101234): %d", open ((char *) 0x20101234));
+  fail ("should have called exit(-1)");
 }
