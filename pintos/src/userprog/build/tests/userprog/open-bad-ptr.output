@@ -1,5 +1,5 @@
 Copying tests/userprog/open-bad-ptr to scratch partition...
-Writing command line to /tmp/FLXZKC467V.dsk...
+Writing command line to /tmp/WhJADrAP3A.dsk...
 squish-pty bochs -q
 ========================================================================
                        Bochs x86 Emulator 2.5.1
@@ -21,26 +21,26 @@ Putting 'open-bad-ptr' into the file system...
 Erasing ustar archive...
 Executing 'open-bad-ptr':
 (open-bad-ptr) begin
-Page fault at 0: not present error reading page in kernel context.
-Interrupt 0x0e (#PF Page-Fault Exception) at eip=0
- cr2=00000000 error=00000000
- eax=20101234 ebx=c011ffb0 ecx=00000000 edx=bfffff90
- esi=c011ffb0 edi=00000000 esp=c010bb9f ebp=c011ff74
- cs=0008 ds=0010 es=0010 ss=1234
-Kernel PANIC at ../../userprog/exception.c:100 in kill(): Kernel bug - unexpected interrupt in kernel
-Call stack: 0xc011fe74Page fault at 0x64: not present error reading page in kernel context.
-Interrupt 0x0e (#PF Page-Fault Exception) at eip=0xc010636f
- cr2=00000064 error=00000000
- eax=00000064 ebx=00000064 ecx=c011fda0 edx=000003d4
- esi=c010e401 edi=c010ffd1 esp=c010f72f ebp=c011fe34
- cs=0008 ds=0010 es=0010 ss=fe74
-Kernel PANIC recursion at ../../userprog/exception.c:100 in kill().
-Timer: 380 ticks
-Thread: 30 idle ticks, 237 kernel ticks, 113 user ticks
+Page fault at 0x20101234: not present error reading page in kernel context.
+Interrupt 0x0e (#PF Page-Fault Exception) at eip=0xc0107a10
+ cr2=20101234 error=00000000
+ eax=20101234 ebx=00000000 ecx=c011fea8 edx=c011fea8
+ esi=00000000 edi=c011b03c esp=00000014 ebp=c011fe74
+ cs=0008 ds=0010 es=0010 ss=c20c
+Kernel PANIC at ../../userprog/exception.c:101 in kill(): Kernel bug - unexpected interrupt in kernel
+Call stack: 0xc011fd78Page fault at 0x65: not present error reading page in kernel context.
+Interrupt 0x0e (#PF Page-Fault Exception) at eip=0xc010649f
+ cr2=00000065 error=00000000
+ eax=00000065 ebx=00000065 ecx=c011fca4 edx=000003d4
+ esi=c010e7e1 edi=c01103d1 esp=c010fb2f ebp=c011fd38
+ cs=0008 ds=0010 es=0010 ss=fd78
+Kernel PANIC recursion at ../../userprog/exception.c:101 in kill().
+Timer: 383 ticks
+Thread: 30 idle ticks, 237 kernel ticks, 116 user ticks
 hd0:0: 0 reads, 0 writes
-hd0:1: 59 reads, 198 writes
+hd0:1: 61 reads, 198 writes
 hd1:0: 96 reads, 2 writes
-Console: 1606 characters output
+Console: 1624 characters output
 Keyboard: 0 keys pressed
 Exception: 2 page faults
 Powering off...

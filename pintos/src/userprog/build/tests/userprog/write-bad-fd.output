@@ -1,5 +1,5 @@
 Copying tests/userprog/write-bad-fd to scratch partition...
-Writing command line to /tmp/2RIkE9R5uM.dsk...
+Writing command line to /tmp/1xXq1c90m9.dsk...
 squish-pty bochs -q
 ========================================================================
                        Bochs x86 Emulator 2.5.1
@@ -24,8 +24,8 @@ Executing 'write-bad-fd':
 (write-bad-fd) end
 write-bad-fd: exit(0)
 Execution of 'write-bad-fd' complete.
-Timer: 387 ticks
-Thread: 30 idle ticks, 320 kernel ticks, 40 user ticks
+Timer: 368 ticks
+Thread: 30 idle ticks, 301 kernel ticks, 40 user ticks
 hd0:0: 0 reads, 0 writes
 hd0:1: 59 reads, 198 writes
 hd1:0: 96 reads, 2 writes

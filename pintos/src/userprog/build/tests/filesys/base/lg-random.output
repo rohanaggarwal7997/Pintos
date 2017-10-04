@@ -1,5 +1,5 @@
 Copying tests/filesys/base/lg-random to scratch partition...
-Writing command line to /tmp/h1dTrxgk4x.dsk...
+Writing command line to /tmp/HrfoLlsChk.dsk...
 squish-pty bochs -q
 ========================================================================
                        Bochs x86 Emulator 2.5.1
@@ -22,26 +22,28 @@ Erasing ustar archive...
 Executing 'lg-random':
 (lg-random) begin
 (lg-random) create "bazzle"
+(lg-random) open "bazzle"
+(lg-random) write "bazzle" in random order
 Page fault at 0: not present error reading page in kernel context.
 Interrupt 0x0e (#PF Page-Fault Exception) at eip=0
  cr2=00000000 error=00000000
- eax=0804aa1a ebx=c011ffb0 ecx=00000000 edx=bffffd7c
- esi=c011ffb0 edi=00000000 esp=c010bb9f ebp=c011ff74
- cs=0008 ds=0010 es=0010 ss=aa1a
-Kernel PANIC at ../../userprog/exception.c:100 in kill(): Kernel bug - unexpected interrupt in kernel
-Call stack: 0xc011fe74Page fault at 0x64: not present error reading page in kernel context.
-Interrupt 0x0e (#PF Page-Fault Exception) at eip=0xc010636f
- cr2=00000064 error=00000000
- eax=00000064 ebx=00000064 ecx=c011fda0 edx=000003d4
- esi=c010e401 edi=c010ffd1 esp=c010f72f ebp=c011fe34
+ eax=00000002 ebx=c011ffb0 ecx=00000000 edx=bffffd7c
+ esi=c011ffb0 edi=00000002 esp=c010bf77 ebp=c011ff74
+ cs=0008 ds=0010 es=0010 ss=0002
+Kernel PANIC at ../../userprog/exception.c:101 in kill(): Kernel bug - unexpected interrupt in kernel
+Call stack: 0xc011fe74Page fault at 0x65: not present error reading page in kernel context.
+Interrupt 0x0e (#PF Page-Fault Exception) at eip=0xc010649f
+ cr2=00000065 error=00000000
+ eax=00000065 ebx=00000065 ecx=c011fda0 edx=000003d4
+ esi=c010e7e1 edi=c01103d1 esp=c010fb2f ebp=c011fe34
  cs=0008 ds=0010 es=0010 ss=fe74
-Kernel PANIC recursion at ../../userprog/exception.c:100 in kill().
-Timer: 614 ticks
-Thread: 30 idle ticks, 241 kernel ticks, 343 user ticks
+Kernel PANIC recursion at ../../userprog/exception.c:101 in kill().
+Timer: 699 ticks
+Thread: 30 idle ticks, 241 kernel ticks, 428 user ticks
 hd0:0: 0 reads, 0 writes
-hd0:1: 61 reads, 210 writes
+hd0:1: 87 reads, 364 writes
 hd1:0: 102 reads, 2 writes
-Console: 1623 characters output
+Console: 1692 characters output
 Keyboard: 0 keys pressed
 Exception: 2 page faults
 Powering off...

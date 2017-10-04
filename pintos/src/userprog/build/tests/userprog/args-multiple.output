@@ -1,5 +1,5 @@
 Copying tests/userprog/args-multiple to scratch partition...
-Writing command line to /tmp/IKXAiu7TsX.dsk...
+Writing command line to /tmp/MvUcZvjPNr.dsk...
 squish-pty bochs -q
 ========================================================================
                        Bochs x86 Emulator 2.5.1
@@ -31,8 +31,8 @@ Executing 'args-multiple some arguments for you!':
 (args) end
 args-multiple: exit(0)
 Execution of 'args-multiple' complete.
-Timer: 416 ticks
-Thread: 30 idle ticks, 321 kernel ticks, 68 user ticks
+Timer: 398 ticks
+Thread: 30 idle ticks, 303 kernel ticks, 68 user ticks
 hd0:0: 0 reads, 0 writes
 hd0:1: 59 reads, 196 writes
 hd1:0: 95 reads, 2 writes

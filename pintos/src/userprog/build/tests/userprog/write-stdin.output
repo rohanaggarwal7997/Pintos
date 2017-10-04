@@ -1,5 +1,5 @@
 Copying tests/userprog/write-stdin to scratch partition...
-Writing command line to /tmp/8bJnQt9gIj.dsk...
+Writing command line to /tmp/z5kTcxI0ka.dsk...
 squish-pty bochs -q
 ========================================================================
                        Bochs x86 Emulator 2.5.1
@@ -24,8 +24,8 @@ Executing 'write-stdin':
 (write-stdin) end
 write-stdin: exit(0)
 Execution of 'write-stdin' complete.
-Timer: 384 ticks
-Thread: 30 idle ticks, 318 kernel ticks, 39 user ticks
+Timer: 366 ticks
+Thread: 30 idle ticks, 300 kernel ticks, 39 user ticks
 hd0:0: 0 reads, 0 writes
 hd0:1: 59 reads, 198 writes
 hd1:0: 96 reads, 2 writes

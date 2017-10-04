@@ -1,5 +1,5 @@
 Copying tests/userprog/bad-write2 to scratch partition...
-Writing command line to /tmp/nT5RjNY1hF.dsk...
+Writing command line to /tmp/k1fFifzero.dsk...
 squish-pty bochs -q
 ========================================================================
                        Bochs x86 Emulator 2.5.1
@@ -28,14 +28,14 @@ Interrupt 0x0e (#PF Page-Fault Exception) at eip=0x80480a6
  eax=00000027 ebx=00000000 ecx=000000ad edx=0000000e
  esi=00000000 edi=00000000 esp=bfffffb0 ebp=bfffffb8
  cs=001b ds=0023 es=0023 ss=0023
-bad-write2: exit(0)
+bad-write2: exit(-842150451)
 Execution of 'bad-write2' complete.
-Timer: 431 ticks
-Thread: 30 idle ticks, 319 kernel ticks, 85 user ticks
+Timer: 413 ticks
+Thread: 30 idle ticks, 301 kernel ticks, 85 user ticks
 hd0:0: 0 reads, 0 writes
 hd0:1: 59 reads, 198 writes
 hd1:0: 96 reads, 2 writes
-Console: 1251 characters output
+Console: 1260 characters output
 Keyboard: 0 keys pressed
 Exception: 1 page faults
 Powering off...

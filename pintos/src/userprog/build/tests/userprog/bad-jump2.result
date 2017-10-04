@@ -7,6 +7,6 @@ Acceptable output:
 Differences in `diff -u' format:
   (bad-jump2) begin
 - bad-jump2: exit(-1)
-+ bad-jump2: exit(0)
++ bad-jump2: exit(-842150451)
 
 (User fault messages are excluded for matching purposes.)

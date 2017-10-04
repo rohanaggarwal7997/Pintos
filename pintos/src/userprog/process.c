@@ -92,14 +92,14 @@ start_process (void *file_name_)
 int
 process_wait (tid_t child_tid UNUSED) 
 {
+  
   int i;
-  // 
-  //thread_yield();
   for (i = 0; i < (1<<10); ++i)
   {
     thread_yield();
   }
-  return -1;
+ 
+  return -1; 
 }
 
 /* Free the current process's resources. */
@@ -110,6 +110,19 @@ process_exit (void)
   uint32_t *pd;
 
   printf ("%s: exit(%d)\n", cur->name, cur->ret_status);
+
+  while (!list_empty (&cur->wait.waiters))
+    sema_up (&cur->wait);
+  file_close (cur->self);
+  cur->self = NULL;
+  cur->exited = true;
+  if (cur->parent)
+    {
+      intr_disable ();
+      thread_block ();
+      intr_enable ();
+    }
+
 
   /* Destroy the current process's page directory and switch back
      to the kernel-only page directory. */
@@ -128,6 +141,7 @@ process_exit (void)
       pagedir_destroy (pd);
     }
 }
+
 /* Sets up the CPU for running user code in the current
    thread.
    This function is called on every context switch. */

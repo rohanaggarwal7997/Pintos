@@ -1,5 +1,5 @@
 Copying tests/userprog/sc-boundary to scratch partition...
-Writing command line to /tmp/BAuf9IwTJg.dsk...
+Writing command line to /tmp/RjkcjEPR4K.dsk...
 squish-pty bochs -q
 ========================================================================
                        Bochs x86 Emulator 2.5.1
@@ -23,8 +23,8 @@ Executing 'sc-boundary':
 (sc-boundary) begin
 sc-boundary: exit(42)
 Execution of 'sc-boundary' complete.
-Timer: 390 ticks
-Thread: 30 idle ticks, 324 kernel ticks, 39 user ticks
+Timer: 369 ticks
+Thread: 30 idle ticks, 303 kernel ticks, 39 user ticks
 hd0:0: 0 reads, 0 writes
 hd0:1: 59 reads, 202 writes
 hd1:0: 98 reads, 2 writes

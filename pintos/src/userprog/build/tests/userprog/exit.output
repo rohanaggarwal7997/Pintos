@@ -1,5 +1,5 @@
 Copying tests/userprog/exit to scratch partition...
-Writing command line to /tmp/wUnkjoBuKV.dsk...
+Writing command line to /tmp/f7zIHu2pvN.dsk...
 squish-pty bochs -q
 ========================================================================
                        Bochs x86 Emulator 2.5.1
@@ -23,8 +23,8 @@ Executing 'exit':
 (exit) begin
 exit: exit(57)
 Execution of 'exit' complete.
-Timer: 378 ticks
-Thread: 30 idle ticks, 317 kernel ticks, 34 user ticks
+Timer: 359 ticks
+Thread: 30 idle ticks, 298 kernel ticks, 34 user ticks
 hd0:0: 0 reads, 0 writes
 hd0:1: 59 reads, 198 writes
 hd1:0: 96 reads, 2 writes

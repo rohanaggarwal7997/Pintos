@@ -1,5 +1,5 @@
 Copying tests/userprog/args-many to scratch partition...
-Writing command line to /tmp/GCNFqAMjHn.dsk...
+Writing command line to /tmp/4fxBjDbBGD.dsk...
 squish-pty bochs -q
 ========================================================================
                        Bochs x86 Emulator 2.5.1
@@ -49,8 +49,8 @@ Executing 'args-many a b c d e f g h i j k l m n o p q r s t u v':
 (args) end
 args-many: exit(0)
 Execution of 'args-many' complete.
-Timer: 483 ticks
-Thread: 30 idle ticks, 321 kernel ticks, 135 user ticks
+Timer: 464 ticks
+Thread: 30 idle ticks, 302 kernel ticks, 135 user ticks
 hd0:0: 0 reads, 0 writes
 hd0:1: 59 reads, 196 writes
 hd1:0: 95 reads, 2 writes

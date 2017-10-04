@@ -7,6 +7,6 @@ Acceptable output:
 Differences in `diff -u' format:
   (bad-read) begin
 - bad-read: exit(-1)
-+ bad-read: exit(0)
++ bad-read: exit(-842150451)
 
 (User fault messages are excluded for matching purposes.)

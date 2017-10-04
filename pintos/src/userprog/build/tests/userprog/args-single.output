@@ -1,5 +1,5 @@
 Copying tests/userprog/args-single to scratch partition...
-Writing command line to /tmp/WXgL3subiF.dsk...
+Writing command line to /tmp/5qL7uH6WE4.dsk...
 squish-pty bochs -q
 ========================================================================
                        Bochs x86 Emulator 2.5.1
@@ -28,8 +28,8 @@ Executing 'args-single onearg':
 (args) end
 args-single: exit(0)
 Execution of 'args-single' complete.
-Timer: 399 ticks
-Thread: 30 idle ticks, 318 kernel ticks, 54 user ticks
+Timer: 381 ticks
+Thread: 30 idle ticks, 300 kernel ticks, 54 user ticks
 hd0:0: 0 reads, 0 writes
 hd0:1: 59 reads, 196 writes
 hd1:0: 95 reads, 2 writes
