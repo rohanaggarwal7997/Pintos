@@ -24,6 +24,11 @@ static int sys_halt (void);
 static int sys_open (const char *file);
 static int sys_create (const char *file, unsigned initial_size);
 static int sys_close (int fd);
+static int sys_filesize (int fd);
+static int sys_tell (int fd);
+static int sys_seek (int fd, unsigned pos);
+static int sys_read (int fd, void *buffer, unsigned size);
+static int sys_remove (const char *file);
 
 static struct file *find_file_by_fd (int fd);
 static struct fd_elem *find_fd_elem_by_fd (int fd);
@@ -74,7 +79,13 @@ syscall_init (void)
   syscall_vec[SYS_OPEN] = (handler)sys_open;
   syscall_vec[SYS_CREATE] = (handler)sys_create;
   syscall_vec[SYS_CLOSE] = (handler)sys_close;
-    
+  syscall_vec[SYS_FILESIZE] = (handler)sys_filesize;
+  syscall_vec[SYS_SEEK] = (handler)sys_seek;
+  syscall_vec[SYS_TELL] = (handler)sys_tell;
+  syscall_vec[SYS_READ] = (handler)sys_read;
+  syscall_vec[SYS_REMOVE] = (handler)sys_remove;
+
+  
   list_init (&file_list);
   lock_init (&file_lock);
 }
@@ -206,6 +217,88 @@ done:
   return 0;
 }
 
+static int
+sys_filesize (int fd)
+{
+  struct file *f;
+  
+  f = find_file_by_fd (fd);
+  if (!f)
+    return -1;
+  return file_length (f);
+}
+
+
+static int
+sys_tell (int fd)
+{
+  struct file *f;
+  
+  f = find_file_by_fd (fd);
+  if (!f)
+    return -1;
+  return file_tell (f);
+}
+
+static int
+sys_seek (int fd, unsigned pos)
+{
+  struct file *f;
+  
+  f = find_file_by_fd (fd);
+  if (!f)
+    return -1;
+  file_seek (f, pos);
+  return 0; /* Not used */
+}
+
+static int
+sys_read (int fd, void *buffer, unsigned size)
+{
+  struct file * f;
+  unsigned i;
+  int ret;
+  
+  ret = -1; /* Initialize to zero */
+  lock_acquire (&file_lock);
+  if (fd == STDIN_FILENO) /* stdin */
+    {
+      for (i = 0; i != size; ++i)
+        *(uint8_t *)(buffer + i) = input_getc ();
+      ret = size;
+      goto done;
+    }
+  else if (fd == STDOUT_FILENO) /* stdout */
+      goto done;
+  else if (!is_user_vaddr (buffer) || !is_user_vaddr (buffer + size)) /* bad ptr */
+    {
+      lock_release (&file_lock);
+      sys_exit (-1);
+    }
+  else
+    {
+      f = find_file_by_fd (fd);
+      if (!f)
+        goto done;
+      ret = file_read (f, buffer, size);
+    }
+    
+done:    
+  lock_release (&file_lock);
+  return ret;
+}
+
+static int
+sys_remove (const char *file)
+{
+  if (!file)
+    return false;
+  if (!is_user_vaddr (file))
+    sys_exit (-1);
+    
+  return filesys_remove (file);
+}
+
 static struct file *
 find_file_by_fd (int fd)
 {
@@ -252,6 +345,8 @@ find_fd_elem_by_fd (int fd)
     
   return NULL;
 }
+
+
 
 static int
 alloc_fid (void)
