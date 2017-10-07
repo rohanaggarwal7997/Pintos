@@ -1,5 +1,5 @@
 Copying tests/userprog/open-bad-ptr to scratch partition...
-Writing command line to /tmp/1U1Ju8uVcs.dsk...
+Writing command line to /tmp/541unaOOoP.dsk...
 squish-pty bochs -q
 ========================================================================
                        Bochs x86 Emulator 2.5.1
@@ -21,26 +21,14 @@ Putting 'open-bad-ptr' into the file system...
 Erasing ustar archive...
 Executing 'open-bad-ptr':
 (open-bad-ptr) begin
-Page fault at 0x20101234: not present error reading page in kernel context.
-Interrupt 0x0e (#PF Page-Fault Exception) at eip=0xc0107a10
- cr2=20101234 error=00000000
- eax=20101234 ebx=00000000 ecx=c011fea8 edx=c011fea8
- esi=00000000 edi=c011b03c esp=00000014 ebp=c011fe74
- cs=0008 ds=0010 es=0010 ss=c20c
-Kernel PANIC at ../../userprog/exception.c:101 in kill(): Kernel bug - unexpected interrupt in kernel
-Call stack: 0xc011fd78Page fault at 0x65: not present error reading page in kernel context.
-Interrupt 0x0e (#PF Page-Fault Exception) at eip=0xc010649f
- cr2=00000065 error=00000000
- eax=00000065 ebx=00000065 ecx=c011fca4 edx=000003d4
- esi=c010e981 edi=c0110571 esp=c010fccf ebp=c011fd38
- cs=0008 ds=0010 es=0010 ss=fd78
-Kernel PANIC recursion at ../../userprog/exception.c:101 in kill().
-Timer: 383 ticks
-Thread: 30 idle ticks, 237 kernel ticks, 116 user ticks
+open-bad-ptr: exit(-1)
+Execution of 'open-bad-ptr' complete.
+Timer: 363 ticks
+Thread: 30 idle ticks, 299 kernel ticks, 37 user ticks
 hd0:0: 0 reads, 0 writes
 hd0:1: 61 reads, 198 writes
 hd1:0: 96 reads, 2 writes
-Console: 1624 characters output
+Console: 890 characters output
 Keyboard: 0 keys pressed
-Exception: 2 page faults
+Exception: 1 page faults
 Powering off...

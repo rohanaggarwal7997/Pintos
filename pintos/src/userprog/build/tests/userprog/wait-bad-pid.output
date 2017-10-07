@@ -1,5 +1,5 @@
 Copying tests/userprog/wait-bad-pid to scratch partition...
-Writing command line to /tmp/bVAxYZehQm.dsk...
+Writing command line to /tmp/lOquPXWeIw.dsk...
 squish-pty bochs -q
 ========================================================================
                        Bochs x86 Emulator 2.5.1
@@ -21,26 +21,14 @@ Putting 'wait-bad-pid' into the file system...
 Erasing ustar archive...
 Executing 'wait-bad-pid':
 (wait-bad-pid) begin
-Page fault at 0: not present error reading page in kernel context.
-Interrupt 0x0e (#PF Page-Fault Exception) at eip=0
- cr2=00000000 error=00000000
- eax=0c020301 ebx=c011ffb0 ecx=00000000 edx=bfffff90
- esi=c011ffb0 edi=00000000 esp=c010c117 ebp=c011ff74
- cs=0008 ds=0010 es=0010 ss=0301
-Kernel PANIC at ../../userprog/exception.c:101 in kill(): Kernel bug - unexpected interrupt in kernel
-Call stack: 0xc011fe74Page fault at 0x65: not present error reading page in kernel context.
-Interrupt 0x0e (#PF Page-Fault Exception) at eip=0xc010649f
- cr2=00000065 error=00000000
- eax=00000065 ebx=00000065 ecx=c011fda0 edx=000003d4
- esi=c010e981 edi=c0110571 esp=c010fccf ebp=c011fe34
- cs=0008 ds=0010 es=0010 ss=fe74
-Kernel PANIC recursion at ../../userprog/exception.c:101 in kill().
-Timer: 379 ticks
-Thread: 30 idle ticks, 237 kernel ticks, 112 user ticks
+wait-bad-pid: exit(-1)
+Execution of 'wait-bad-pid' complete.
+Timer: 363 ticks
+Thread: 30 idle ticks, 300 kernel ticks, 36 user ticks
 hd0:0: 0 reads, 0 writes
 hd0:1: 59 reads, 198 writes
 hd1:0: 96 reads, 2 writes
-Console: 1606 characters output
+Console: 890 characters output
 Keyboard: 0 keys pressed
-Exception: 2 page faults
+Exception: 1 page faults
 Powering off...
