@@ -181,6 +181,8 @@ void mlfqs_load_avg (void);
 void mlfqs_recalculate (void);
 void mlfqs_increment (void);
 
+struct thread *get_thread_by_tid (tid_t tid);
+
 static void managerial_thread_work2(void *AUX);
 
 #endif /* threads/thread.h */

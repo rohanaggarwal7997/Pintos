@@ -1,21 +1,16 @@
 Copying tests/userprog/multi-child-fd to scratch partition...
 Copying ../../tests/userprog/sample.txt to scratch partition...
 Copying tests/userprog/child-close to scratch partition...
-Writing command line to /tmp/ENJsCBzCrn.dsk...
-squish-pty bochs -q
-========================================================================
-                       Bochs x86 Emulator 2.5.1
-              Built from SVN snapshot on January 6, 2012
-                  Compiled on Oct 10 2012 at 11:12:02
-========================================================================
+Writing command line to /tmp/juiCI3WxSG.dsk...
+qemu -hda /tmp/juiCI3WxSG.dsk -hdb /tmp/TbVt3HHMjd.dsk -hdc /tmp/MWKFvTOiDb.dsk -m 4 -net none -nographic -monitor null
 Kernel command line: -q -f extract run multi-child-fd
 Pintos booting with 4,096 kB RAM...
 373 pages available in kernel pool.
 373 pages available in user pool.
-Calibrating timer...  204,600 loops/s.
-hd0:0: detected 1,008 sector (504 kB) disk, model "Generic 1234", serial "BXHD00011"
-hd0:1: detected 4,032 sector (1 MB) disk, model "Generic 1234", serial "BXHD00012"
-hd1:0: detected 1,008 sector (504 kB) disk, model "Generic 1234", serial "BXHD00021"
+Calibrating timer...  78,540,800 loops/s.
+hd0:0: detected 145 sector (72 kB) disk, model "QEMU HARDDISK", serial "QM00001"
+hd0:1: detected 4,032 sector (1 MB) disk, model "QEMU HARDDISK", serial "QM00002"
+hd1:0: detected 207 sector (103 kB) disk, model "QEMU HARDDISK", serial "QM00003"
 Formatting file system...done.
 Boot complete.
 Extracting ustar archive from scratch disk into file system...
@@ -28,12 +23,12 @@ Executing 'multi-child-fd':
 (multi-child-fd) open "sample.txt"
 multi-child-fd: exit(-1)
 Execution of 'multi-child-fd' complete.
-Timer: 537 ticks
-Thread: 30 idle ticks, 459 kernel ticks, 51 user ticks
+Timer: 112 ticks
+Thread: 30 idle ticks, 81 kernel ticks, 1 user ticks
 hd0:0: 0 reads, 0 writes
-hd0:1: 127 reads, 422 writes
+hd0:1: 130 reads, 422 writes
 hd1:0: 206 reads, 2 writes
-Console: 1030 characters output
+Console: 1023 characters output
 Keyboard: 0 keys pressed
 Exception: 1 page faults
 Powering off...

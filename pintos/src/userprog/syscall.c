@@ -29,6 +29,7 @@ static int sys_tell (int fd);
 static int sys_seek (int fd, unsigned pos);
 static int sys_read (int fd, void *buffer, unsigned size);
 static int sys_remove (const char *file);
+static int sys_wait (pid_t pid);
 
 static struct file *find_file_by_fd (int fd);
 static struct fd_elem *find_fd_elem_by_fd (int fd);
@@ -84,7 +85,7 @@ syscall_init (void)
   syscall_vec[SYS_TELL] = (handler)sys_tell;
   syscall_vec[SYS_READ] = (handler)sys_read;
   syscall_vec[SYS_REMOVE] = (handler)sys_remove;
-
+  syscall_vec[SYS_WAIT] = (handler)sys_wait;
   
   list_init (&file_list);
   lock_init (&file_lock);
@@ -353,4 +354,10 @@ alloc_fid (void)
 {
   static int fid = 2;
   return fid++;
+}
+
+static int
+sys_wait (pid_t pid)
+{
+  return process_wait (pid);
 }

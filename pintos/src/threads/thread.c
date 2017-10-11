@@ -1043,3 +1043,21 @@ managerial_thread_work2(void *AUX)
 
   }
 }
+
+struct thread *
+get_thread_by_tid (tid_t tid)
+{
+  struct list_elem *rohan;
+  struct thread *ret;
+  
+  ret = NULL;
+  for (rohan = list_begin (&all_list); rohan != list_end (&all_list); rohan = list_next (rohan))
+    {
+      ret = list_entry (rohan, struct thread, allelem);
+      ASSERT (is_thread (ret));
+      if (ret->tid == tid)
+        return ret;
+    }
+    
+  return NULL;
+}
