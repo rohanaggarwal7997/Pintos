@@ -1,6 +1,6 @@
 Copying tests/userprog/close-stdin to scratch partition...
-Writing command line to /tmp/jkULHcC0mH.dsk...
-qemu -hda /tmp/jkULHcC0mH.dsk -hdb /tmp/Rik6U4ulHE.dsk -hdc /tmp/rN82N2vD6S.dsk -m 4 -net none -nographic -monitor null
+Writing command line to /tmp/mVe5kPPTjK.dsk...
+qemu -hda /tmp/mVe5kPPTjK.dsk -hdb /tmp/jAn4DCWmk4.dsk -hdc /tmp/CcGyeBpf2s.dsk -m 4 -net none -nographic -monitor null
 Kernel command line: -q -f extract run close-stdin
 Pintos booting with 4,096 kB RAM...
 373 pages available in kernel pool.
@@ -19,8 +19,8 @@ Executing 'close-stdin':
 (close-stdin) end
 close-stdin: exit(0)
 Execution of 'close-stdin' complete.
-Timer: 81 ticks
-Thread: 30 idle ticks, 50 kernel ticks, 1 user ticks
+Timer: 88 ticks
+Thread: 30 idle ticks, 57 kernel ticks, 1 user ticks
 hd0:0: 0 reads, 0 writes
 hd0:1: 62 reads, 198 writes
 hd1:0: 96 reads, 2 writes

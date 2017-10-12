@@ -1,6 +1,6 @@
 Copying tests/userprog/open-empty to scratch partition...
-Writing command line to /tmp/q1ETzLpSqq.dsk...
-qemu -hda /tmp/q1ETzLpSqq.dsk -hdb /tmp/JP6kNVLC8J.dsk -hdc /tmp/SEYpoy7p5D.dsk -m 4 -net none -nographic -monitor null
+Writing command line to /tmp/AXPsWO0mbo.dsk...
+qemu -hda /tmp/AXPsWO0mbo.dsk -hdb /tmp/PQuZ6X6HUr.dsk -hdc /tmp/81hXuQJxrn.dsk -m 4 -net none -nographic -monitor null
 Kernel command line: -q -f extract run open-empty
 Pintos booting with 4,096 kB RAM...
 373 pages available in kernel pool.
@@ -20,7 +20,7 @@ Executing 'open-empty':
 open-empty: exit(0)
 Execution of 'open-empty' complete.
 Timer: 81 ticks
-Thread: 30 idle ticks, 51 kernel ticks, 0 user ticks
+Thread: 30 idle ticks, 50 kernel ticks, 1 user ticks
 hd0:0: 0 reads, 0 writes
 hd0:1: 79 reads, 198 writes
 hd1:0: 96 reads, 2 writes

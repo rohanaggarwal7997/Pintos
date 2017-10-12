@@ -1,7 +1,7 @@
 Copying tests/userprog/rox-child to scratch partition...
 Copying tests/userprog/child-rox to scratch partition...
-Writing command line to /tmp/RLLoU4AtS1.dsk...
-qemu -hda /tmp/RLLoU4AtS1.dsk -hdb /tmp/6ceicglKJU.dsk -hdc /tmp/OWFecUhakw.dsk -m 4 -net none -nographic -monitor null
+Writing command line to /tmp/EfUz2R5fgq.dsk...
+qemu -hda /tmp/EfUz2R5fgq.dsk -hdb /tmp/7tDZkO0kmc.dsk -hdc /tmp/RV7T74jJgu.dsk -m 4 -net none -nographic -monitor null
 Kernel command line: -q -f extract run rox-child
 Pintos booting with 4,096 kB RAM...
 373 pages available in kernel pool.
@@ -22,14 +22,21 @@ Executing 'rox-child':
 (rox-child) read "child-rox"
 (rox-child) write "child-rox"
 (rox-child) exec "child-rox 1"
-rox-child: exit(-1)
+(child-rox) begin
+(child-rox) try to write "child-rox"
+(child-rox) try to write "child-rox"
+(child-rox) end
+child-rox: exit(12)
+(rox-child) write "child-rox"
+(rox-child) end
+rox-child: exit(0)
 Execution of 'rox-child' complete.
-Timer: 110 ticks
-Thread: 30 idle ticks, 78 kernel ticks, 2 user ticks
+Timer: 116 ticks
+Thread: 30 idle ticks, 82 kernel ticks, 4 user ticks
 hd0:0: 0 reads, 0 writes
-hd0:1: 96 reads, 419 writes
+hd0:1: 139 reads, 420 writes
 hd1:0: 205 reads, 2 writes
-Console: 1030 characters output
+Console: 1204 characters output
 Keyboard: 0 keys pressed
-Exception: 1 page faults
+Exception: 0 page faults
 Powering off...

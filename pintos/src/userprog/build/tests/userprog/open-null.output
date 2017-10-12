@@ -1,6 +1,6 @@
 Copying tests/userprog/open-null to scratch partition...
-Writing command line to /tmp/8h0YDV1YFy.dsk...
-qemu -hda /tmp/8h0YDV1YFy.dsk -hdb /tmp/I3hO26ymf0.dsk -hdc /tmp/mwii4ooy2H.dsk -m 4 -net none -nographic -monitor null
+Writing command line to /tmp/ZYBEZX60Sq.dsk...
+qemu -hda /tmp/ZYBEZX60Sq.dsk -hdb /tmp/PvjMMfj5fQ.dsk -hdc /tmp/jJxHVvLstv.dsk -m 4 -net none -nographic -monitor null
 Kernel command line: -q -f extract run open-null
 Pintos booting with 4,096 kB RAM...
 373 pages available in kernel pool.
@@ -20,7 +20,7 @@ Executing 'open-null':
 open-null: exit(0)
 Execution of 'open-null' complete.
 Timer: 81 ticks
-Thread: 30 idle ticks, 50 kernel ticks, 1 user ticks
+Thread: 30 idle ticks, 52 kernel ticks, 0 user ticks
 hd0:0: 0 reads, 0 writes
 hd0:1: 62 reads, 198 writes
 hd1:0: 96 reads, 2 writes

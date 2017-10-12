@@ -1,6 +1,6 @@
 Copying tests/filesys/base/sm-create to scratch partition...
-Writing command line to /tmp/wPKzFUMfDD.dsk...
-qemu -hda /tmp/wPKzFUMfDD.dsk -hdb /tmp/NZt6X2QjeA.dsk -hdc /tmp/QPuPdirid8.dsk -m 4 -net none -nographic -monitor null
+Writing command line to /tmp/zg7hHAmLBn.dsk...
+qemu -hda /tmp/zg7hHAmLBn.dsk -hdb /tmp/0phlb3omMs.dsk -hdc /tmp/MIFSzJTWMi.dsk -m 4 -net none -nographic -monitor null
 Kernel command line: -q -f extract run sm-create
 Pintos booting with 4,096 kB RAM...
 373 pages available in kernel pool.
@@ -23,8 +23,8 @@ Executing 'sm-create':
 (sm-create) end
 sm-create: exit(0)
 Execution of 'sm-create' complete.
-Timer: 83 ticks
-Thread: 30 idle ticks, 49 kernel ticks, 4 user ticks
+Timer: 85 ticks
+Thread: 30 idle ticks, 52 kernel ticks, 3 user ticks
 hd0:0: 0 reads, 0 writes
 hd0:1: 101 reads, 222 writes
 hd1:0: 100 reads, 2 writes

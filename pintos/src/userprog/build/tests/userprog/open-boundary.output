@@ -1,12 +1,12 @@
 Copying tests/userprog/open-boundary to scratch partition...
 Copying ../../tests/userprog/sample.txt to scratch partition...
-Writing command line to /tmp/vAdglmRGE6.dsk...
-qemu -hda /tmp/vAdglmRGE6.dsk -hdb /tmp/wLqOOq8sH5.dsk -hdc /tmp/irtiHCq466.dsk -m 4 -net none -nographic -monitor null
+Writing command line to /tmp/9h0UsIaxsa.dsk...
+qemu -hda /tmp/9h0UsIaxsa.dsk -hdb /tmp/i2I8GEpMWw.dsk -hdc /tmp/O8eE0BqU7A.dsk -m 4 -net none -nographic -monitor null
 Kernel command line: -q -f extract run open-boundary
 Pintos booting with 4,096 kB RAM...
 373 pages available in kernel pool.
 373 pages available in user pool.
-Calibrating timer...  104,755,200 loops/s.
+Calibrating timer...  157,081,600 loops/s.
 hd0:0: detected 145 sector (72 kB) disk, model "QEMU HARDDISK", serial "QM00001"
 hd0:1: detected 4,032 sector (1 MB) disk, model "QEMU HARDDISK", serial "QM00002"
 hd1:0: detected 101 sector (50 kB) disk, model "QEMU HARDDISK", serial "QM00003"
@@ -22,8 +22,8 @@ Executing 'open-boundary':
 (open-boundary) end
 open-boundary: exit(0)
 Execution of 'open-boundary' complete.
-Timer: 78 ticks
-Thread: 30 idle ticks, 46 kernel ticks, 2 user ticks
+Timer: 80 ticks
+Thread: 30 idle ticks, 50 kernel ticks, 1 user ticks
 hd0:0: 0 reads, 0 writes
 hd0:1: 94 reads, 208 writes
 hd1:0: 100 reads, 2 writes

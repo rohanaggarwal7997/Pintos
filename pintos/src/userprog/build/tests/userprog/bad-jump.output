@@ -1,6 +1,6 @@
 Copying tests/userprog/bad-jump to scratch partition...
-Writing command line to /tmp/Z4BwoVR7t7.dsk...
-qemu -hda /tmp/Z4BwoVR7t7.dsk -hdb /tmp/yHy5cjLZCw.dsk -hdc /tmp/71QocYEOZL.dsk -m 4 -net none -nographic -monitor null
+Writing command line to /tmp/CkcPLddUqb.dsk...
+qemu -hda /tmp/CkcPLddUqb.dsk -hdb /tmp/jA0HSqVcRM.dsk -hdc /tmp/QQyp0pPtdU.dsk -m 4 -net none -nographic -monitor null
 Kernel command line: -q -f extract run bad-jump
 Pintos booting with 4,096 kB RAM...
 373 pages available in kernel pool.
@@ -18,8 +18,8 @@ Executing 'bad-jump':
 (bad-jump) begin
 bad-jump: exit(-1)
 Execution of 'bad-jump' complete.
-Timer: 85 ticks
-Thread: 30 idle ticks, 55 kernel ticks, 0 user ticks
+Timer: 83 ticks
+Thread: 30 idle ticks, 52 kernel ticks, 1 user ticks
 hd0:0: 0 reads, 0 writes
 hd0:1: 62 reads, 198 writes
 hd1:0: 96 reads, 2 writes

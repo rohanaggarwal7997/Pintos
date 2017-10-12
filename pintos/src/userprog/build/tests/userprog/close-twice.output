@@ -1,7 +1,7 @@
 Copying tests/userprog/close-twice to scratch partition...
 Copying ../../tests/userprog/sample.txt to scratch partition...
-Writing command line to /tmp/IJDCBtA77M.dsk...
-qemu -hda /tmp/IJDCBtA77M.dsk -hdb /tmp/dKSTCHJd9p.dsk -hdc /tmp/G0czptKmJI.dsk -m 4 -net none -nographic -monitor null
+Writing command line to /tmp/LXJUWhb8OW.dsk...
+qemu -hda /tmp/LXJUWhb8OW.dsk -hdb /tmp/u1SBeiHOex.dsk -hdc /tmp/mWeyZ8uI1N.dsk -m 4 -net none -nographic -monitor null
 Kernel command line: -q -f extract run close-twice
 Pintos booting with 4,096 kB RAM...
 373 pages available in kernel pool.
@@ -24,8 +24,8 @@ Executing 'close-twice':
 (close-twice) end
 close-twice: exit(0)
 Execution of 'close-twice' complete.
-Timer: 82 ticks
-Thread: 30 idle ticks, 50 kernel ticks, 2 user ticks
+Timer: 83 ticks
+Thread: 30 idle ticks, 51 kernel ticks, 2 user ticks
 hd0:0: 0 reads, 0 writes
 hd0:1: 93 reads, 204 writes
 hd1:0: 98 reads, 2 writes

@@ -1,6 +1,6 @@
 Copying tests/filesys/base/lg-seq-block to scratch partition...
-Writing command line to /tmp/v1YbDqgmTu.dsk...
-qemu -hda /tmp/v1YbDqgmTu.dsk -hdb /tmp/PKTtTogcd5.dsk -hdc /tmp/BMIcVlIeEm.dsk -m 4 -net none -nographic -monitor null
+Writing command line to /tmp/MqfwfsoLaL.dsk...
+qemu -hda /tmp/MqfwfsoLaL.dsk -hdb /tmp/M96hdWnRad.dsk -hdc /tmp/16qVhQGGkw.dsk -m 4 -net none -nographic -monitor null
 Kernel command line: -q -f extract run lg-seq-block
 Pintos booting with 4,096 kB RAM...
 373 pages available in kernel pool.
@@ -26,8 +26,8 @@ Executing 'lg-seq-block':
 (lg-seq-block) end
 lg-seq-block: exit(0)
 Execution of 'lg-seq-block' complete.
-Timer: 130 ticks
-Thread: 30 idle ticks, 54 kernel ticks, 46 user ticks
+Timer: 124 ticks
+Thread: 30 idle ticks, 52 kernel ticks, 43 user ticks
 hd0:0: 0 reads, 0 writes
 hd0:1: 535 reads, 653 writes
 hd1:0: 100 reads, 2 writes

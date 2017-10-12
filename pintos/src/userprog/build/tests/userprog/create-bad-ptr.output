@@ -1,6 +1,6 @@
 Copying tests/userprog/create-bad-ptr to scratch partition...
-Writing command line to /tmp/fOHETnahYt.dsk...
-qemu -hda /tmp/fOHETnahYt.dsk -hdb /tmp/eUDCPcq2Ob.dsk -hdc /tmp/eHoh0I2kjP.dsk -m 4 -net none -nographic -monitor null
+Writing command line to /tmp/X4NKXMPXTP.dsk...
+qemu -hda /tmp/X4NKXMPXTP.dsk -hdb /tmp/8nfaTBg0as.dsk -hdc /tmp/eLHsP07Iot.dsk -m 4 -net none -nographic -monitor null
 Kernel command line: -q -f extract run create-bad-ptr
 Pintos booting with 4,096 kB RAM...
 373 pages available in kernel pool.
@@ -18,8 +18,8 @@ Executing 'create-bad-ptr':
 (create-bad-ptr) begin
 create-bad-ptr: exit(-1)
 Execution of 'create-bad-ptr' complete.
-Timer: 80 ticks
-Thread: 30 idle ticks, 49 kernel ticks, 1 user ticks
+Timer: 84 ticks
+Thread: 30 idle ticks, 53 kernel ticks, 1 user ticks
 hd0:0: 0 reads, 0 writes
 hd0:1: 65 reads, 201 writes
 hd1:0: 96 reads, 2 writes

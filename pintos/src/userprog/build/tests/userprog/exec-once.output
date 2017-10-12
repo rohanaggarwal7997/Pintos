@@ -1,7 +1,7 @@
 Copying tests/userprog/exec-once to scratch partition...
 Copying tests/userprog/child-simple to scratch partition...
-Writing command line to /tmp/KCVc9lF4il.dsk...
-qemu -hda /tmp/KCVc9lF4il.dsk -hdb /tmp/0V0PFL6XfL.dsk -hdc /tmp/QtiS68iZz1.dsk -m 4 -net none -nographic -monitor null
+Writing command line to /tmp/dwQLTbQRPi.dsk...
+qemu -hda /tmp/dwQLTbQRPi.dsk -hdb /tmp/lwSdIjZwMM.dsk -hdc /tmp/zrSTXadXrm.dsk -m 4 -net none -nographic -monitor null
 Kernel command line: -q -f extract run exec-once
 Pintos booting with 4,096 kB RAM...
 373 pages available in kernel pool.
@@ -18,14 +18,17 @@ Putting 'child-simple' into the file system...
 Erasing ustar archive...
 Executing 'exec-once':
 (exec-once) begin
-exec-once: exit(-1)
+(child-simple) run
+child-simple: exit(81)
+(exec-once) end
+exec-once: exit(0)
 Execution of 'exec-once' complete.
-Timer: 110 ticks
-Thread: 30 idle ticks, 79 kernel ticks, 1 user ticks
+Timer: 103 ticks
+Thread: 30 idle ticks, 72 kernel ticks, 2 user ticks
 hd0:0: 0 reads, 0 writes
-hd0:1: 89 reads, 388 writes
+hd0:1: 129 reads, 388 writes
 hd1:0: 190 reads, 2 writes
-Console: 913 characters output
+Console: 971 characters output
 Keyboard: 0 keys pressed
-Exception: 1 page faults
+Exception: 0 page faults
 Powering off...

@@ -1,7 +1,7 @@
 Copying tests/userprog/wait-twice to scratch partition...
 Copying tests/userprog/child-simple to scratch partition...
-Writing command line to /tmp/FeLQvZqs5T.dsk...
-qemu -hda /tmp/FeLQvZqs5T.dsk -hdb /tmp/Uy8tlZUv8G.dsk -hdc /tmp/YiiyevLXs6.dsk -m 4 -net none -nographic -monitor null
+Writing command line to /tmp/xEpGFA0hK4.dsk...
+qemu -hda /tmp/xEpGFA0hK4.dsk -hdb /tmp/rU2hWcCM8v.dsk -hdc /tmp/vpFbetPApf.dsk -m 4 -net none -nographic -monitor null
 Kernel command line: -q -f extract run wait-twice
 Pintos booting with 4,096 kB RAM...
 373 pages available in kernel pool.
@@ -18,14 +18,19 @@ Putting 'child-simple' into the file system...
 Erasing ustar archive...
 Executing 'wait-twice':
 (wait-twice) begin
-wait-twice: exit(-1)
+(child-simple) run
+child-simple: exit(81)
+(wait-twice) wait(exec()) = 81
+(wait-twice) wait(exec()) = -1
+(wait-twice) end
+wait-twice: exit(0)
 Execution of 'wait-twice' complete.
-Timer: 103 ticks
-Thread: 30 idle ticks, 72 kernel ticks, 1 user ticks
+Timer: 109 ticks
+Thread: 30 idle ticks, 77 kernel ticks, 2 user ticks
 hd0:0: 0 reads, 0 writes
-hd0:1: 89 reads, 388 writes
+hd0:1: 129 reads, 388 writes
 hd1:0: 190 reads, 2 writes
-Console: 919 characters output
+Console: 1040 characters output
 Keyboard: 0 keys pressed
-Exception: 1 page faults
+Exception: 0 page faults
 Powering off...

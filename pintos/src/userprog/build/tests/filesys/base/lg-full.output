@@ -1,6 +1,6 @@
 Copying tests/filesys/base/lg-full to scratch partition...
-Writing command line to /tmp/JJHHetfMo1.dsk...
-qemu -hda /tmp/JJHHetfMo1.dsk -hdb /tmp/GvNMasoREH.dsk -hdc /tmp/gegta7rPNF.dsk -m 4 -net none -nographic -monitor null
+Writing command line to /tmp/G4dLBrEDbb.dsk...
+qemu -hda /tmp/G4dLBrEDbb.dsk -hdb /tmp/B6M2X9NXAV.dsk -hdc /tmp/bl1Qxx65wy.dsk -m 4 -net none -nographic -monitor null
 Kernel command line: -q -f extract run lg-full
 Pintos booting with 4,096 kB RAM...
 373 pages available in kernel pool.
@@ -26,8 +26,8 @@ Executing 'lg-full':
 (lg-full) end
 lg-full: exit(0)
 Execution of 'lg-full' complete.
-Timer: 119 ticks
-Thread: 30 idle ticks, 46 kernel ticks, 43 user ticks
+Timer: 125 ticks
+Thread: 30 idle ticks, 52 kernel ticks, 43 user ticks
 hd0:0: 0 reads, 0 writes
 hd0:1: 242 reads, 506 writes
 hd1:0: 100 reads, 2 writes

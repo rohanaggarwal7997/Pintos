@@ -1,7 +1,7 @@
 Copying tests/userprog/read-zero to scratch partition...
 Copying ../../tests/userprog/sample.txt to scratch partition...
-Writing command line to /tmp/5b6oyQulaF.dsk...
-qemu -hda /tmp/5b6oyQulaF.dsk -hdb /tmp/TvQtiTpp0T.dsk -hdc /tmp/G6xq93KJCF.dsk -m 4 -net none -nographic -monitor null
+Writing command line to /tmp/4Xa0yHzWJ2.dsk...
+qemu -hda /tmp/4Xa0yHzWJ2.dsk -hdb /tmp/QWhUCnPYGE.dsk -hdc /tmp/O5SvzZzyKm.dsk -m 4 -net none -nographic -monitor null
 Kernel command line: -q -f extract run read-zero
 Pintos booting with 4,096 kB RAM...
 373 pages available in kernel pool.
@@ -22,8 +22,8 @@ Executing 'read-zero':
 (read-zero) end
 read-zero: exit(0)
 Execution of 'read-zero' complete.
-Timer: 79 ticks
-Thread: 30 idle ticks, 48 kernel ticks, 1 user ticks
+Timer: 84 ticks
+Thread: 30 idle ticks, 53 kernel ticks, 1 user ticks
 hd0:0: 0 reads, 0 writes
 hd0:1: 93 reads, 206 writes
 hd1:0: 99 reads, 2 writes

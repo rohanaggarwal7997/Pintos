@@ -1,6 +1,6 @@
 Copying tests/filesys/base/syn-remove to scratch partition...
-Writing command line to /tmp/R3Ls2u8pGF.dsk...
-qemu -hda /tmp/R3Ls2u8pGF.dsk -hdb /tmp/ZqfU1wekSc.dsk -hdc /tmp/yZFKoMx94Z.dsk -m 4 -net none -nographic -monitor null
+Writing command line to /tmp/l26oEbBrIu.dsk...
+qemu -hda /tmp/l26oEbBrIu.dsk -hdb /tmp/udLXk7wMSe.dsk -hdc /tmp/EDA4m2UFAm.dsk -m 4 -net none -nographic -monitor null
 Kernel command line: -q -f extract run syn-remove
 Pintos booting with 4,096 kB RAM...
 373 pages available in kernel pool.
@@ -26,8 +26,8 @@ Executing 'syn-remove':
 (syn-remove) end
 syn-remove: exit(0)
 Execution of 'syn-remove' complete.
-Timer: 85 ticks
-Thread: 30 idle ticks, 51 kernel ticks, 4 user ticks
+Timer: 83 ticks
+Thread: 30 idle ticks, 50 kernel ticks, 3 user ticks
 hd0:0: 0 reads, 0 writes
 hd0:1: 100 reads, 221 writes
 hd1:0: 101 reads, 2 writes

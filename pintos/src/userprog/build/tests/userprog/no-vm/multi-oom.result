@@ -1,15 +1,1 @@
-FAIL
-Test output failed to match any acceptable form.
-
-Acceptable output:
-  (multi-oom) begin
-  (multi-oom) success. program forked 10 times.
-  (multi-oom) end
-Differences in `diff -u' format:
-  (multi-oom) begin
-- (multi-oom) success. program forked 10 times.
-- (multi-oom) end
-
-(Process exit codes are excluded for matching purposes.)
-
-(User fault messages are excluded for matching purposes.)
+PASS

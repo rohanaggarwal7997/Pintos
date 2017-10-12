@@ -1,6 +1,6 @@
 Copying tests/userprog/wait-bad-pid to scratch partition...
-Writing command line to /tmp/yjT4kX9EYV.dsk...
-qemu -hda /tmp/yjT4kX9EYV.dsk -hdb /tmp/aYFSsVAiaC.dsk -hdc /tmp/pb9mVFn5b9.dsk -m 4 -net none -nographic -monitor null
+Writing command line to /tmp/6olBk1vdpG.dsk...
+qemu -hda /tmp/6olBk1vdpG.dsk -hdb /tmp/Q7DTipF9mb.dsk -hdc /tmp/JbWC4vHEwL.dsk -m 4 -net none -nographic -monitor null
 Kernel command line: -q -f extract run wait-bad-pid
 Pintos booting with 4,096 kB RAM...
 373 pages available in kernel pool.
@@ -18,8 +18,8 @@ Executing 'wait-bad-pid':
 (wait-bad-pid) begin
 wait-bad-pid: exit(-1)
 Execution of 'wait-bad-pid' complete.
-Timer: 83 ticks
-Thread: 30 idle ticks, 53 kernel ticks, 0 user ticks
+Timer: 94 ticks
+Thread: 30 idle ticks, 64 kernel ticks, 0 user ticks
 hd0:0: 0 reads, 0 writes
 hd0:1: 62 reads, 198 writes
 hd1:0: 96 reads, 2 writes

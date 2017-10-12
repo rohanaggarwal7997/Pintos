@@ -1,7 +1,7 @@
 Copying tests/userprog/read-bad-ptr to scratch partition...
 Copying ../../tests/userprog/sample.txt to scratch partition...
-Writing command line to /tmp/QgErRpWdes.dsk...
-qemu -hda /tmp/QgErRpWdes.dsk -hdb /tmp/Hyt1gHaTW8.dsk -hdc /tmp/telnRcBYNT.dsk -m 4 -net none -nographic -monitor null
+Writing command line to /tmp/HlL4vQXaJR.dsk...
+qemu -hda /tmp/HlL4vQXaJR.dsk -hdb /tmp/rO4ctz49Zu.dsk -hdc /tmp/3OtNtLnRR7.dsk -m 4 -net none -nographic -monitor null
 Kernel command line: -q -f extract run read-bad-ptr
 Pintos booting with 4,096 kB RAM...
 373 pages available in kernel pool.
@@ -21,8 +21,8 @@ Executing 'read-bad-ptr':
 (read-bad-ptr) open "sample.txt"
 read-bad-ptr: exit(-1)
 Execution of 'read-bad-ptr' complete.
-Timer: 85 ticks
-Thread: 30 idle ticks, 54 kernel ticks, 1 user ticks
+Timer: 83 ticks
+Thread: 30 idle ticks, 51 kernel ticks, 2 user ticks
 hd0:0: 0 reads, 0 writes
 hd0:1: 93 reads, 204 writes
 hd1:0: 98 reads, 2 writes

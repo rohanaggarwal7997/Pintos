@@ -1,6 +1,6 @@
 Copying tests/userprog/write-stdin to scratch partition...
-Writing command line to /tmp/mKqwCKrpOZ.dsk...
-qemu -hda /tmp/mKqwCKrpOZ.dsk -hdb /tmp/mGnPphYt0R.dsk -hdc /tmp/MnIDd9TBfT.dsk -m 4 -net none -nographic -monitor null
+Writing command line to /tmp/90rIubJOOM.dsk...
+qemu -hda /tmp/90rIubJOOM.dsk -hdb /tmp/LxNckY6Mqj.dsk -hdc /tmp/JdVEicmGs2.dsk -m 4 -net none -nographic -monitor null
 Kernel command line: -q -f extract run write-stdin
 Pintos booting with 4,096 kB RAM...
 373 pages available in kernel pool.
@@ -19,8 +19,8 @@ Executing 'write-stdin':
 (write-stdin) end
 write-stdin: exit(0)
 Execution of 'write-stdin' complete.
-Timer: 81 ticks
-Thread: 30 idle ticks, 52 kernel ticks, 0 user ticks
+Timer: 82 ticks
+Thread: 30 idle ticks, 51 kernel ticks, 1 user ticks
 hd0:0: 0 reads, 0 writes
 hd0:1: 62 reads, 198 writes
 hd1:0: 96 reads, 2 writes

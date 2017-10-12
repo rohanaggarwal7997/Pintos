@@ -1,6 +1,6 @@
 Copying tests/userprog/exec-bad-ptr to scratch partition...
-Writing command line to /tmp/pz8qkgvHir.dsk...
-qemu -hda /tmp/pz8qkgvHir.dsk -hdb /tmp/xUeWnMnOnQ.dsk -hdc /tmp/C988fJQYEi.dsk -m 4 -net none -nographic -monitor null
+Writing command line to /tmp/4xRI3vknSM.dsk...
+qemu -hda /tmp/4xRI3vknSM.dsk -hdb /tmp/MjNQtPr2GX.dsk -hdc /tmp/lYhJobiQfl.dsk -m 4 -net none -nographic -monitor null
 Kernel command line: -q -f extract run exec-bad-ptr
 Pintos booting with 4,096 kB RAM...
 373 pages available in kernel pool.
@@ -18,8 +18,8 @@ Executing 'exec-bad-ptr':
 (exec-bad-ptr) begin
 exec-bad-ptr: exit(-1)
 Execution of 'exec-bad-ptr' complete.
-Timer: 88 ticks
-Thread: 30 idle ticks, 58 kernel ticks, 0 user ticks
+Timer: 84 ticks
+Thread: 30 idle ticks, 53 kernel ticks, 1 user ticks
 hd0:0: 0 reads, 0 writes
 hd0:1: 62 reads, 198 writes
 hd1:0: 96 reads, 2 writes

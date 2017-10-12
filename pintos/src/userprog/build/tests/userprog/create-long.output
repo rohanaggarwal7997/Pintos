@@ -1,6 +1,6 @@
 Copying tests/userprog/create-long to scratch partition...
-Writing command line to /tmp/3edPMQHXTK.dsk...
-qemu -hda /tmp/3edPMQHXTK.dsk -hdb /tmp/ih66HyX8Dy.dsk -hdc /tmp/rilx4b65rJ.dsk -m 4 -net none -nographic -monitor null
+Writing command line to /tmp/s1sUO5AQ78.dsk...
+qemu -hda /tmp/s1sUO5AQ78.dsk -hdb /tmp/ETEGHi6OKx.dsk -hdc /tmp/o4hP4HcNO3.dsk -m 4 -net none -nographic -monitor null
 Kernel command line: -q -f extract run create-long
 Pintos booting with 4,096 kB RAM...
 373 pages available in kernel pool.
@@ -20,8 +20,8 @@ Executing 'create-long':
 (create-long) end
 create-long: exit(0)
 Execution of 'create-long' complete.
-Timer: 86 ticks
-Thread: 30 idle ticks, 54 kernel ticks, 2 user ticks
+Timer: 82 ticks
+Thread: 30 idle ticks, 51 kernel ticks, 1 user ticks
 hd0:0: 0 reads, 0 writes
 hd0:1: 66 reads, 202 writes
 hd1:0: 96 reads, 2 writes

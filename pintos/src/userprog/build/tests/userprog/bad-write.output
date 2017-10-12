@@ -1,6 +1,6 @@
 Copying tests/userprog/bad-write to scratch partition...
-Writing command line to /tmp/1FTMZbLNCb.dsk...
-qemu -hda /tmp/1FTMZbLNCb.dsk -hdb /tmp/ZgZDCuI5Ml.dsk -hdc /tmp/CyNmqo25iY.dsk -m 4 -net none -nographic -monitor null
+Writing command line to /tmp/cV9z3QVkG1.dsk...
+qemu -hda /tmp/cV9z3QVkG1.dsk -hdb /tmp/7Ty97Ies6b.dsk -hdc /tmp/8Ns9NWUFKd.dsk -m 4 -net none -nographic -monitor null
 Kernel command line: -q -f extract run bad-write
 Pintos booting with 4,096 kB RAM...
 373 pages available in kernel pool.
@@ -18,8 +18,8 @@ Executing 'bad-write':
 (bad-write) begin
 bad-write: exit(-1)
 Execution of 'bad-write' complete.
-Timer: 81 ticks
-Thread: 30 idle ticks, 51 kernel ticks, 0 user ticks
+Timer: 82 ticks
+Thread: 30 idle ticks, 52 kernel ticks, 0 user ticks
 hd0:0: 0 reads, 0 writes
 hd0:1: 62 reads, 198 writes
 hd1:0: 96 reads, 2 writes

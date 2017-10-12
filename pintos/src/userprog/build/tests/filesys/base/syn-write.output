@@ -1,7 +1,7 @@
 Copying tests/filesys/base/syn-write to scratch partition...
 Copying tests/filesys/base/child-syn-wrt to scratch partition...
-Writing command line to /tmp/k9jdz85xIa.dsk...
-qemu -hda /tmp/k9jdz85xIa.dsk -hdb /tmp/hpYw6fvRwr.dsk -hdc /tmp/N3GzYL5BQ6.dsk -m 4 -net none -nographic -monitor null
+Writing command line to /tmp/8VUycfBFVU.dsk...
+qemu -hda /tmp/8VUycfBFVU.dsk -hdb /tmp/pT7JC9O8jM.dsk -hdc /tmp/pveEWde60D.dsk -m 4 -net none -nographic -monitor null
 Kernel command line: -q -f extract run syn-write
 Pintos booting with 4,096 kB RAM...
 373 pages available in kernel pool.
@@ -20,14 +20,38 @@ Executing 'syn-write':
 (syn-write) begin
 (syn-write) create "stuff"
 (syn-write) exec child 1 of 10: "child-syn-wrt 0"
-syn-write: exit(-1)
+(syn-write) exec child 2 of 10: "child-syn-wrt 1"
+(syn-write) exec child 3 of 10: "child-syn-wrt 2"
+(syn-write) exec child 4 of 10: "child-syn-wrt 3"
+(syn-write) exec child 5 of 10: "child-syn-wrt 4"
+(syn-write) exec child 6 of 10: "child-syn-wrt 5"
+(syn-write) exec child 7 of 10: "child-syn-wrt 6"
+(syn-write) exec child 8 of 10: "child-syn-wrt 7"
+(syn-write) exec child 9 of 10: "child-syn-wrt 8"
+(syn-write) exec child 10 of 10: "child-syn-wrt 9"
+child-syn-wrt: exit(0)
+(syn-write) wait for child 1 of 10 returned 0 (expected 0)
+child-syn-wrt: exit(1)
+(syn-write) wait for child 2 of 10 returned 1 (expected 1)
+(syn-write) wait for child 3 of 10 returned 2 (expected 2)
+(syn-write) wait for child 4 of 10 returned 3 (expected 3)
+(syn-write) wait for child 5 of 10 returned 4 (expected 4)
+(syn-write) wait for child 6 of 10 returned 5 (expected 5)
+(syn-write) wait for child 7 of 10 returned 6 (expected 6)
+(syn-write) wait for child 8 of 10 returned 7 (expected 7)
+(syn-write) wait for child 9 of 10 returned 8 (expected 8)
+(syn-write) wait for child 10 of 10 returned 9 (expected 9)
+(syn-write) open "stuff"
+(syn-write) read "stuff"
+(syn-write) end
+syn-write: exit(0)
 Execution of 'syn-write' complete.
-Timer: 117 ticks
-Thread: 30 idle ticks, 84 kernel ticks, 3 user ticks
+Timer: 120 ticks
+Thread: 30 idle ticks, 78 kernel ticks, 12 user ticks
 hd0:0: 0 reads, 0 writes
-hd0:1: 114 reads, 444 writes
+hd0:1: 532 reads, 454 writes
 hd1:0: 211 reads, 2 writes
-Console: 993 characters output
+Console: 2147 characters output
 Keyboard: 0 keys pressed
-Exception: 1 page faults
+Exception: 0 page faults
 Powering off...

@@ -1,6 +1,6 @@
 Copying tests/userprog/create-empty to scratch partition...
-Writing command line to /tmp/VnZUbcPbS6.dsk...
-qemu -hda /tmp/VnZUbcPbS6.dsk -hdb /tmp/BLYlQDIIw6.dsk -hdc /tmp/HdxjZP8VPP.dsk -m 4 -net none -nographic -monitor null
+Writing command line to /tmp/IwlYFKbs8p.dsk...
+qemu -hda /tmp/IwlYFKbs8p.dsk -hdb /tmp/RBGrDLCBY4.dsk -hdc /tmp/TIQYuNvwuE.dsk -m 4 -net none -nographic -monitor null
 Kernel command line: -q -f extract run create-empty
 Pintos booting with 4,096 kB RAM...
 373 pages available in kernel pool.
@@ -20,8 +20,8 @@ Executing 'create-empty':
 (create-empty) end
 create-empty: exit(0)
 Execution of 'create-empty' complete.
-Timer: 85 ticks
-Thread: 30 idle ticks, 53 kernel ticks, 2 user ticks
+Timer: 84 ticks
+Thread: 30 idle ticks, 52 kernel ticks, 2 user ticks
 hd0:0: 0 reads, 0 writes
 hd0:1: 66 reads, 202 writes
 hd1:0: 96 reads, 2 writes

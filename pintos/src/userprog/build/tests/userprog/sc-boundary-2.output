@@ -1,6 +1,6 @@
 Copying tests/userprog/sc-boundary-2 to scratch partition...
-Writing command line to /tmp/xCr8OOp4ok.dsk...
-qemu -hda /tmp/xCr8OOp4ok.dsk -hdb /tmp/g0o3Ea0Qs4.dsk -hdc /tmp/7jgVvATlRd.dsk -m 4 -net none -nographic -monitor null
+Writing command line to /tmp/6jgaBPkaI5.dsk...
+qemu -hda /tmp/6jgaBPkaI5.dsk -hdb /tmp/zBDDGUEvjc.dsk -hdc /tmp/qtJZhdkTnE.dsk -m 4 -net none -nographic -monitor null
 Kernel command line: -q -f extract run sc-boundary-2
 Pintos booting with 4,096 kB RAM...
 373 pages available in kernel pool.
@@ -18,8 +18,8 @@ Executing 'sc-boundary-2':
 (sc-boundary-2) begin
 sc-boundary-2: exit(67)
 Execution of 'sc-boundary-2' complete.
-Timer: 80 ticks
-Thread: 30 idle ticks, 50 kernel ticks, 1 user ticks
+Timer: 83 ticks
+Thread: 30 idle ticks, 52 kernel ticks, 1 user ticks
 hd0:0: 0 reads, 0 writes
 hd0:1: 62 reads, 202 writes
 hd1:0: 98 reads, 2 writes

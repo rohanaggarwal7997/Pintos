@@ -1,6 +1,6 @@
 Copying tests/userprog/close-stdout to scratch partition...
-Writing command line to /tmp/mo1a7OXptB.dsk...
-qemu -hda /tmp/mo1a7OXptB.dsk -hdb /tmp/5izbPFuitY.dsk -hdc /tmp/ycGbXbwvG2.dsk -m 4 -net none -nographic -monitor null
+Writing command line to /tmp/INQbMuDxsp.dsk...
+qemu -hda /tmp/INQbMuDxsp.dsk -hdb /tmp/D9uYxqwfk3.dsk -hdc /tmp/Ae5wovxocm.dsk -m 4 -net none -nographic -monitor null
 Kernel command line: -q -f extract run close-stdout
 Pintos booting with 4,096 kB RAM...
 373 pages available in kernel pool.
@@ -19,8 +19,8 @@ Executing 'close-stdout':
 (close-stdout) end
 close-stdout: exit(0)
 Execution of 'close-stdout' complete.
-Timer: 79 ticks
-Thread: 30 idle ticks, 49 kernel ticks, 0 user ticks
+Timer: 81 ticks
+Thread: 30 idle ticks, 50 kernel ticks, 1 user ticks
 hd0:0: 0 reads, 0 writes
 hd0:1: 62 reads, 198 writes
 hd1:0: 96 reads, 2 writes

@@ -1,7 +1,7 @@
 Copying tests/userprog/exec-multiple to scratch partition...
 Copying tests/userprog/child-simple to scratch partition...
-Writing command line to /tmp/eTqZUBujZM.dsk...
-qemu -hda /tmp/eTqZUBujZM.dsk -hdb /tmp/xFwbqDVikf.dsk -hdc /tmp/k9S38EROUF.dsk -m 4 -net none -nographic -monitor null
+Writing command line to /tmp/zn4BiBbR1v.dsk...
+qemu -hda /tmp/zn4BiBbR1v.dsk -hdb /tmp/MrQVADt5Yg.dsk -hdc /tmp/oA5zhmbiRX.dsk -m 4 -net none -nographic -monitor null
 Kernel command line: -q -f extract run exec-multiple
 Pintos booting with 4,096 kB RAM...
 373 pages available in kernel pool.
@@ -18,14 +18,23 @@ Putting 'child-simple' into the file system...
 Erasing ustar archive...
 Executing 'exec-multiple':
 (exec-multiple) begin
-exec-multiple: exit(-1)
+(child-simple) run
+child-simple: exit(81)
+(child-simple) run
+child-simple: exit(81)
+(child-simple) run
+child-simple: exit(81)
+(child-simple) run
+child-simple: exit(81)
+(exec-multiple) end
+exec-multiple: exit(0)
 Execution of 'exec-multiple' complete.
-Timer: 102 ticks
-Thread: 30 idle ticks, 71 kernel ticks, 1 user ticks
+Timer: 113 ticks
+Thread: 30 idle ticks, 79 kernel ticks, 4 user ticks
 hd0:0: 0 reads, 0 writes
-hd0:1: 89 reads, 388 writes
+hd0:1: 249 reads, 388 writes
 hd1:0: 190 reads, 2 writes
-Console: 937 characters output
+Console: 1125 characters output
 Keyboard: 0 keys pressed
-Exception: 1 page faults
+Exception: 0 page faults
 Powering off...

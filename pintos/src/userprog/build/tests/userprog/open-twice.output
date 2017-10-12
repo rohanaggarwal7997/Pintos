@@ -1,7 +1,7 @@
 Copying tests/userprog/open-twice to scratch partition...
 Copying ../../tests/userprog/sample.txt to scratch partition...
-Writing command line to /tmp/ND9elYgBI2.dsk...
-qemu -hda /tmp/ND9elYgBI2.dsk -hdb /tmp/BQW4gEM49Y.dsk -hdc /tmp/cfsvXueoVa.dsk -m 4 -net none -nographic -monitor null
+Writing command line to /tmp/ODrrZoDEJs.dsk...
+qemu -hda /tmp/ODrrZoDEJs.dsk -hdb /tmp/oiGCnA6w5z.dsk -hdc /tmp/pWujckBGqH.dsk -m 4 -net none -nographic -monitor null
 Kernel command line: -q -f extract run open-twice
 Pintos booting with 4,096 kB RAM...
 373 pages available in kernel pool.
@@ -23,8 +23,8 @@ Executing 'open-twice':
 (open-twice) end
 open-twice: exit(0)
 Execution of 'open-twice' complete.
-Timer: 81 ticks
-Thread: 30 idle ticks, 50 kernel ticks, 1 user ticks
+Timer: 80 ticks
+Thread: 30 idle ticks, 50 kernel ticks, 0 user ticks
 hd0:0: 0 reads, 0 writes
 hd0:1: 103 reads, 206 writes
 hd1:0: 99 reads, 2 writes

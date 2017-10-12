@@ -1,6 +1,6 @@
 Copying tests/userprog/args-many to scratch partition...
-Writing command line to /tmp/AwndOO4YDl.dsk...
-qemu -hda /tmp/AwndOO4YDl.dsk -hdb /tmp/iOreBp3O6A.dsk -hdc /tmp/LQaBL5NcIc.dsk -m 4 -net none -nographic -monitor null
+Writing command line to /tmp/NaiX2HjS3h.dsk...
+qemu -hda /tmp/NaiX2HjS3h.dsk -hdb /tmp/KxkGDTJE0a.dsk -hdc /tmp/cHo71hFZAb.dsk -m 4 -net none -nographic -monitor null
 Kernel command line: -q -f extract run 'args-many a b c d e f g h i j k l m n o p q r s t u v'
 Pintos booting with 4,096 kB RAM...
 373 pages available in kernel pool.
@@ -44,8 +44,8 @@ Executing 'args-many a b c d e f g h i j k l m n o p q r s t u v':
 (args) end
 args-many: exit(0)
 Execution of 'args-many a b c d e f g h i j k l m n o p q r s t u v' complete.
-Timer: 84 ticks
-Thread: 30 idle ticks, 51 kernel ticks, 3 user ticks
+Timer: 86 ticks
+Thread: 30 idle ticks, 53 kernel ticks, 3 user ticks
 hd0:0: 0 reads, 0 writes
 hd0:1: 62 reads, 196 writes
 hd1:0: 95 reads, 2 writes

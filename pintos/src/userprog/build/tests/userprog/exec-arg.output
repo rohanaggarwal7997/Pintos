@@ -1,7 +1,7 @@
 Copying tests/userprog/exec-arg to scratch partition...
 Copying tests/userprog/child-args to scratch partition...
-Writing command line to /tmp/UpP3kERRpc.dsk...
-qemu -hda /tmp/UpP3kERRpc.dsk -hdb /tmp/U5DZA4XSWh.dsk -hdc /tmp/wSDBPtOnbm.dsk -m 4 -net none -nographic -monitor null
+Writing command line to /tmp/v4QLfT3DlV.dsk...
+qemu -hda /tmp/v4QLfT3DlV.dsk -hdb /tmp/7qunoe16Jh.dsk -hdc /tmp/T4nFSOLCzK.dsk -m 4 -net none -nographic -monitor null
 Kernel command line: -q -f extract run exec-arg
 Pintos booting with 4,096 kB RAM...
 373 pages available in kernel pool.
@@ -18,14 +18,22 @@ Putting 'child-args' into the file system...
 Erasing ustar archive...
 Executing 'exec-arg':
 (exec-arg) begin
-exec-arg: exit(-1)
+(args) begin
+(args) argc = 2
+(args) argv[0] = 'child-args'
+(args) argv[1] = 'childarg'
+(args) argv[2] = null
+(args) end
+child-args: exit(0)
+(exec-arg) end
+exec-arg: exit(0)
 Execution of 'exec-arg' complete.
-Timer: 107 ticks
-Thread: 30 idle ticks, 77 kernel ticks, 0 user ticks
+Timer: 110 ticks
+Thread: 30 idle ticks, 77 kernel ticks, 3 user ticks
 hd0:0: 0 reads, 0 writes
-hd0:1: 89 reads, 388 writes
+hd0:1: 123 reads, 388 writes
 hd1:0: 190 reads, 2 writes
-Console: 905 characters output
+Console: 1060 characters output
 Keyboard: 0 keys pressed
-Exception: 1 page faults
+Exception: 0 page faults
 Powering off...

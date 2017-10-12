@@ -1,7 +1,7 @@
 Copying tests/userprog/read-boundary to scratch partition...
 Copying ../../tests/userprog/sample.txt to scratch partition...
-Writing command line to /tmp/1ew5BXOU1k.dsk...
-qemu -hda /tmp/1ew5BXOU1k.dsk -hdb /tmp/CRPHJVHhj9.dsk -hdc /tmp/rzgskVp8hS.dsk -m 4 -net none -nographic -monitor null
+Writing command line to /tmp/v4NHb7CIMG.dsk...
+qemu -hda /tmp/v4NHb7CIMG.dsk -hdb /tmp/G3UAdO76Si.dsk -hdc /tmp/zRjHzZe5yw.dsk -m 4 -net none -nographic -monitor null
 Kernel command line: -q -f extract run read-boundary
 Pintos booting with 4,096 kB RAM...
 373 pages available in kernel pool.
@@ -22,8 +22,8 @@ Executing 'read-boundary':
 (read-boundary) end
 read-boundary: exit(0)
 Execution of 'read-boundary' complete.
-Timer: 82 ticks
-Thread: 30 idle ticks, 52 kernel ticks, 1 user ticks
+Timer: 83 ticks
+Thread: 30 idle ticks, 51 kernel ticks, 2 user ticks
 hd0:0: 0 reads, 0 writes
 hd0:1: 102 reads, 212 writes
 hd1:0: 102 reads, 2 writes

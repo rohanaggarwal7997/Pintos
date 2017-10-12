@@ -1,6 +1,6 @@
 Copying tests/userprog/create-bound to scratch partition...
-Writing command line to /tmp/Z6TSrXEIND.dsk...
-qemu -hda /tmp/Z6TSrXEIND.dsk -hdb /tmp/ReMs39XOt6.dsk -hdc /tmp/gExgaM9GSb.dsk -m 4 -net none -nographic -monitor null
+Writing command line to /tmp/5vCbXJ90iE.dsk...
+qemu -hda /tmp/5vCbXJ90iE.dsk -hdb /tmp/ptPkK3coig.dsk -hdc /tmp/un00sSxHTW.dsk -m 4 -net none -nographic -monitor null
 Kernel command line: -q -f extract run create-bound
 Pintos booting with 4,096 kB RAM...
 373 pages available in kernel pool.
@@ -20,8 +20,8 @@ Executing 'create-bound':
 (create-bound) end
 create-bound: exit(0)
 Execution of 'create-bound' complete.
-Timer: 81 ticks
-Thread: 30 idle ticks, 50 kernel ticks, 2 user ticks
+Timer: 80 ticks
+Thread: 30 idle ticks, 48 kernel ticks, 2 user ticks
 hd0:0: 0 reads, 0 writes
 hd0:1: 85 reads, 206 writes
 hd1:0: 98 reads, 2 writes

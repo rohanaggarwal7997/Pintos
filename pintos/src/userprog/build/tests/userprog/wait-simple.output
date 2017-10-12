@@ -1,7 +1,7 @@
 Copying tests/userprog/wait-simple to scratch partition...
 Copying tests/userprog/child-simple to scratch partition...
-Writing command line to /tmp/801Nztn63a.dsk...
-qemu -hda /tmp/801Nztn63a.dsk -hdb /tmp/SqYhR9O0rZ.dsk -hdc /tmp/wlKRY5PCIs.dsk -m 4 -net none -nographic -monitor null
+Writing command line to /tmp/3xnqWvylW4.dsk...
+qemu -hda /tmp/3xnqWvylW4.dsk -hdb /tmp/FSgOC0Uwg7.dsk -hdc /tmp/IpBcmAuy0J.dsk -m 4 -net none -nographic -monitor null
 Kernel command line: -q -f extract run wait-simple
 Pintos booting with 4,096 kB RAM...
 373 pages available in kernel pool.
@@ -18,14 +18,18 @@ Putting 'child-simple' into the file system...
 Erasing ustar archive...
 Executing 'wait-simple':
 (wait-simple) begin
-wait-simple: exit(-1)
+(child-simple) run
+child-simple: exit(81)
+(wait-simple) wait(exec()) = 81
+(wait-simple) end
+wait-simple: exit(0)
 Execution of 'wait-simple' complete.
-Timer: 104 ticks
-Thread: 30 idle ticks, 74 kernel ticks, 0 user ticks
+Timer: 100 ticks
+Thread: 30 idle ticks, 68 kernel ticks, 2 user ticks
 hd0:0: 0 reads, 0 writes
-hd0:1: 89 reads, 388 writes
+hd0:1: 129 reads, 388 writes
 hd1:0: 190 reads, 2 writes
-Console: 925 characters output
+Console: 1017 characters output
 Keyboard: 0 keys pressed
-Exception: 1 page faults
+Exception: 0 page faults
 Powering off...
